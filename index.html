@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard Cash-Back Bonus | MYBC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-Light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-ExtraBold.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Gilroy';
+            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-Black.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <button class="menu-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="6" width="18" height="2" rx="1" fill="white"/>
+                <rect x="3" y="11" width="18" height="2" rx="1" fill="white"/>
+                <rect x="3" y="16" width="18" height="2" rx="1" fill="white"/>
+            </svg>
+        </button>
+        <div class="logo">
+            <span class="logo-my">MY</span><span class="logo-bc">BC</span>
+        </div>
+        <div class="header-right">
+            <button class="btn-signin">Sign In</button>
+            <button class="btn-signup">Sign Up</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-titles">
+                    <h1 class="hero-title">LEADERBOARD</h1>
+                    <h2 class="hero-subtitle">CASH-BACK BONUS</h2>
+                </div>
+                <p class="hero-description">
+                    Your strongest start ever! We're thrilled to announce a fantastic bonus of up to 200% every day. This is your chance to enhance
+                </p>
+            </div>
+
+            <div class="hero-cta">
+                <div class="spots-info">
+                    <span class="spots-text">Limited to 1,000 Players</span>
+                    <span class="spots-divider">•</span>
+                    <span class="spots-left">743 Spots Left</span>
+                </div>
+                <button class="btn-join">Join Competition Now</button>
+            </div>
+        </section>
+
+        <!-- Live Leaderboard Section -->
+        <section class="leaderboard-section">
+            <h2 class="section-title">Live Leaderboard</h2>
+
+            <div class="leaderboard-card">
+                <!-- Week Navigation -->
+                <div class="week-nav">
+                    <button class="nav-arrow prev" id="prevWeek">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="week-info">
+                        <span class="week-label" id="weekLabel">Week 1</span>
+                        <span class="week-dates" id="weekDates">Jan 26 - Feb 1</span>
+                    </div>
+                    <button class="nav-arrow next" id="nextWeek">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Table Header -->
+                <div class="table-header">
+                    <span class="th-player">Player</span>
+                    <span class="th-wagered">Wagered</span>
+                    <span class="th-profit">Profit</span>
+                </div>
+
+                <!-- Scrollable Leaderboard Container -->
+                <div class="leaderboard-swiper" id="leaderboardSwiper">
+                    <div class="leaderboard-slides" id="leaderboardSlides">
+                        <!-- Week 1 -->
+                        <div class="leaderboard-slide active" data-week="1">
+                            <div class="leaderboard-scroll-container" id="scrollContainer1">
+                                <div class="leaderboard-body" id="leaderboardBody1">
+                                    <!-- Rows will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Week 2 -->
+                        <div class="leaderboard-slide" data-week="2">
+                            <div class="leaderboard-scroll-container" id="scrollContainer2">
+                                <div class="leaderboard-body" id="leaderboardBody2">
+                                    <!-- Rows will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Week 3 -->
+                        <div class="leaderboard-slide" data-week="3">
+                            <div class="leaderboard-scroll-container" id="scrollContainer3">
+                                <div class="leaderboard-body" id="leaderboardBody3">
+                                    <!-- Rows will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Week 4 -->
+                        <div class="leaderboard-slide" data-week="4">
+                            <div class="leaderboard-scroll-container" id="scrollContainer4">
+                                <div class="leaderboard-body" id="leaderboardBody4">
+                                    <!-- Rows will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Section -->
+                <div class="progress-section">
+                    <div class="progress-info">
+                        <span class="progress-label">Until Next Prize Tier:</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 65%"></div>
+                        </div>
+                        <span class="progress-text" id="progressText">$7,550 More To Rank #100</span>
+                    </div>
+                    <button class="btn-play">Play Now to Climb</button>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Week data with leaderboard info
+            const weeksData = [
+                {
+                    label: 'Week 1',
+                    dates: 'Jan 26 - Feb 1',
+                    progress: 65,
+                    progressText: '$7,550 More To Rank #100',
+                    yourRank: 88,
+                    yourWagered: '$4,800',
+                    yourProfit: '$10'
+                },
+                {
+                    label: 'Week 2',
+                    dates: 'Feb 2 - Feb 8',
+                    progress: 78,
+                    progressText: '$5,200 More To Rank #50',
+                    yourRank: 56,
+                    yourWagered: '$12,350',
+                    yourProfit: '$25'
+                },
+                {
+                    label: 'Week 3',
+                    dates: 'Feb 9 - Feb 15',
+                    progress: 85,
+                    progressText: '$3,100 More To Rank #30',
+                    yourRank: 34,
+                    yourWagered: '$28,650',
+                    yourProfit: '$50'
+                },
+                {
+                    label: 'Week 4',
+                    dates: 'Feb 16 - Feb 22',
+                    progress: 92,
+                    progressText: '$1,500 More To Rank #10',
+                    yourRank: 12,
+                    yourWagered: '$87,500',
+                    yourProfit: '$100'
+                }
+            ];
+
+            // Random player names for generating leaderboard
+            const playerNames = ['Hig', 'Mig', 'Few', 'Dal', 'Var', 'Sxa', 'Kol', 'Bex', 'Tur', 'Nex', 'Cry', 'Bet', 'Win', 'Luc', 'Pro', 'Max', 'Ace', 'Kin', 'Rol', 'Spi', 'Meg', 'Gol', 'Dia', 'Pla', 'Eli', 'Vip', 'Cha', 'Hot', 'Fir', 'Sta', 'Ult', 'Leg', 'Epi', 'Myt', 'Rar', 'Sup', 'Hyp', 'Ome', 'Alp', 'Zen', 'Neo', 'Bit', 'Lux', 'Jet', 'Sky', 'Fox', 'Zap', 'Rex', 'Blz', 'Vex'];
+
+            function generateLeaderboardData(weekIndex) {
+                const baseWagered = 1000000 - (weekIndex * 100000);
+                const data = [];
+
+                for (let i = 1; i <= 100; i++) {
+                    const wagered = Math.floor(baseWagered / i + Math.random() * 50000);
+                    let profit = '$100';
+                    let profitClass = '';
+
+                    if (i === 1) { profit = '$30,000'; profitClass = 'gold'; }
+                    else if (i === 2) { profit = '$10,000'; profitClass = 'orange'; }
+                    else if (i === 3) { profit = '$5,000'; profitClass = ''; }
+                    else if (i <= 10) { profit = '$500'; }
+                    else if (i <= 50) { profit = '$100'; }
+                    else { profit = '$50'; }
+
+                    let badgeClass = '';
+                    if (i === 1) badgeClass = 'gold';
+                    else if (i === 2) badgeClass = 'orange';
+                    else if (i === 3) badgeClass = 'white';
+
+                    data.push({
+                        rank: i,
+                        name: playerNames[i % playerNames.length] + '*********',
+                        wagered: '$' + wagered.toLocaleString(),
+                        profit: profit,
+                        profitClass: profitClass,
+                        badgeClass: badgeClass
+                    });
+                }
+                return data;
+            }
+
+            function createRow(item, isOdd, isYou = false) {
+                const row = document.createElement('div');
+                row.className = `lb-row${isOdd ? ' odd' : ''}${isYou ? ' your-row' : ''}`;
+                row.dataset.rank = item.rank;
+
+                if (isYou) {
+                    row.innerHTML = `
+                        <div class="player-info">
+                            <span class="rank-badge highlight">${item.rank}</span>
+                            <span class="player-name">${item.name}</span>
+                            <span class="you-tag">(You)</span>
+                        </div>
+                        <span class="wagered">${item.wagered}</span>
+                        <span class="profit highlight">${item.profit}</span>
+                    `;
+                } else {
+                    row.innerHTML = `
+                        <div class="player-info">
+                            <span class="rank-badge ${item.badgeClass}">${item.rank}</span>
+                            <span class="player-name">${item.name}</span>
+                        </div>
+                        <span class="wagered">${item.wagered}</span>
+                        <span class="profit ${item.profitClass}">${item.profit}</span>
+                    `;
+                }
+                return row;
+            }
+
+            function populateLeaderboard(weekNum) {
+                const body = document.getElementById(`leaderboardBody${weekNum}`);
+                const weekData = weeksData[weekNum - 1];
+                const yourRank = weekData.yourRank;
+                const data = generateLeaderboardData(weekNum - 1);
+
+                body.innerHTML = '';
+
+                // Insert all rows including the "You" row at its proper position
+                data.forEach((item, index) => {
+                    const isYou = item.rank === yourRank;
+                    if (isYou) {
+                        // Override with actual user data
+                        item.wagered = weekData.yourWagered;
+                        item.profit = weekData.yourProfit;
+                        item.name = 'SSA*********';
+                    }
+                    const row = createRow(item, index % 2 === 0, isYou);
+                    body.appendChild(row);
+                });
+            }
+
+            function setupStickyBehavior(weekNum) {
+                const container = document.getElementById(`scrollContainer${weekNum}`);
+                const body = document.getElementById(`leaderboardBody${weekNum}`);
+                const yourRank = weeksData[weekNum - 1].yourRank;
+                const rowHeight = 40;
+
+                container.addEventListener('scroll', () => {
+                    const yourRow = body.querySelector('.your-row');
+                    if (!yourRow) return;
+
+                    const scrollTop = container.scrollTop;
+                    const containerHeight = container.clientHeight;
+
+                    // Position where the row would naturally be
+                    const naturalTop = (yourRank - 1) * rowHeight;
+                    // Current visible range
+                    const visibleTop = scrollTop;
+                    const visibleBottom = scrollTop + containerHeight;
+
+                    // Remove all position classes first
+                    yourRow.classList.remove('sticky-top', 'sticky-bottom');
+
+                    if (naturalTop < visibleTop) {
+                        // Your row is above the visible area - stick to top
+                        yourRow.classList.add('sticky-top');
+                    } else if (naturalTop + rowHeight > visibleBottom) {
+                        // Your row is below the visible area - stick to bottom
+                        yourRow.classList.add('sticky-bottom');
+                    }
+                    // Otherwise, row flows naturally in its position
+                });
+
+                // Trigger initial check
+                container.dispatchEvent(new Event('scroll'));
+            }
+
+            // Initialize all weeks
+            for (let i = 1; i <= 4; i++) {
+                populateLeaderboard(i);
+                setupStickyBehavior(i);
+            }
+
+            let currentWeek = 0;
+            const totalWeeks = 4;
+
+            const weekLabel = document.getElementById('weekLabel');
+            const weekDates = document.getElementById('weekDates');
+            const prevBtn = document.getElementById('prevWeek');
+            const nextBtn = document.getElementById('nextWeek');
+            const slides = document.getElementById('leaderboardSlides');
+            const swiper = document.getElementById('leaderboardSwiper');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+
+            function updateWeek() {
+                weekLabel.textContent = weeksData[currentWeek].label;
+                weekDates.textContent = weeksData[currentWeek].dates;
+                slides.style.transform = `translateX(-${currentWeek * 100}%)`;
+                progressFill.style.width = weeksData[currentWeek].progress + '%';
+                progressText.textContent = weeksData[currentWeek].progressText;
+
+                // Update active slide
+                document.querySelectorAll('.leaderboard-slide').forEach((slide, index) => {
+                    slide.classList.toggle('active', index === currentWeek);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentWeek > 0) {
+                    currentWeek--;
+                    updateWeek();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentWeek < totalWeeks - 1) {
+                    currentWeek++;
+                    updateWeek();
+                }
+            });
+
+            // Touch swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            swiper.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            swiper.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (diff > swipeThreshold && currentWeek < totalWeeks - 1) {
+                    currentWeek++;
+                    updateWeek();
+                } else if (diff < -swipeThreshold && currentWeek > 0) {
+                    currentWeek--;
+                    updateWeek();
+                }
+            }
+        </script>
+
+        <!-- How It Works Section -->
+        <section class="how-section">
+            <div class="how-card">
+                <h2 class="how-title">How it works</h2>
+                <p class="how-subtitle">Follow Steps to win</p>
+
+                <div class="steps-list">
+                    <div class="step-item">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h3>Make your first eligible deposit → your 5-day journey begins</h3>
+                            <ul class="step-details">
+                                <li>Day 1: 100% in Freespins</li>
+                                <li>Day 2: 125% in Freespins</li>
+                                <li>Day 3: 150% in Freespins</li>
+                                <li>Day 4: 175% in Freespins</li>
+                                <li>Day 5: 200% in Freespins</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h3>Every day you have a 24-hour window to make your deposit, wager 10x and claim that day's freespins</h3>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h3>Deposit can be wagered in all slots, except</h3>
+                            <ul class="step-details">
+                                <li>Prov Name Slot Name</li>
+                                <li>Prov Name Slot Name</li>
+                            </ul>
+                            <p class="step-note">Don't miss a day — once a step expires, it's gone for good but you still can get next day bonus!</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <h3>Freespins are credited instantly after the 10x wager requirement is met.</h3>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">5</span>
+                        <div class="step-content">
+                            <h3>Freespin wins are instantly withdrawable without any requirements.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rules Section -->
+            <div class="rules-card">
+                <h2 class="rules-title">Rules</h2>
+                <p class="rules-subtitle">Follow conditions to win</p>
+
+                <div class="rules-list">
+                    <p>Only for new players.</p>
+                    <p>Valid for 5 consecutive days from first deposit.</p>
+                    <p>Each day's reward applies only to the first eligible deposit of that day.</p>
+                    <p>Freespins expire in 24h.</p>
+                    <p>- 1st day Freespins are awarded on Pragmatic Play slot {NAME}</p>
+                    <p>- 2nd day Freespins are awarded on Pragmatic Play slot {NAME}</p>
+                    <p>- 3rd day Freespins are awarded on Pragmatic Play slot {NAME}</p>
+                    <p>- 4th day Freespins are awarded on Pragmatic Play slot {NAME}</p>
+                    <p>- 5th day Freespins are awarded on Pragmatic Play slot {NAME}</p>
+                    <p>- Bonus expires if wagering isn't completed in time</p>
+                    <p>- Bonus abuse, multi-accounts, or exploiting bugs leads to removal</p>
+                    <p>- Freespins nominal is 0.2$</p>
+                    <p>- Casino may update or cancel the rules and conditions anytime</p>
+                    <p>- Standard bonus T&C apply.</p>
+                </div>
+
+                <div class="important-notice">
+                    <svg class="warning-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#fbce04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p><strong>Important:</strong> This promotion is available to MYBC players only and One participation per player/IP address</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="https://www.figma.com/api/mcp/asset/a734e40f-e228-408f-8f50-02518fd34ec7" alt="MYBC" class="footer-logo-img">
+                </div>
+                <p class="footer-desc">MYBC is built for the global crypto community—offering fair games, 24/7 rewards, and a smooth, user-friendly gaming experience.</p>
+            </div>
+
+            <!-- Community Section -->
+            <div class="footer-section">
+                <h4>Join Our Community</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Language Section -->
+            <div class="footer-section">
+                <h4>Language</h4>
+                <div class="language-select">
+                    <img src="https://flagcdn.com/w40/us.png" alt="English" class="flag-icon">
+                    <span>English</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 9L12 15L18 9" stroke="#f9f9f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Navigation Section -->
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <div class="nav-items">
+                    <div class="nav-item">
+                        <span>Casino</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="#f9f9f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="nav-item">
+                        <span>Live Casino</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="#f9f9f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="nav-item">
+                        <span>Promotions</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="#f9f9f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="nav-item">
+                        <span>Information</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="#f9f9f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="nav-item">
+                        <span>Support</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="#f9f9f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Providers Section -->
+            <div class="footer-section providers-section">
+                <div class="section-header">
+                    <h4>Supported providers</h4>
+                    <a href="#" class="more-link">More</a>
+                </div>
+                <div class="providers-scroll">
+                    <div class="provider-logo">SuperSpade</div>
+                    <div class="provider-logo">Elysium</div>
+                    <div class="provider-logo">DLV</div>
+                    <div class="provider-logo">NetGame</div>
+                    <div class="provider-logo">Platipus</div>
+                </div>
+            </div>
+
+            <!-- Coins Section -->
+            <div class="footer-section coins-section">
+                <div class="section-header">
+                    <h4>Supported coins</h4>
+                    <a href="#" class="more-link">More</a>
+                </div>
+                <div class="coins-list">
+                    <span class="coin-icon btc"></span>
+                    <span class="coin-icon ltc"></span>
+                    <span class="coin-icon trx"></span>
+                    <span class="coin-icon eth"></span>
+                    <span class="coin-icon usdt"></span>
+                    <span class="coin-icon doge"></span>
+                    <span class="coin-icon bch"></span>
+                    <span class="coin-icon sol"></span>
+                    <span class="coin-icon bnb"></span>
+                    <span class="coin-icon ada"></span>
+                    <span class="coin-icon xrp"></span>
+                    <span class="coin-icon dot"></span>
+                    <span class="coin-icon matic"></span>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v2h-2zm1.61-9.96c-2.06-.3-3.88.97-4.43 2.79-.18.58.26 1.17.87 1.17h.2c.41 0 .74-.29.88-.67.32-.89 1.27-1.5 2.3-1.28.95.2 1.65 1.13 1.57 2.1-.1 1.34-1.62 1.63-2.45 2.88 0 .01-.01.01-.01.02-.01.02-.02.03-.03.05-.09.15-.18.32-.25.5-.01.03-.03.05-.04.08-.01.02-.01.04-.02.07-.12.34-.2.75-.2 1.25h2c0-.42.11-.77.28-1.07.02-.03.03-.06.05-.09.08-.14.18-.27.28-.39.01-.01.02-.03.03-.04.1-.12.21-.23.33-.34.96-.91 2.26-1.65 1.99-3.56-.24-1.74-1.61-3.21-3.35-3.47z"/>
+                </svg>
+                <span>2025 MYBC - All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
