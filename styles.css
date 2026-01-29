@@ -390,7 +390,7 @@ body {
 
 .btn-join.enrolled {
     background: #1A1726;
-    cursor: default;
+    cursor: pointer;
     padding: 12px 20px;
     color: var(--white);
 }

@@ -532,6 +532,9 @@
                 joinBtn.classList.add('enrolled');
                 joinBtnText.style.display = 'none';
                 joinBtnEnrolled.style.display = 'flex';
+            } else {
+                // If already enrolled, redirect to slots page
+                window.open('https://mybc.game/en/slots/all', '_blank');
             }
         });
 
