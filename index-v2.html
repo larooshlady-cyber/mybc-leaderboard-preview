@@ -58,16 +58,13 @@
             --bg-card: #16161f;
             --bg-elevated: #1c1c28;
             --accent-gold: #fbce04;
-            --accent-gold-light: #ffe566;
             --accent-gold-dim: rgba(251, 206, 4, 0.15);
             --accent-green: #22c55e;
-            --accent-purple: #a855f7;
             --text-primary: #ffffff;
             --text-secondary: rgba(255, 255, 255, 0.7);
             --text-muted: rgba(255, 255, 255, 0.4);
             --border-subtle: rgba(255, 255, 255, 0.08);
             --border-light: rgba(255, 255, 255, 0.12);
-            --glow-gold: rgba(251, 206, 4, 0.4);
         }
 
         /* Reset */
@@ -191,7 +188,7 @@
         .btn-signup {
             padding: 10px 20px;
             border-radius: 10px;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+            background: var(--accent-gold);
             border: none;
             color: #0a0a0f;
             font-family: 'Inter', sans-serif;
@@ -199,12 +196,11 @@
             font-size: 13px;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 4px 20px var(--glow-gold);
         }
 
         .btn-signup:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 25px var(--glow-gold);
+            opacity: 0.9;
         }
 
         /* Main Content */
@@ -302,14 +298,10 @@
             font-weight: 900;
             font-size: 38px;
             line-height: 1.1;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-gold);
             margin-bottom: 20px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            filter: drop-shadow(0 0 20px rgba(251, 206, 4, 0.3));
         }
 
         .hero-description {
@@ -331,11 +323,7 @@
             font-weight: 900;
             font-size: 56px;
             line-height: 1;
-            background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 60px var(--glow-gold);
+            color: var(--text-primary);
             margin-bottom: 8px;
         }
 
@@ -386,35 +374,19 @@
             max-width: 300px;
             padding: 16px 32px;
             border-radius: 14px;
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+            background: var(--accent-gold);
             border: none;
             font-family: 'Inter', sans-serif;
             font-weight: 700;
             font-size: 15px;
             color: #0a0a0f;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 8px 30px var(--glow-gold);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-join::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.3s;
+            transition: all 0.2s;
         }
 
         .btn-join:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 40px var(--glow-gold);
-        }
-
-        .btn-join:hover::before {
-            opacity: 1;
+            opacity: 0.9;
         }
 
         .btn-join.enrolled {
@@ -706,8 +678,20 @@
         }
 
         .lb-row.your-row {
-            background: rgba(247, 201, 72, 0.08);
+            background: rgba(251, 206, 4, 0.1);
             border-left: 3px solid var(--accent-gold);
+            position: sticky;
+            z-index: 10;
+        }
+
+        .lb-row.your-row.sticky-top {
+            top: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .lb-row.your-row.sticky-bottom {
+            bottom: 0;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .player-info {
@@ -813,7 +797,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+            background: var(--accent-gold);
             border-radius: 3px;
             transition: width 0.5s ease-out;
         }
@@ -823,12 +807,12 @@
             width: 100%;
             padding: 14px 24px;
             border-radius: 12px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
+            background: var(--accent-gold);
+            border: none;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
             font-size: 14px;
-            color: var(--text-primary);
+            color: #0a0a0f;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
@@ -836,9 +820,8 @@
         }
 
         .btn-play:hover {
-            background: var(--bg-elevated);
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
+            opacity: 0.9;
+            transform: translateY(-1px);
         }
 
         /* Accordion */
@@ -1521,6 +1504,36 @@
         }
 
         populateLeaderboard();
+
+        // Sticky behavior for your row
+        function setupStickyBehavior() {
+            const container = document.getElementById('leaderboardBody');
+            const yourRow = container.querySelector('.your-row');
+            if (!yourRow) return;
+
+            const rowHeight = 48;
+            const yourRank = 88;
+
+            container.addEventListener('scroll', () => {
+                const scrollTop = container.scrollTop;
+                const containerHeight = container.clientHeight;
+                const naturalTop = (yourRank - 1) * rowHeight;
+                const visibleTop = scrollTop;
+                const visibleBottom = scrollTop + containerHeight;
+
+                yourRow.classList.remove('sticky-top', 'sticky-bottom');
+
+                if (naturalTop < visibleTop) {
+                    yourRow.classList.add('sticky-top');
+                } else if (naturalTop + rowHeight > visibleBottom) {
+                    yourRow.classList.add('sticky-bottom');
+                }
+            });
+
+            container.dispatchEvent(new Event('scroll'));
+        }
+
+        setupStickyBehavior();
     </script>
 </body>
 </html>
