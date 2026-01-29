@@ -389,14 +389,14 @@ body {
 }
 
 .btn-join.enrolled {
-    background: rgba(74, 222, 128, 0.2);
+    background: #1A1726;
     cursor: default;
     padding: 12px 20px;
     color: #4ADE80;
 }
 
 .btn-join.enrolled:hover {
-    background: rgba(74, 222, 128, 0.2);
+    background: #1A1726;
     transform: none;
     box-shadow: none;
 }
