@@ -231,9 +231,9 @@ body {
 }
 
 .mobile-nav-item span {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
 }
 
 /* Hero Section */
@@ -280,36 +280,37 @@ body {
 }
 
 .hero-titles {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .hero-title {
     font-family: 'Gilroy', 'Inter', sans-serif;
     font-weight: 800;
-    font-size: 24px;
-    line-height: 1.2;
+    font-size: 22px;
+    line-height: 1.1;
     color: var(--text-primary);
-    margin: 0;
-    letter-spacing: 1px;
+    margin: 0 0 4px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
     font-family: 'Gilroy', 'Inter', sans-serif;
     font-weight: 900;
-    font-size: 26px;
-    line-height: 1.2;
+    font-size: 28px;
+    line-height: 1.1;
     color: var(--primary);
     margin: 0;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .hero-description {
     font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 14px;
-    line-height: 18px;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 301px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 320px;
     margin: 0 auto;
 }
 
@@ -342,25 +343,25 @@ body {
 .spots-info {
     display: flex;
     align-items: center;
-    gap: 4px;
-    font-size: 14px;
+    gap: 6px;
+    font-size: 13px;
     line-height: 1.4;
 }
 
 .spots-text {
-    color: var(--white);
-    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
     font-family: 'Inter', sans-serif;
 }
 
 .spots-divider {
-    color: var(--white);
-    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 10px;
 }
 
 .spots-left {
     color: var(--primary);
-    font-weight: 700;
+    font-weight: 600;
     font-family: 'Inter', sans-serif;
 }
 
@@ -428,16 +429,17 @@ body {
 
 .prizes-header {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
 }
 
 .prizes-title {
     font-family: 'Gilroy', 'Inter', sans-serif;
     font-weight: 800;
-    font-size: 26px;
-    line-height: 1;
+    font-size: 20px;
+    line-height: 1.2;
     color: var(--white);
-    margin: 0 0 4px;
+    margin: 0 0 8px;
+    letter-spacing: 0.5px;
 }
 
 .prizes-title .highlight {
@@ -445,14 +447,14 @@ body {
 }
 
 .prizes-subtitle {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 0;
-    max-width: 296px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
     margin: 0 auto;
+    max-width: 300px;
+    letter-spacing: 0.2px;
 }
 
 /* Podium Container */
@@ -493,8 +495,8 @@ body {
 
 .podium-prize {
     font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 800;
-    margin-bottom: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -502,20 +504,20 @@ body {
 
 /* 2nd place - orange text */
 .podium-prize.gold {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--orange);
 }
 
 /* 1st place - yellow/gold text */
 .podium-prize.orange {
-    font-size: 22px;
+    font-size: 20px;
     color: var(--primary);
 }
 
 /* 3rd place - white */
 .podium-prize.white {
-    font-size: 14px;
-    color: var(--white);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .podium-step {
@@ -556,9 +558,9 @@ body {
 
 .podium-rank {
     font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     position: relative;
     z-index: 1;
@@ -587,12 +589,13 @@ body {
 
 .section-title {
     font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 24px;
-    line-height: 36px;
-    color: var(--white);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
-    margin-bottom: 16px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
 }
 
 .leaderboard-card {
@@ -611,44 +614,49 @@ body {
 
 .week-tab {
     flex: 1;
-    padding: 12px 16px;
+    padding: 10px 14px;
     border-radius: 8px;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: var(--text-secondary);
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.3px;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .week-tab:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .week-tab.active {
     background: rgba(251, 206, 4, 0.1);
     border-color: var(--primary);
     color: var(--white);
+    font-weight: 600;
 }
 
 /* Table Header */
 .table-header {
     display: grid;
     grid-template-columns: 1fr 100px 100px;
-    padding: 12px 16px;
+    padding: 10px 16px;
     background: var(--elevation);
     backdrop-filter: blur(50px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .table-header span {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
     line-height: 18px;
-    color: var(--white);
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
 }
 
 .th-player {
@@ -757,11 +765,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 10.286px;
-    line-height: 15.429px;
-    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.6);
     flex-shrink: 0;
 }
 
@@ -786,24 +794,24 @@ body {
 }
 
 .player-name {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
     font-size: 12px;
     line-height: 18px;
-    color: var(--white);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .you-tag {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
     line-height: 18px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.5);
     margin-left: 4px;
 }
 
 .wagered {
-    font-family: 'Gilroy', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 12px;
     line-height: 24px;
@@ -812,9 +820,9 @@ body {
 }
 
 .profit {
-    font-family: 'Gilroy', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 24px;
     color: var(--white);
     text-align: right;
@@ -840,7 +848,7 @@ body {
 
 /* Progress Section */
 .progress-section {
-    padding: 21px 24px 20px;
+    padding: 20px 24px;
     background: var(--elevation);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -850,18 +858,20 @@ body {
 }
 
 .progress-label {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .progress-bar {
-    height: 6px;
-    background: #08080c;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 3px;
     overflow: hidden;
     margin-bottom: 8px;
@@ -875,29 +885,30 @@ body {
 }
 
 .progress-text {
-    font-family: 'Gilroy', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
-    color: #9898a8;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .btn-play {
     display: block;
     width: 100%;
     padding: 12px 24px;
-    border-radius: 8px;
+    border-radius: 10px;
     background: var(--primary);
     border: none;
     font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 600;
+    font-size: 13px;
     line-height: normal;
     color: #08080c;
     cursor: pointer;
     transition: all 0.2s;
     text-align: center;
     text-decoration: none;
+    letter-spacing: 0.3px;
 }
 
 .btn-play:hover {
@@ -939,11 +950,12 @@ body {
 
 .accordion-title {
     font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 900;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 14px;
     line-height: normal;
-    color: var(--white);
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
+    letter-spacing: 1.2px;
     margin: 0;
 }
 
@@ -993,26 +1005,26 @@ body {
 }
 
 .step-number {
-    width: 24px;
-    height: 24px;
-    background: rgba(251, 206, 4, 0.1);
+    width: 22px;
+    height: 22px;
+    background: rgba(251, 206, 4, 0.12);
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
     color: var(--primary);
     flex-shrink: 0;
 }
 
 .step-header h3 {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
     margin: 0;
     flex: 1;
 }
@@ -1020,15 +1032,15 @@ body {
 .step-details {
     list-style: none;
     padding: 0;
-    margin: 12px 0 0 36px;
+    margin: 10px 0 0 34px;
 }
 
 .step-details li {
-    font-family: 'Gilroy', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
     position: relative;
     padding-left: 12px;
 }
@@ -1044,30 +1056,30 @@ body {
 }
 
 .step-note {
-    font-family: 'Gilroy', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.5;
     color: var(--primary);
-    margin: 12px 0 0 36px;
-    opacity: 0.9;
+    margin: 10px 0 0 34px;
+    opacity: 0.85;
 }
 
 /* Rules List */
 .rules-list {
     background: var(--elevation-dark);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 16px;
     margin-bottom: 16px;
 }
 
 .rules-list p {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin-bottom: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 5px;
 }
 
 .rules-list p:last-child {
@@ -1077,27 +1089,28 @@ body {
 .important-notice {
     display: flex;
     gap: 12px;
-    padding: 16px;
-    background: rgba(251, 206, 4, 0.08);
-    border-radius: 12px;
-    border: 1px solid rgba(251, 206, 4, 0.2);
+    padding: 14px 16px;
+    background: rgba(251, 206, 4, 0.06);
+    border-radius: 10px;
+    border: 1px solid rgba(251, 206, 4, 0.15);
 }
 
 .warning-icon {
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 1px;
+    opacity: 0.8;
 }
 
 .important-notice p {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--primary);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(251, 206, 4, 0.85);
 }
 
 .important-notice strong {
-    font-weight: 700;
+    font-weight: 600;
 }
 
 /* Footer */
@@ -1134,19 +1147,21 @@ body {
 }
 
 .footer-desc {
-    font-family: 'Gilroy', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-section h4 {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
     line-height: 16px;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
     margin-bottom: 12px;
 }
 
@@ -1196,18 +1211,18 @@ body {
 }
 
 .language-select span {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
     line-height: 16px;
-    color: var(--text-primary);
+    color: rgba(255, 255, 255, 0.85);
     flex: 1;
 }
 
 .nav-items {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .nav-item {
@@ -1226,11 +1241,11 @@ body {
 }
 
 .nav-item span {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
     line-height: 16px;
-    color: var(--text-primary);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .section-header {
@@ -1245,11 +1260,11 @@ body {
 }
 
 .more-link {
-    font-family: 'Gilroy', 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
     line-height: 16px;
-    color: var(--text-primary);
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -1327,20 +1342,21 @@ body {
     justify-content: center;
     gap: 6px;
     padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .copyright-icon {
     width: 12px;
     height: 12px;
+    opacity: 0.5;
 }
 
 .footer-copyright span {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
     line-height: 16px;
-    color: var(--text-primary);
+    color: rgba(255, 255, 255, 0.4);
 }
 
 /* Responsive Breakpoints */
@@ -1394,16 +1410,17 @@ body {
     }
 
     .hero-title {
-        font-size: 32px;
+        font-size: 28px;
+        letter-spacing: 3px;
     }
 
     .hero-subtitle {
-        font-size: 36px;
+        font-size: 34px;
     }
 
     .hero-description {
-        font-size: 16px;
-        max-width: 400px;
+        font-size: 15px;
+        max-width: 420px;
     }
 
     .prizes-section,
@@ -1413,11 +1430,28 @@ body {
     }
 
     .prizes-card {
-        padding: 24px 32px 0;
+        padding: 28px 32px 0;
     }
 
     .prizes-title {
-        font-size: 32px;
+        font-size: 26px;
+    }
+
+    .prizes-subtitle {
+        font-size: 14px;
+        max-width: 360px;
+    }
+
+    .section-title {
+        font-size: 14px;
+    }
+
+    .accordion-title {
+        font-size: 15px;
+    }
+
+    .step-header h3 {
+        font-size: 14px;
     }
 
     .podium {
@@ -1500,10 +1534,22 @@ body {
         min-height: 520px;
     }
 
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 40px;
+    }
+
     .prizes-section,
     .leaderboard-section,
     .accordion-section {
         padding: 24px 48px;
+    }
+
+    .prizes-title {
+        font-size: 28px;
     }
 
     .footer {
