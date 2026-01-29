@@ -639,6 +639,63 @@ body {
     font-weight: 600;
 }
 
+.week-tab-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+}
+
+.week-tab-wrapper .week-tab {
+    width: 100%;
+}
+
+.week-tab-wrapper.disabled {
+    cursor: not-allowed;
+}
+
+.week-tab-wrapper.disabled .week-tab {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.week-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background: #1A1726;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 8px 12px;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.week-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #1A1726;
+}
+
+.week-tab-wrapper.disabled:hover .week-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
 /* Table Header */
 .table-header {
     display: grid;

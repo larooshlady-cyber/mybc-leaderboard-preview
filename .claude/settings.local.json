@@ -7,7 +7,27 @@
       "Bash(gh repo create:*)",
       "Bash(git --version:*)",
       "Bash(brew install:*)",
-      "Bash(gh auth:*)"
+      "Bash(gh auth:*)",
+      "Bash(gh api:*)",
+      "Bash(ls:*)",
+      "Bash(npx --help:*)",
+      "WebFetch(domain:api.figma.com)",
+      "Bash(env)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "WebFetch(domain:figma-alpha-api.s3.us-west-2.amazonaws.com)",
+      "WebFetch(domain:www.figma.com)",
+      "Bash(echo $FIGMA_ACCESS_TOKEN)",
+      "Bash(printenv:*)",
+      "Bash(security find-generic-password -s \"figma\" -a \"$USER\" -w)",
+      "Bash(defaults read:*)",
+      "WebFetch(domain:help.figma.com)",
+      "Bash(pgrep:*)",
+      "Bash(lsof:*)",
+      "Bash(git push:*)",
+      "Bash(git remote remove:*)",
+      "Bash(git remote add:*)",
+      "Bash(gh repo edit:*)"
     ]
   }
 }
