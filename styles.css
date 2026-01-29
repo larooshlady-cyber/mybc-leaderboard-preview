@@ -389,13 +389,14 @@ body {
 }
 
 .btn-join.enrolled {
-    background: var(--green);
+    background: transparent;
     cursor: default;
     padding: 12px 20px;
+    color: var(--green);
 }
 
 .btn-join.enrolled:hover {
-    background: var(--green);
+    background: transparent;
     transform: none;
     box-shadow: none;
 }
@@ -404,6 +405,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    color: var(--green);
 }
 
 /* Prizes Section */
