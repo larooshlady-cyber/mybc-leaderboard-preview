@@ -375,13 +375,35 @@ body {
     font-size: 14px;
     line-height: 16px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn-join:hover {
     background: #e5bb00;
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(251, 206, 4, 0.3);
+}
+
+.btn-join.enrolled {
+    background: var(--green);
+    cursor: default;
+    padding: 12px 20px;
+}
+
+.btn-join.enrolled:hover {
+    background: var(--green);
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-join-enrolled {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* Prizes Section */
@@ -855,6 +877,7 @@ body {
 }
 
 .btn-play {
+    display: block;
     width: 100%;
     padding: 12px 24px;
     border-radius: 8px;
@@ -867,6 +890,8 @@ body {
     color: #08080c;
     cursor: pointer;
     transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
 }
 
 .btn-play:hover {

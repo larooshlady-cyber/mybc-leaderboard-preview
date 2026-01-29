@@ -145,7 +145,15 @@
                     <span class="spots-divider">•</span>
                     <span class="spots-left">743 Spots Left</span>
                 </div>
-                <button class="btn-join">Join the Competition Now</button>
+                <button class="btn-join" id="joinBtn">
+                    <span class="btn-join-text">Join the Competition Now</span>
+                    <span class="btn-join-enrolled" style="display: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        You're enrolled! Go play!
+                    </span>
+                </button>
             </div>
         </section>
 
@@ -254,7 +262,7 @@
                         </div>
                         <span class="progress-text" id="progressText">$7,550 More To Rank #100</span>
                     </div>
-                    <button class="btn-play">Play Now to Climb</button>
+                    <a href="https://mybc.game/en/slots/all" class="btn-play" target="_blank">Play Now to Climb</a>
                 </div>
             </div>
         </section>
@@ -513,6 +521,19 @@
 
         closeNav.addEventListener('click', closeMobileNav);
         mobileNavOverlay.addEventListener('click', closeMobileNav);
+
+        // Join Button Functionality
+        const joinBtn = document.getElementById('joinBtn');
+        const joinBtnText = joinBtn.querySelector('.btn-join-text');
+        const joinBtnEnrolled = joinBtn.querySelector('.btn-join-enrolled');
+
+        joinBtn.addEventListener('click', () => {
+            if (!joinBtn.classList.contains('enrolled')) {
+                joinBtn.classList.add('enrolled');
+                joinBtnText.style.display = 'none';
+                joinBtnEnrolled.style.display = 'flex';
+            }
+        });
 
         // Week data with leaderboard info
         const weeksData = [
