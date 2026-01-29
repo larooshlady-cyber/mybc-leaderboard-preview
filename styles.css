@@ -666,11 +666,22 @@ body {
 .week-tooltip::after {
     content: '';
     position: absolute;
-    top: 100%;
+    bottom: -11px;
     left: 50%;
     transform: translateX(-50%);
     border: 6px solid transparent;
+    border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.week-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
     border-top-color: #1A1726;
+    z-index: 1;
 }
 
 .week-tooltip.visible {
