@@ -392,7 +392,7 @@ body {
     background: #1A1726;
     cursor: default;
     padding: 12px 20px;
-    color: #4ADE80;
+    color: var(--white);
 }
 
 .btn-join.enrolled:hover {
@@ -405,6 +405,10 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    color: var(--white);
+}
+
+.btn-join-enrolled svg {
     color: #4ADE80;
 }
 
