@@ -639,31 +639,13 @@ body {
     font-weight: 600;
 }
 
-.week-tab-wrapper {
-    position: relative;
-    flex: 1;
-    display: flex;
-}
-
-.week-tab-wrapper .week-tab {
-    width: 100%;
-}
-
-.week-tab-wrapper.disabled {
-    cursor: not-allowed;
-}
-
-.week-tab-wrapper.disabled .week-tab {
+.week-tab.disabled {
     opacity: 0.4;
     cursor: not-allowed;
-    pointer-events: none;
 }
 
 .week-tooltip {
-    position: absolute;
-    bottom: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%) scale(0.9);
+    position: fixed;
     background: #1A1726;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
@@ -675,9 +657,10 @@ body {
     color: rgba(255, 255, 255, 0.8);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.2s ease;
-    z-index: 100;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.15s ease;
+    z-index: 9999;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
 }
 
 .week-tooltip::after {
@@ -690,10 +673,9 @@ body {
     border-top-color: #1A1726;
 }
 
-.week-tab-wrapper.disabled:hover .week-tooltip {
+.week-tooltip.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) scale(1);
 }
 
 /* Table Header */

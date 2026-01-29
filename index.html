@@ -202,11 +202,9 @@
                     <button class="week-tab active" data-week="0">Week 1</button>
                     <button class="week-tab" data-week="1">Week 2</button>
                     <button class="week-tab" data-week="2">Week 3</button>
-                    <div class="week-tab-wrapper disabled">
-                        <button class="week-tab" data-week="3">Week 4</button>
-                        <span class="week-tooltip">Week has not started yet</span>
-                    </div>
+                    <button class="week-tab disabled" data-week="3" id="week4Tab">Week 4</button>
                 </div>
+                <span class="week-tooltip" id="week4Tooltip">Week has not started yet</span>
 
                 <!-- Table Header -->
                 <div class="table-header">
@@ -761,9 +759,25 @@
         // Tab click handlers
         weekTabs.forEach(tab => {
             tab.addEventListener('click', () => {
+                if (tab.classList.contains('disabled')) return;
                 currentWeek = parseInt(tab.dataset.week);
                 updateWeek();
             });
+        });
+
+        // Week 4 disabled tooltip
+        const week4Tab = document.getElementById('week4Tab');
+        const week4Tooltip = document.getElementById('week4Tooltip');
+
+        week4Tab.addEventListener('mouseenter', (e) => {
+            const rect = week4Tab.getBoundingClientRect();
+            week4Tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+            week4Tooltip.style.top = (rect.top - 10) + 'px';
+            week4Tooltip.style.transform = 'translate(-50%, -100%)';
+            week4Tooltip.classList.add('visible');
+        });
+        week4Tab.addEventListener('mouseleave', () => {
+            week4Tooltip.classList.remove('visible');
         });
 
         // Touch swipe support
