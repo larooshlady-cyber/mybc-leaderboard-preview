@@ -52,6 +52,594 @@
         }
     </style>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* V2 Overrides for Top Prizes, Leaderboard, and Accordion */
+
+        /* V2 Prize Cards */
+        .prizes-section-v2 {
+            padding: 16px;
+            margin-top: 24px;
+        }
+
+        .section-header-v2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .section-title-v2 {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-primary);
+        }
+
+        .section-link-v2 {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .section-link-v2:hover {
+            opacity: 0.8;
+        }
+
+        .prizes-grid-v2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .prize-card-v2 {
+            position: relative;
+            padding: 20px 12px;
+            border-radius: 16px;
+            background: var(--elevation);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .prize-card-v2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--card-accent);
+            opacity: 0.8;
+        }
+
+        .prize-card-v2.gold {
+            --card-accent: linear-gradient(90deg, #f7c948 0%, #ffd700 100%);
+            border-color: rgba(247, 201, 72, 0.2);
+        }
+
+        .prize-card-v2.gold::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top, rgba(247, 201, 72, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .prize-card-v2.silver {
+            --card-accent: linear-gradient(90deg, #c0c0c0 0%, #e8e8e8 100%);
+            border-color: rgba(192, 192, 192, 0.2);
+        }
+
+        .prize-card-v2.bronze {
+            --card-accent: linear-gradient(90deg, #cd7f32 0%, #e8a862 100%);
+            border-color: rgba(205, 127, 50, 0.2);
+        }
+
+        .prize-rank-v2 {
+            position: relative;
+            z-index: 1;
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--elevation-dark);
+            border-radius: 10px;
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .prize-card-v2.gold .prize-rank-v2 {
+            background: rgba(247, 201, 72, 0.15);
+            color: var(--primary);
+        }
+
+        .prize-value-v2 {
+            position: relative;
+            z-index: 1;
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .prize-card-v2.gold .prize-value-v2 {
+            color: var(--primary);
+        }
+
+        .prize-type-v2 {
+            position: relative;
+            z-index: 1;
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* V2 Leaderboard */
+        .leaderboard-section-v2 {
+            padding: 16px;
+            margin-top: 24px;
+        }
+
+        .leaderboard-card-v2 {
+            background: var(--elevation);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+        }
+
+        .leaderboard-header-v2 {
+            padding: 12px 16px;
+            background: var(--elevation-dark);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .week-tabs-v2 {
+            display: flex;
+            gap: 8px;
+        }
+
+        .week-tab-v2 {
+            flex: 1;
+            padding: 10px 8px;
+            border-radius: 10px;
+            background: var(--elevation);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .week-tab-v2:hover:not(.disabled):not(.active) {
+            background: rgba(251, 206, 4, 0.15);
+            border-color: rgba(247, 201, 72, 0.3);
+            color: var(--primary);
+        }
+
+        .week-tab-v2.active {
+            background: rgba(251, 206, 4, 0.15);
+            border-color: rgba(247, 201, 72, 0.3);
+            color: var(--primary);
+        }
+
+        .week-tab-v2.disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .week-tooltip-v2 {
+            position: fixed;
+            background: var(--elevation-dark);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.15s;
+            z-index: 9999;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .week-tooltip-v2::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--elevation-dark);
+        }
+
+        .week-tooltip-v2.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .table-header-v2 {
+            display: grid;
+            grid-template-columns: 1fr 100px 100px;
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .table-header-v2 span {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .th-wagered-v2 { text-align: center; }
+        .th-profit-v2 { text-align: right; }
+
+        .leaderboard-scroll-v2 {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .leaderboard-scroll-v2::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .leaderboard-scroll-v2::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .leaderboard-scroll-v2::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 2px;
+        }
+
+        .lb-row-v2 {
+            display: grid;
+            grid-template-columns: 1fr 100px 100px;
+            padding: 12px 20px;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .lb-row-v2:hover {
+            background: var(--elevation-dark);
+        }
+
+        .lb-row-v2.your-row-v2 {
+            background: #3F3317;
+            border-left: 3px solid var(--primary);
+        }
+
+        .lb-row-v2.your-row-v2.sticky-top-v2 {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .lb-row-v2.your-row-v2.sticky-bottom-v2 {
+            position: sticky;
+            bottom: 0;
+            z-index: 10;
+        }
+
+        .player-info-v2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rank-badge-v2 {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--elevation-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .rank-badge-v2.gold { background: rgba(247, 201, 72, 0.15); color: var(--primary); }
+        .rank-badge-v2.silver { background: rgba(192, 192, 192, 0.15); color: #c0c0c0; }
+        .rank-badge-v2.bronze { background: rgba(205, 127, 50, 0.15); color: #cd7f32; }
+
+        .player-name-v2 {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .you-tag-v2 {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-left: 6px;
+        }
+
+        .wagered-v2 {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--green);
+            text-align: center;
+        }
+
+        .profit-v2 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: right;
+        }
+
+        .profit-v2.gold { color: var(--primary); }
+        .profit-v2.silver { color: #c0c0c0; }
+        .profit-v2.bronze { color: #cd7f32; }
+        .profit-v2.freespins { color: rgba(255, 255, 255, 0.7); }
+
+        .progress-section-v2 {
+            padding: 20px;
+            background: var(--elevation-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .progress-header-v2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-label-v2 {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .progress-value-v2 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .progress-bar-v2 {
+            height: 6px;
+            background: var(--background);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .progress-fill-v2 {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: width 0.5s ease-out;
+        }
+
+        .btn-play-v2 {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            border-radius: 12px;
+            background: var(--primary);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #0a0a0f;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-play-v2:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* V2 Accordion */
+        .accordion-section-v2 {
+            padding: 16px;
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item-v2 {
+            background: var(--elevation);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+        }
+
+        .accordion-header-v2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 18px 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .accordion-header-v2:hover {
+            background: var(--elevation-dark);
+        }
+
+        .accordion-title-v2 {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .accordion-icon-v2 {
+            color: rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .accordion-item-v2.open .accordion-icon-v2 {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content-v2 {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item-v2.open .accordion-content-v2 {
+            max-height: 1000px;
+        }
+
+        .accordion-item-v2.open .accordion-header-v2:hover {
+            background: transparent;
+        }
+
+        .accordion-body-v2 {
+            padding: 0 20px 20px;
+        }
+
+        .step-item-v2 {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .step-item-v2:last-child {
+            border-bottom: none;
+        }
+
+        .step-header-v2 {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .step-number-v2 {
+            width: 24px;
+            height: 24px;
+            background: rgba(251, 206, 4, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .step-header-v2 h3 {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .step-details-v2 {
+            list-style: none;
+            margin: 12px 0 0 36px;
+            padding: 0;
+        }
+
+        .step-details-v2 li {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            line-height: 1.8;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .step-details-v2 li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+        }
+
+        .rules-list-v2 {
+            padding: 16px;
+            background: var(--elevation-dark);
+            border-radius: 12px;
+        }
+
+        .rules-list-v2 p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            line-height: 1.8;
+            margin-bottom: 4px;
+        }
+
+        .important-notice-v2 {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            background: rgba(247, 201, 72, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(247, 201, 72, 0.2);
+            margin-top: 16px;
+        }
+
+        .important-notice-v2 svg {
+            flex-shrink: 0;
+            color: var(--primary);
+        }
+
+        .important-notice-v2 p {
+            font-size: 12px;
+            color: var(--primary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (min-width: 768px) {
+            .prizes-section-v2,
+            .leaderboard-section-v2,
+            .accordion-section-v2 {
+                padding: 24px;
+            }
+
+            .prizes-grid-v2 {
+                gap: 16px;
+            }
+
+            .prize-card-v2 {
+                padding: 28px 16px;
+            }
+
+            .prize-value-v2 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -157,209 +745,145 @@
             </div>
         </section>
 
-        <!-- How Prizes Work Section -->
-        <section class="prizes-section">
-            <div class="prizes-card">
-                <div class="prizes-header">
-                    <h2 class="prizes-title">How the <span class="highlight">Prizes</span> Work</h2>
-                    <p class="prizes-subtitle">Play games and earn cashback from your bets. Move up the leaderboard for bigger rewards. Top players win big prizes, but cashback is available for all ranks</p>
+        <!-- Top Prizes Section (V2) -->
+        <section class="prizes-section-v2">
+            <div class="section-header-v2">
+                <h2 class="section-title-v2">Top Prizes</h2>
+                <a href="#" class="section-link-v2">View all</a>
+            </div>
+            <div class="prizes-grid-v2">
+                <div class="prize-card-v2 gold">
+                    <div class="prize-rank-v2">1st</div>
+                    <div class="prize-value-v2">$30,000</div>
+                    <div class="prize-type-v2">Cash Prize</div>
                 </div>
-                <div class="podium-container">
-                    <div class="podium">
-                        <!-- Left - $10,000 (2nd place) -->
-                        <div class="podium-place second">
-                            <div class="podium-prize gold">$10,000</div>
-                            <div class="podium-step">
-                                <span class="podium-rank">2nd</span>
-                            </div>
-                        </div>
-                        <!-- Center - $30,000 (1st place, tallest) -->
-                        <div class="podium-place first">
-                            <div class="podium-prize orange">$30,000</div>
-                            <div class="podium-step">
-                                <span class="podium-rank">1st</span>
-                            </div>
-                        </div>
-                        <!-- Right - $5,000 (3rd place) -->
-                        <div class="podium-place third">
-                            <div class="podium-prize white">$5,000</div>
-                            <div class="podium-step">
-                                <span class="podium-rank">3rd</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="prize-card-v2 silver">
+                    <div class="prize-rank-v2">2nd</div>
+                    <div class="prize-value-v2">$10,000</div>
+                    <div class="prize-type-v2">Cash Prize</div>
+                </div>
+                <div class="prize-card-v2 bronze">
+                    <div class="prize-rank-v2">3rd</div>
+                    <div class="prize-value-v2">$5,000</div>
+                    <div class="prize-type-v2">Cash Prize</div>
                 </div>
             </div>
         </section>
 
-        <!-- Live Leaderboard Section -->
-        <section class="leaderboard-section">
-            <h2 class="section-title">LIVE LEADERBOARD</h2>
-
-            <div class="leaderboard-card">
-                <!-- Week Tabs -->
-                <div class="week-tabs">
-                    <button class="week-tab active" data-week="0">Week 1</button>
-                    <button class="week-tab" data-week="1">Week 2</button>
-                    <button class="week-tab" data-week="2">Week 3</button>
-                    <button class="week-tab disabled" data-week="3" id="week4Tab">Week 4</button>
-                </div>
-                <span class="week-tooltip" id="week4Tooltip">Week has not started yet</span>
-
-                <!-- Table Header -->
-                <div class="table-header">
-                    <span class="th-player">Player</span>
-                    <span class="th-wagered">Wagered</span>
-                    <span class="th-profit">Profit</span>
-                </div>
-
-                <!-- Scrollable Leaderboard Container -->
-                <div class="leaderboard-swiper" id="leaderboardSwiper">
-                    <div class="leaderboard-slides" id="leaderboardSlides">
-                        <!-- Week 1 -->
-                        <div class="leaderboard-slide active" data-week="1">
-                            <div class="leaderboard-scroll-container" id="scrollContainer1">
-                                <div class="leaderboard-body" id="leaderboardBody1">
-                                    <!-- Rows will be populated by JavaScript -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Week 2 -->
-                        <div class="leaderboard-slide" data-week="2">
-                            <div class="leaderboard-scroll-container" id="scrollContainer2">
-                                <div class="leaderboard-body" id="leaderboardBody2">
-                                    <!-- Rows will be populated by JavaScript -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Week 3 -->
-                        <div class="leaderboard-slide" data-week="3">
-                            <div class="leaderboard-scroll-container" id="scrollContainer3">
-                                <div class="leaderboard-body" id="leaderboardBody3">
-                                    <!-- Rows will be populated by JavaScript -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Week 4 -->
-                        <div class="leaderboard-slide" data-week="4">
-                            <div class="leaderboard-scroll-container" id="scrollContainer4">
-                                <div class="leaderboard-body" id="leaderboardBody4">
-                                    <!-- Rows will be populated by JavaScript -->
-                                </div>
-                            </div>
-                        </div>
+        <!-- Live Leaderboard Section (V2) -->
+        <section class="leaderboard-section-v2">
+            <div class="section-header-v2">
+                <h2 class="section-title-v2">Live Leaderboard</h2>
+            </div>
+            <div class="leaderboard-card-v2">
+                <div class="leaderboard-header-v2">
+                    <div class="week-tabs-v2">
+                        <button class="week-tab-v2 active" data-week="0">Week 1</button>
+                        <button class="week-tab-v2" data-week="1">Week 2</button>
+                        <button class="week-tab-v2" data-week="2">Week 3</button>
+                        <button class="week-tab-v2 disabled" data-week="3" id="week4Tab">Week 4</button>
                     </div>
                 </div>
+                <span class="week-tooltip-v2" id="week4Tooltip">Week has not started yet</span>
 
-                <!-- Progress Section -->
-                <div class="progress-section">
-                    <div class="progress-info">
-                        <span class="progress-label">Until Next Prize Tier:</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill" style="width: 65%"></div>
-                        </div>
-                        <span class="progress-text" id="progressText">$7,550 More To Rank #100</span>
+                <div class="table-header-v2">
+                    <span class="th-player-v2">Player</span>
+                    <span class="th-wagered-v2">Wagered</span>
+                    <span class="th-profit-v2">Prize</span>
+                </div>
+
+                <div class="leaderboard-scroll-v2" id="leaderboardBody">
+                    <!-- Rows populated by JS -->
+                </div>
+
+                <div class="progress-section-v2">
+                    <div class="progress-header-v2">
+                        <span class="progress-label-v2">Your progress to Top 100</span>
+                        <span class="progress-value-v2" id="progressText">$7,550 more needed</span>
                     </div>
-                    <a href="https://mybc.game/en/slots/all" class="btn-play" target="_blank">Play Now to Climb</a>
+                    <div class="progress-bar-v2">
+                        <div class="progress-fill-v2" id="progressFill" style="width: 65%"></div>
+                    </div>
+                    <a href="https://mybc.game/en/slots/all" class="btn-play-v2" target="_blank">Play Now to Climb</a>
                 </div>
             </div>
         </section>
 
-        <!-- Accordion Sections -->
-        <section class="accordion-section">
-            <!-- How It Works Accordion -->
-            <div class="accordion-item">
-                <button class="accordion-header" id="howItWorksBtn">
-                    <h2 class="accordion-title">HOW IT WORKS</h2>
-                    <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Accordion Sections (V2) -->
+        <section class="accordion-section-v2">
+            <div class="accordion-item-v2">
+                <button class="accordion-header-v2">
+                    <h2 class="accordion-title-v2">How It Works</h2>
+                    <svg class="accordion-icon-v2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
                     </svg>
                 </button>
-                <div class="accordion-content" id="howItWorksContent">
-                    <div class="accordion-body">
-                        <div class="steps-list">
-                            <div class="step-item">
-                                <div class="step-header">
-                                    <span class="step-number">1</span>
-                                    <h3>Make Your First Eligible Deposit → Your 5-day Journey Begins</h3>
-                                </div>
-                                <ul class="step-details">
-                                    <li>Day 1: 100% in Freespins</li>
-                                    <li>Day 2: 125% in Freespins</li>
-                                    <li>Day 3: 150% in Freespins</li>
-                                    <li>Day 4: 175% in Freespins</li>
-                                    <li>Day 5: 200% in Freespins</li>
-                                </ul>
+                <div class="accordion-content-v2">
+                    <div class="accordion-body-v2">
+                        <div class="step-item-v2">
+                            <div class="step-header-v2">
+                                <span class="step-number-v2">1</span>
+                                <h3>Make Your First Eligible Deposit - Your 5-day Journey Begins</h3>
                             </div>
-                            <div class="step-item">
-                                <div class="step-header">
-                                    <span class="step-number">2</span>
-                                    <h3>Every Day You Have A 24-Hour Window To Make Your Deposit, Wager 10x and Claim that Day's Freespins</h3>
-                                </div>
+                            <ul class="step-details-v2">
+                                <li>Day 1: 100% in Freespins</li>
+                                <li>Day 2: 125% in Freespins</li>
+                                <li>Day 3: 150% in Freespins</li>
+                                <li>Day 4: 175% in Freespins</li>
+                                <li>Day 5: 200% in Freespins</li>
+                            </ul>
+                        </div>
+                        <div class="step-item-v2">
+                            <div class="step-header-v2">
+                                <span class="step-number-v2">2</span>
+                                <h3>Every Day You Have A 24-Hour Window To Make Your Deposit</h3>
                             </div>
-                            <div class="step-item">
-                                <div class="step-header">
-                                    <span class="step-number">3</span>
-                                    <h3>Deposit Can Be Wagered In All Slots, Except:</h3>
-                                </div>
-                                <ul class="step-details exceptions">
-                                    <li>Prov Name Slot Name</li>
-                                    <li>Prov Name Slot Name</li>
-                                </ul>
-                                <p class="step-note">Don't Miss A Day — Once A Step Expires, it's Gone For Good But You Still Can Get Next Day Bonus!</p>
+                        </div>
+                        <div class="step-item-v2">
+                            <div class="step-header-v2">
+                                <span class="step-number-v2">3</span>
+                                <h3>Wager 10x and Claim that Day's Freespins</h3>
                             </div>
-                            <div class="step-item">
-                                <div class="step-header">
-                                    <span class="step-number">4</span>
-                                    <h3>After You Hit the 10X Requirement, Freespins Are Credited Instantly</h3>
-                                </div>
+                        </div>
+                        <div class="step-item-v2">
+                            <div class="step-header-v2">
+                                <span class="step-number-v2">4</span>
+                                <h3>Freespins Are Credited Instantly After Requirements</h3>
                             </div>
-                            <div class="step-item">
-                                <div class="step-header">
-                                    <span class="step-number">5</span>
-                                    <h3>Freespin Wins Are Instantly Withdrawable Without Any Requirements.</h3>
-                                </div>
+                        </div>
+                        <div class="step-item-v2">
+                            <div class="step-header-v2">
+                                <span class="step-number-v2">5</span>
+                                <h3>Freespin Wins Are Instantly Withdrawable</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Rules Accordion -->
-            <div class="accordion-item">
-                <button class="accordion-header" id="rulesBtn">
-                    <h2 class="accordion-title">RULES</h2>
-                    <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <div class="accordion-item-v2">
+                <button class="accordion-header-v2">
+                    <h2 class="accordion-title-v2">Rules & Terms</h2>
+                    <svg class="accordion-icon-v2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
                     </svg>
                 </button>
-                <div class="accordion-content" id="rulesContent">
-                    <div class="accordion-body">
-                        <div class="rules-list">
+                <div class="accordion-content-v2">
+                    <div class="accordion-body-v2">
+                        <div class="rules-list-v2">
                             <p>Only for new players.</p>
                             <p>Valid for 5 consecutive days from first deposit.</p>
-                            <p>Each day's reward applies only to the first eligible deposit of that day.</p>
+                            <p>Each day's reward applies only to the first eligible deposit.</p>
                             <p>Freespins expire in 24h.</p>
-                            <p>- 1st day Freespins are awarded on Pragmatic Play slot {NAME}</p>
-                            <p>- 2nd day Freespins are awarded on Pragmatic Play slot {NAME}</p>
-                            <p>- 3rd day Freespins are awarded on Pragmatic Play slot {NAME}</p>
-                            <p>- 4th day Freespins are awarded on Pragmatic Play slot {NAME}</p>
-                            <p>- 5th day Freespins are awarded on Pragmatic Play slot {NAME}</p>
-                            <p>- Bonus expires if wagering isn't completed in time</p>
-                            <p>- Bonus abuse, multi-accounts, or exploiting bugs leads to removal</p>
-                            <p>- Freespins nominal is 0.2$</p>
-                            <p>- Casino may update or cancel the rules and conditions anytime</p>
-                            <p>- Standard bonus T&C apply.</p>
+                            <p>Freespins nominal is $0.20</p>
+                            <p>Standard bonus T&C apply.</p>
                         </div>
-
-                        <div class="important-notice">
-                            <svg class="warning-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#fbce04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <div class="important-notice-v2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 8v4M12 16h.01"/>
                             </svg>
-                            <p><strong>Important:</strong> This promotion is available to MYBC players only and One participation per player/IP address</p>
+                            <p><strong>Important:</strong> This promotion is available to MYBC players only. One participation per player/IP address.</p>
                         </div>
                     </div>
                 </div>
@@ -539,237 +1063,115 @@
             }
         });
 
-        // Week data with leaderboard info
-        const weeksData = [
-            {
-                label: 'Week 1',
-                dates: 'Jan 26 - Feb 1',
-                progress: 65,
-                progressText: '$7,550 More To Rank #100',
-                yourRank: 88,
-                yourWagered: '$4,800',
-                yourProfit: '10 FS',
-                topWagered: [985420, 876543, 754321, 698754, 612890, 589432, 534210, 498765, 467890, 423456]
-            },
-            {
-                label: 'Week 2',
-                dates: 'Feb 2 - Feb 8',
-                progress: 78,
-                progressText: '$5,200 More To Rank #50',
-                yourRank: 56,
-                yourWagered: '$12,350',
-                yourProfit: '25 FS',
-                topWagered: [1123456, 998765, 887654, 765432, 701234, 654321, 598765, 543210, 501234, 478965]
-            },
-            {
-                label: 'Week 3',
-                dates: 'Feb 9 - Feb 15',
-                progress: 85,
-                progressText: '$3,100 More To Rank #30',
-                yourRank: 34,
-                yourWagered: '$28,650',
-                yourProfit: '50 FS',
-                topWagered: [1345678, 1187654, 1054321, 956789, 876543, 798765, 723456, 678901, 612345, 567890]
-            },
-            {
-                label: 'Week 4',
-                dates: 'Feb 16 - Feb 22',
-                progress: 92,
-                progressText: '$1,500 More To Rank #10',
-                yourRank: 12,
-                yourWagered: '$87,500',
-                yourProfit: '100 FS',
-                topWagered: [1567890, 1398765, 1234567, 1098765, 987654, 898765, 812345, 756789, 701234, 654321]
-            }
-        ];
+        // V2 Leaderboard - Simple single container
+        const playerNames = ['Crypto', 'Lucky', 'Whale', 'Diamond', 'Pro', 'King', 'Ace', 'Max', 'Elite', 'VIP', 'Hot', 'Star', 'Ultra', 'Neo', 'Bit'];
 
-        // Random player names for generating leaderboard
-        const playerNames = ['Hig', 'Mig', 'Few', 'Dal', 'Var', 'Sxa', 'Kol', 'Bex', 'Tur', 'Nex', 'Cry', 'Bet', 'Win', 'Luc', 'Pro', 'Max', 'Ace', 'Kin', 'Rol', 'Spi', 'Meg', 'Gol', 'Dia', 'Pla', 'Eli', 'Vip', 'Cha', 'Hot', 'Fir', 'Sta', 'Ult', 'Leg', 'Epi', 'Myt', 'Rar', 'Sup', 'Hyp', 'Ome', 'Alp', 'Zen', 'Neo', 'Bit', 'Lux', 'Jet', 'Sky', 'Fox', 'Zap', 'Rex', 'Blz', 'Vex'];
+        // Your rank per week: Week 1 = 24, others randomized
+        const yourRankPerWeek = [24, 56, 12, 78];
+        let currentWeek = 0;
 
-        function generateLeaderboardData(weekIndex) {
-            const weekData = weeksData[weekIndex];
-            const topWagered = weekData.topWagered;
-            const data = [];
-
-            for (let i = 1; i <= 100; i++) {
-                let wagered;
-                if (i <= 10) {
-                    wagered = topWagered[i - 1];
-                } else {
-                    // Generate decreasing wagered amounts with some randomness
-                    const baseAmount = topWagered[9] - (i - 10) * 4500;
-                    wagered = Math.max(5000, Math.floor(baseAmount + (Math.random() - 0.5) * 8000));
-                }
-
-                let profit = '$50';
-                let profitClass = '';
-
-                if (i === 1) { profit = '$30,000'; profitClass = 'orange'; }
-                else if (i === 2) { profit = '$10,000'; profitClass = 'gold'; }
-                else if (i === 3) { profit = '$5,000'; profitClass = ''; }
-                else if (i === 4) { profit = '500 FS'; profitClass = 'freespins'; }
-                else if (i === 5) { profit = '400 FS'; profitClass = 'freespins'; }
-                else if (i === 6) { profit = '300 FS'; profitClass = 'freespins'; }
-                else if (i === 7) { profit = '250 FS'; profitClass = 'freespins'; }
-                else if (i === 8) { profit = '200 FS'; profitClass = 'freespins'; }
-                else if (i === 9) { profit = '150 FS'; profitClass = 'freespins'; }
-                else if (i === 10) { profit = '100 FS'; profitClass = 'freespins'; }
-                else if (i <= 25) { profit = '75 FS'; profitClass = 'freespins'; }
-                else if (i <= 50) { profit = '50 FS'; profitClass = 'freespins'; }
-                else if (i <= 75) { profit = '25 FS'; profitClass = 'freespins'; }
-                else { profit = '10 FS'; profitClass = 'freespins'; }
-
-                let badgeClass = '';
-                if (i === 1) badgeClass = 'gold';
-                else if (i === 2) badgeClass = 'orange';
-                else if (i === 3) badgeClass = 'white';
-
-                // Randomize player name order per week
-                const nameIndex = (i + weekIndex * 7) % playerNames.length;
-
-                data.push({
-                    rank: i,
-                    name: playerNames[nameIndex] + '*********',
-                    wagered: '$' + wagered.toLocaleString(),
-                    profit: profit,
-                    profitClass: profitClass,
-                    badgeClass: badgeClass
-                });
-            }
-            return data;
+        function getYourRank() {
+            return yourRankPerWeek[currentWeek];
         }
 
-        function createRow(item, isOdd, isYou = false) {
-            const row = document.createElement('div');
-            row.className = `lb-row${isOdd ? ' odd' : ''}${isYou ? ' your-row' : ''}`;
-            row.dataset.rank = item.rank;
-
-            if (isYou) {
-                row.innerHTML = `
-                    <div class="player-info">
-                        <span class="rank-badge highlight">${item.rank}</span>
-                        <span class="player-name">${item.name}</span>
-                        <span class="you-tag">(You)</span>
-                    </div>
-                    <span class="wagered">${item.wagered}</span>
-                    <span class="profit highlight">${item.profit}</span>
-                `;
-            } else {
-                row.innerHTML = `
-                    <div class="player-info">
-                        <span class="rank-badge ${item.badgeClass}">${item.rank}</span>
-                        <span class="player-name">${item.name}</span>
-                    </div>
-                    <span class="wagered">${item.wagered}</span>
-                    <span class="profit ${item.profitClass}">${item.profit}</span>
-                `;
-            }
-            return row;
-        }
-
-        function populateLeaderboard(weekNum) {
-            const body = document.getElementById(`leaderboardBody${weekNum}`);
-            const weekData = weeksData[weekNum - 1];
-            const yourRank = weekData.yourRank;
-            const data = generateLeaderboardData(weekNum - 1);
-
+        function populateLeaderboard() {
+            const body = document.getElementById('leaderboardBody');
             body.innerHTML = '';
 
-            // Insert all rows including the "You" row at its proper position
-            data.forEach((item, index) => {
-                const isYou = item.rank === yourRank;
-                if (isYou) {
-                    // Override with actual user data
-                    item.wagered = weekData.yourWagered;
-                    item.profit = weekData.yourProfit;
-                    item.name = 'SSA*********';
-                }
-                const row = createRow(item, index % 2 === 0, isYou);
+            const baseWagers = [985420, 876543, 754321, 698754, 612890, 589432, 534210, 498765, 467890, 423456];
+            const yourRank = getYourRank();
+
+            for (let i = 1; i <= 100; i++) {
+                let wagered = i <= 10 ? baseWagers[i-1] : Math.max(5000, baseWagers[9] - (i - 10) * 4500 + Math.floor(Math.random() * 8000));
+
+                let prize, prizeClass = '';
+                if (i === 1) { prize = '$30,000'; prizeClass = 'gold'; }
+                else if (i === 2) { prize = '$10,000'; prizeClass = 'silver'; }
+                else if (i === 3) { prize = '$5,000'; prizeClass = 'bronze'; }
+                else if (i <= 10) { prize = (600 - i * 50) + ' FS'; prizeClass = 'freespins'; }
+                else if (i <= 25) { prize = '75 FS'; prizeClass = 'freespins'; }
+                else if (i <= 50) { prize = '50 FS'; prizeClass = 'freespins'; }
+                else if (i <= 75) { prize = '25 FS'; prizeClass = 'freespins'; }
+                else { prize = '10 FS'; prizeClass = 'freespins'; }
+
+                let badgeClass = i === 1 ? 'gold' : i === 2 ? 'silver' : i === 3 ? 'bronze' : '';
+                const isYou = i === yourRank;
+                const name = isYou ? 'SSA***' : playerNames[(i + currentWeek) % playerNames.length] + '***';
+
+                const row = document.createElement('div');
+                row.className = `lb-row-v2${isYou ? ' your-row-v2' : ''}`;
+                row.innerHTML = `
+                    <div class="player-info-v2">
+                        <span class="rank-badge-v2 ${badgeClass}">${i}</span>
+                        <span class="player-name-v2">${name}</span>
+                        ${isYou ? '<span class="you-tag-v2">YOU</span>' : ''}
+                    </div>
+                    <span class="wagered-v2">$${wagered.toLocaleString()}</span>
+                    <span class="profit-v2 ${prizeClass}">${prize}</span>
+                `;
                 body.appendChild(row);
-            });
+            }
         }
 
-        function setupStickyBehavior(weekNum) {
-            const container = document.getElementById(`scrollContainer${weekNum}`);
-            const body = document.getElementById(`leaderboardBody${weekNum}`);
-            const yourRank = weeksData[weekNum - 1].yourRank;
-            const rowHeight = 40;
+        populateLeaderboard();
 
-            container.addEventListener('scroll', () => {
-                const yourRow = body.querySelector('.your-row');
-                if (!yourRow) return;
+        // Sticky behavior for your row
+        let scrollHandler = null;
 
+        function setupStickyBehavior() {
+            const container = document.getElementById('leaderboardBody');
+            const yourRow = container.querySelector('.your-row-v2');
+            if (!yourRow) return;
+
+            // Remove old scroll handler if exists
+            if (scrollHandler) {
+                container.removeEventListener('scroll', scrollHandler);
+            }
+
+            const rowHeight = 48;
+            const yourRank = getYourRank();
+
+            scrollHandler = () => {
                 const scrollTop = container.scrollTop;
                 const containerHeight = container.clientHeight;
-
-                // Position where the row would naturally be
                 const naturalTop = (yourRank - 1) * rowHeight;
-                // Current visible range
                 const visibleTop = scrollTop;
                 const visibleBottom = scrollTop + containerHeight;
 
-                // Remove all position classes first
-                yourRow.classList.remove('sticky-top', 'sticky-bottom');
+                yourRow.classList.remove('sticky-top-v2', 'sticky-bottom-v2');
 
                 if (naturalTop < visibleTop) {
-                    // Your row is above the visible area - stick to top
-                    yourRow.classList.add('sticky-top');
+                    yourRow.classList.add('sticky-top-v2');
                 } else if (naturalTop + rowHeight > visibleBottom) {
-                    // Your row is below the visible area - stick to bottom
-                    yourRow.classList.add('sticky-bottom');
+                    yourRow.classList.add('sticky-bottom-v2');
                 }
-                // Otherwise, row flows naturally in its position
-            });
+            };
 
-            // Trigger initial check
+            container.addEventListener('scroll', scrollHandler);
             container.dispatchEvent(new Event('scroll'));
         }
 
-        // Initialize all weeks
-        for (let i = 1; i <= 4; i++) {
-            populateLeaderboard(i);
-            setupStickyBehavior(i);
-        }
+        setupStickyBehavior();
 
-        let currentWeek = 0;
-        const totalWeeks = 4;
+        // Week tabs
+        const weekTabs = document.querySelectorAll('.week-tab-v2');
 
-        const weekTabs = document.querySelectorAll('.week-tab');
-        const slides = document.getElementById('leaderboardSlides');
-        const swiper = document.getElementById('leaderboardSwiper');
-        const progressFill = document.getElementById('progressFill');
-        const progressText = document.getElementById('progressText');
-
-        function updateWeek() {
-            slides.style.transform = `translateX(-${currentWeek * 100}%)`;
-            progressFill.style.width = weeksData[currentWeek].progress + '%';
-            progressText.textContent = weeksData[currentWeek].progressText;
-
-            // Update active slide
-            document.querySelectorAll('.leaderboard-slide').forEach((slide, index) => {
-                slide.classList.toggle('active', index === currentWeek);
-            });
-
-            // Update active tab
-            weekTabs.forEach((tab, index) => {
-                tab.classList.toggle('active', index === currentWeek);
-            });
-        }
-
-        // Tab click handlers
         weekTabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 if (tab.classList.contains('disabled')) return;
+                weekTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
                 currentWeek = parseInt(tab.dataset.week);
-                updateWeek();
+                populateLeaderboard();
+                setupStickyBehavior();
             });
         });
 
-        // Week 4 disabled tooltip
+        // Week 4 tooltip
         const week4Tab = document.getElementById('week4Tab');
         const week4Tooltip = document.getElementById('week4Tooltip');
 
-        week4Tab.addEventListener('mouseenter', (e) => {
+        week4Tab.addEventListener('mouseenter', () => {
             const rect = week4Tab.getBoundingClientRect();
             week4Tooltip.style.left = (rect.left + rect.width / 2) + 'px';
             week4Tooltip.style.top = (rect.top - 12) + 'px';
@@ -780,77 +1182,20 @@
             week4Tooltip.classList.remove('visible');
         });
 
-        // Touch swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        swiper.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        swiper.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (diff > swipeThreshold && currentWeek < totalWeeks - 1) {
-                currentWeek++;
-                updateWeek();
-            } else if (diff < -swipeThreshold && currentWeek > 0) {
-                currentWeek--;
-                updateWeek();
-            }
-        }
-
-        // Initialize
-        updateWeek();
+        // V2 Accordion
+        document.querySelectorAll('.accordion-header-v2').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('open');
+            });
+        });
 
         // Button hover effects
-        document.querySelectorAll('.btn-join, .btn-play, .btn-signup').forEach(btn => {
+        document.querySelectorAll('.btn-join, .btn-play-v2, .btn-signup').forEach(btn => {
             btn.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-2px)';
             });
             btn.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Accordion functionality
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const accordionItem = header.parentElement;
-                const isOpen = accordionItem.classList.contains('open');
-
-                // Close all accordions (optional - remove if you want multiple open)
-                // document.querySelectorAll('.accordion-item').forEach(item => {
-                //     item.classList.remove('open');
-                // });
-
-                // Toggle current accordion
-                if (isOpen) {
-                    accordionItem.classList.remove('open');
-                } else {
-                    accordionItem.classList.add('open');
-                }
             });
         });
     </script>
