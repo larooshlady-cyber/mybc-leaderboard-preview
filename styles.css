@@ -286,10 +286,10 @@ body {
 .hero-title {
     font-family: 'Gilroy', 'Inter', sans-serif;
     font-weight: 800;
-    font-size: 22px;
+    font-size: 26px;
     line-height: 1.1;
     color: var(--text-primary);
-    margin: 0 0 4px;
+    margin: 0 0 6px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -297,7 +297,7 @@ body {
 .hero-subtitle {
     font-family: 'Gilroy', 'Inter', sans-serif;
     font-weight: 900;
-    font-size: 28px;
+    font-size: 32px;
     line-height: 1.1;
     color: var(--primary);
     margin: 0;
@@ -429,16 +429,16 @@ body {
 
 .prizes-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
 }
 
 .prizes-title {
     font-family: 'Gilroy', 'Inter', sans-serif;
     font-weight: 800;
-    font-size: 20px;
+    font-size: 22px;
     line-height: 1.2;
     color: var(--white);
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     letter-spacing: 0.5px;
 }
 
@@ -1410,12 +1410,12 @@ body {
     }
 
     .hero-title {
-        font-size: 28px;
+        font-size: 32px;
         letter-spacing: 3px;
     }
 
     .hero-subtitle {
-        font-size: 34px;
+        font-size: 38px;
     }
 
     .hero-description {
@@ -1434,7 +1434,7 @@ body {
     }
 
     .prizes-title {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .prizes-subtitle {
@@ -1535,11 +1535,11 @@ body {
     }
 
     .hero-title {
-        font-size: 32px;
+        font-size: 36px;
     }
 
     .hero-subtitle {
-        font-size: 40px;
+        font-size: 44px;
     }
 
     .prizes-section,
@@ -1549,7 +1549,7 @@ body {
     }
 
     .prizes-title {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .footer {
