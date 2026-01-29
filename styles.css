@@ -392,7 +392,7 @@ body {
     background: transparent;
     cursor: default;
     padding: 12px 20px;
-    color: var(--green);
+    color: #4ADE80;
 }
 
 .btn-join.enrolled:hover {
@@ -405,7 +405,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--green);
+    color: #4ADE80;
 }
 
 /* Prizes Section */
