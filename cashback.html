@@ -824,83 +824,335 @@
             color: var(--tier-color);
         }
 
-        /* How It Works Section */
+        /* How It Works Section - Premium */
         .how-section {
             padding: 16px;
             margin-top: 32px;
         }
 
         .how-card {
-            background: var(--elevation);
-            border-radius: 20px;
-            border: 1px solid var(--border-subtle);
-            padding: 24px;
+            position: relative;
+            background: linear-gradient(135deg, var(--elevation) 0%, rgba(26, 23, 38, 0.8) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(251, 206, 4, 0.15);
+            padding: 28px 24px;
+            overflow: hidden;
+        }
+
+        .how-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+        }
+
+        .how-card::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(251, 206, 4, 0.06) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .how-title {
+            position: relative;
+            z-index: 1;
             font-family: 'Gilroy', sans-serif;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 18px;
             color: var(--text-primary);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .how-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             color: var(--primary);
+            filter: drop-shadow(0 0 8px var(--primary-glow));
         }
 
         .formula-box {
-            background: var(--elevation-dark);
-            border-radius: 12px;
-            padding: 20px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(145deg, rgba(16, 12, 28, 0.9) 0%, rgba(16, 12, 28, 0.6) 100%);
+            border-radius: 20px;
+            padding: 28px 20px;
             margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .formula-text {
-            font-size: 13px;
-            line-height: 1.8;
+            font-size: 14px;
+            line-height: 1.7;
             color: var(--text-secondary);
+            margin-bottom: 24px;
+            text-align: center;
         }
 
-        .formula-highlight {
-            display: block;
+        /* Friendly Formula Display - Premium */
+        .formula-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .formula-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .formula-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 18px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            min-width: 85px;
+            transition: all 0.3s ease;
+        }
+
+        .formula-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(251, 206, 4, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .formula-item-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .formula-item-icon.bets {
+            background: linear-gradient(135deg, rgba(245, 132, 31, 0.25) 0%, rgba(245, 132, 31, 0.1) 100%);
+            border: 1px solid rgba(245, 132, 31, 0.3);
+        }
+
+        .formula-item-icon.wins {
+            background: linear-gradient(135deg, rgba(14, 204, 104, 0.25) 0%, rgba(14, 204, 104, 0.1) 100%);
+            border: 1px solid rgba(14, 204, 104, 0.3);
+        }
+
+        .formula-item-icon.percent {
+            background: linear-gradient(135deg, var(--primary-dim) 0%, rgba(251, 206, 4, 0.08) 100%);
+            border: 1px solid rgba(251, 206, 4, 0.3);
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--primary);
+        }
+
+        .formula-item-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .formula-operator {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
+        }
+
+        .formula-equals {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
             margin-top: 12px;
-            padding: 14px;
-            background: var(--primary-dim);
+            padding-top: 20px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .formula-equals .formula-operator {
+            background: linear-gradient(135deg, var(--primary-dim) 0%, rgba(251, 206, 4, 0.08) 100%);
+            color: var(--primary);
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
             border-radius: 10px;
+            border: 1px solid rgba(251, 206, 4, 0.2);
+        }
+
+        .formula-result {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 28px;
+            background: linear-gradient(135deg, rgba(251, 206, 4, 0.15) 0%, rgba(251, 206, 4, 0.05) 100%);
+            border-radius: 18px;
+            border: 1px solid rgba(251, 206, 4, 0.3);
+            box-shadow: 0 8px 32px rgba(251, 206, 4, 0.1);
+            animation: resultGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes resultGlow {
+            0%, 100% { box-shadow: 0 8px 32px rgba(251, 206, 4, 0.1); }
+            50% { box-shadow: 0 8px 40px rgba(251, 206, 4, 0.2); }
+        }
+
+        .formula-result-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, #d4a904 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 16px rgba(251, 206, 4, 0.3);
+        }
+
+        .formula-result-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .formula-result-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .formula-result-value {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            background: linear-gradient(135deg, var(--primary) 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Example calculation - Premium */
+        .formula-example {
+            position: relative;
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(145deg, rgba(251, 206, 4, 0.08) 0%, rgba(251, 206, 4, 0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(251, 206, 4, 0.15);
+            overflow: hidden;
+        }
+
+        .formula-example::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--orange) 100%);
+        }
+
+        .formula-example-title {
+            font-size: 13px;
             font-weight: 700;
             color: var(--primary);
-            text-align: center;
-            border: 1px solid rgba(251, 206, 4, 0.2);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .formula-example-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .formula-example-text strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .formula-example-result {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: rgba(14, 204, 104, 0.15);
+            border: 1px solid rgba(14, 204, 104, 0.3);
+            border-radius: 10px;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 15px;
         }
 
         .requirement-box {
+            position: relative;
+            z-index: 1;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            padding: 16px;
-            background: rgba(251, 206, 4, 0.08);
-            border-radius: 12px;
+            gap: 14px;
+            padding: 18px 20px;
+            background: linear-gradient(135deg, rgba(251, 206, 4, 0.1) 0%, rgba(251, 206, 4, 0.03) 100%);
+            border-radius: 16px;
             border: 1px solid rgba(251, 206, 4, 0.2);
+        }
+
+        .requirement-icon-wrapper {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-dim);
+            border: 1px solid rgba(251, 206, 4, 0.25);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .requirement-icon {
             width: 20px;
             height: 20px;
             color: var(--primary);
-            flex-shrink: 0;
-            margin-top: 2px;
         }
 
         .requirement-text {
-            font-size: 13px;
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .requirement-text strong {
             color: var(--primary);
+            font-weight: 700;
         }
 
         /* Steps Section */
@@ -1249,6 +1501,27 @@
             </div>
         </section>
 
+        <!-- Steps - How to Get Started (moved up) -->
+        <section class="steps-section">
+            <div class="section-header">
+                <h2 class="section-title">How to Get Started</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Play Your Favorite Slots</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Cashback Accumulates Automatically</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Receive USDT to Your Account</div>
+                </div>
+            </div>
+        </section>
+
         <!-- Cashback Tiers -->
         <section class="tiers-section">
             <div class="section-header">
@@ -1291,41 +1564,60 @@
                 </h3>
                 <div class="formula-box">
                     <p class="formula-text">
-                        The cashback amount is calculated based on the difference between your total bets placed in slots and your respective winnings, multiplied by your cashback percentage tier.
+                        Your cashback is calculated based on the difference between your bets and winnings:
                     </p>
-                    <span class="formula-highlight">
-                        (Total Bets - Total Winnings) x Cashback % = Your Cashback
-                    </span>
+
+                    <!-- Visual Formula -->
+                    <div class="formula-visual">
+                        <div class="formula-row">
+                            <div class="formula-item">
+                                <div class="formula-item-icon bets">🎰</div>
+                                <span class="formula-item-label">Total Bets</span>
+                            </div>
+                            <span class="formula-operator">−</span>
+                            <div class="formula-item">
+                                <div class="formula-item-icon wins">🏆</div>
+                                <span class="formula-item-label">Winnings</span>
+                            </div>
+                            <span class="formula-operator">×</span>
+                            <div class="formula-item">
+                                <div class="formula-item-icon percent">%</div>
+                                <span class="formula-item-label">Your Tier</span>
+                            </div>
+                        </div>
+                        <div class="formula-equals">
+                            <span class="formula-operator">=</span>
+                            <div class="formula-result">
+                                <div class="formula-result-icon">💰</div>
+                                <div class="formula-result-text">
+                                    <span class="formula-result-label">You Get</span>
+                                    <span class="formula-result-value">Your Cashback!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Example -->
+                    <div class="formula-example">
+                        <div class="formula-example-title">💡 Quick Example</div>
+                        <p class="formula-example-text">
+                            You bet <strong>$5,000</strong> and won <strong>$2,000</strong><br>
+                            Net loss: $5,000 − $2,000 = <strong>$3,000</strong><br>
+                            At 10% tier: $3,000 × 10%
+                        </p>
+                        <span class="formula-example-result">= $300 Cashback! 🎉</span>
+                    </div>
                 </div>
                 <div class="requirement-box">
-                    <svg class="requirement-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 8v4M12 16h.01"/>
-                    </svg>
+                    <div class="requirement-icon-wrapper">
+                        <svg class="requirement-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                    </div>
                     <p class="requirement-text">
-                        <strong>Eligibility:</strong> You can participate in this promotion if the difference between your placed bets and winnings is more than $100.
+                        <strong>Minimum to Qualify:</strong> The difference between your total bets and winnings must be at least <strong>$100</strong> to participate in this promotion.
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Steps -->
-        <section class="steps-section">
-            <div class="section-header">
-                <h2 class="section-title">How to Get Started</h2>
-            </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Play Your Favorite Slots</div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Cashback Accumulates Automatically</div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Receive USDT to Your Account</div>
                 </div>
             </div>
         </section>
