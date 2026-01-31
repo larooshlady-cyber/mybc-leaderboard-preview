@@ -58,11 +58,11 @@
             --surface-contrast: #151528;
             --primary: #fbce04;
             --primary-dim: rgba(251, 206, 4, 0.15);
+            --primary-glow: rgba(251, 206, 4, 0.4);
             --text-primary: #f9f9f9;
             --text-secondary: #c2c5d6;
             --text-muted: rgba(255, 255, 255, 0.6);
             --green: #0ecc68;
-            --green-dim: rgba(14, 204, 104, 0.15);
             --orange: #f5841f;
             --white: #ffffff;
             --black: #000514;
@@ -276,40 +276,64 @@
             font-size: 13px;
         }
 
-        /* Hero Section */
+        /* Hero Section - Premium Design */
         .hero {
             position: relative;
-            padding: 40px 16px 48px;
-            min-height: 480px;
+            padding: 48px 20px 56px;
+            min-height: 560px;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow: hidden;
-            border-radius: 24px;
+            border-radius: 28px;
             margin: 0 16px;
-            background: linear-gradient(180deg, #1a1520 0%, #0d0a12 100%);
-            border: 1px solid rgba(14, 204, 104, 0.15);
+            background: linear-gradient(180deg, #1a1520 0%, #0d0a12 50%, #000514 100%);
+            border: 1px solid rgba(251, 206, 4, 0.2);
         }
 
+        /* Animated Background Glow */
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
+            top: -100%;
             left: -50%;
             width: 200%;
-            height: 200%;
+            height: 300%;
             background:
-                radial-gradient(ellipse at 30% 20%, rgba(14, 204, 104, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(251, 206, 4, 0.08) 0%, transparent 50%);
-            animation: heroGlow 8s ease-in-out infinite;
+                radial-gradient(ellipse at 50% 0%, rgba(251, 206, 4, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 50%, rgba(251, 206, 4, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 50%, rgba(245, 132, 31, 0.08) 0%, transparent 40%);
+            animation: heroGlow 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, rgba(0, 5, 20, 0.9) 0%, transparent 100%);
             pointer-events: none;
         }
 
         @keyframes heroGlow {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-            50% { transform: translate(2%, 2%) rotate(1deg); opacity: 0.8; }
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            33% {
+                transform: translate(5%, -2%) scale(1.05);
+                opacity: 0.8;
+            }
+            66% {
+                transform: translate(-3%, 2%) scale(0.98);
+                opacity: 0.9;
+            }
         }
 
+        /* Floating Particles */
         .hero-particles {
             position: absolute;
             inset: 0;
@@ -317,206 +341,400 @@
             pointer-events: none;
         }
 
-        .hero-particles::before,
-        .hero-particles::after {
-            content: '';
+        .particle {
             position: absolute;
+            border-radius: 50%;
+            animation: floatParticle 8s ease-in-out infinite;
+        }
+
+        .particle-1 {
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .particle-2 {
             width: 4px;
             height: 4px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            background: var(--orange);
+            top: 25%;
+            right: 15%;
+            animation-delay: 2s;
+            box-shadow: 0 0 15px rgba(245, 132, 31, 0.4);
         }
 
-        .hero-particles::before {
-            top: 20%;
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .hero-particles::after {
-            top: 60%;
-            right: 20%;
-            animation-delay: 3s;
+        .particle-3 {
+            width: 5px;
+            height: 5px;
             background: var(--primary);
+            top: 60%;
+            left: 20%;
+            animation-delay: 4s;
+            box-shadow: 0 0 18px var(--primary-glow);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-            50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+        .particle-4 {
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            top: 45%;
+            right: 25%;
+            animation-delay: 1s;
+            opacity: 0.6;
+        }
+
+        .particle-5 {
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            top: 75%;
+            right: 10%;
+            animation-delay: 3s;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translateY(-30px) translateX(10px) scale(1.1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-15px) translateX(-5px) scale(0.9);
+                opacity: 0.8;
+            }
+            75% {
+                transform: translateY(-25px) translateX(8px) scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+        /* Coin Icons Floating */
+        .floating-coins {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .coin {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, #d4a904 100%);
+            box-shadow:
+                0 4px 20px rgba(251, 206, 4, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            color: #0a0a0f;
+            animation: floatCoin 6s ease-in-out infinite;
+        }
+
+        .coin-1 {
+            top: 8%;
+            left: 5%;
+            animation-delay: 0s;
+            transform: rotate(-15deg);
+        }
+
+        .coin-2 {
+            top: 12%;
+            right: 8%;
+            width: 32px;
+            height: 32px;
+            font-size: 11px;
+            animation-delay: 2s;
+            transform: rotate(20deg);
+        }
+
+        .coin-3 {
+            bottom: 25%;
+            left: 3%;
+            width: 28px;
+            height: 28px;
+            font-size: 10px;
+            animation-delay: 4s;
+            transform: rotate(10deg);
+        }
+
+        @keyframes floatCoin {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) rotate(15deg);
+                opacity: 1;
+            }
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             text-align: center;
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
         }
 
+        /* Live Badge */
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--green-dim);
-            border: 1px solid rgba(14, 204, 104, 0.3);
+            gap: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, rgba(251, 206, 4, 0.15) 0%, rgba(251, 206, 4, 0.05) 100%);
+            border: 1px solid rgba(251, 206, 4, 0.3);
             border-radius: 100px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
         }
 
         .hero-badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--green);
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 12px var(--primary-glow);
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 0 12px var(--primary-glow);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(0.85);
+                box-shadow: 0 0 20px var(--primary-glow);
+            }
         }
 
         .hero-badge-text {
             font-size: 12px;
-            font-weight: 600;
-            color: var(--green);
+            font-weight: 700;
+            color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .hero-title {
             font-family: 'Gilroy', sans-serif;
-            font-weight: 800;
-            font-size: 42px;
+            font-weight: 900;
+            font-size: 52px;
             line-height: 1;
-            color: var(--green);
-            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, #ffd700 50%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 60px var(--primary-glow);
         }
 
         .hero-subtitle {
             font-family: 'Gilroy', sans-serif;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 20px;
             line-height: 1.3;
             color: var(--text-primary);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .hero-description {
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-secondary);
             margin-bottom: 32px;
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Cashback Amount Display */
+        /* Premium Cashback Display */
         .cashback-display {
             position: relative;
-            margin-bottom: 32px;
-            padding: 28px 24px;
-            background: linear-gradient(135deg, rgba(14, 204, 104, 0.12) 0%, rgba(14, 204, 104, 0.04) 100%);
-            border-radius: 20px;
-            border: 1px solid rgba(14, 204, 104, 0.25);
+            margin-bottom: 36px;
+            padding: 32px 28px;
+            background: linear-gradient(135deg, rgba(251, 206, 4, 0.12) 0%, rgba(251, 206, 4, 0.03) 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(251, 206, 4, 0.25);
+            overflow: hidden;
+        }
+
+        .cashback-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
+        }
+
+        .cashback-display::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(251, 206, 4, 0.08) 0%, transparent 60%);
+            animation: pulseGlow 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .cashback-label-top {
+            position: relative;
+            z-index: 1;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
         }
 
         .cashback-percentage {
+            position: relative;
+            z-index: 1;
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 64px;
+            font-size: 80px;
             line-height: 1;
-            background: linear-gradient(135deg, #0ecc68 0%, #4ade80 50%, #0ecc68 100%);
+            background: linear-gradient(180deg, var(--primary) 0%, #d4a904 50%, var(--primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 8px;
+            text-shadow: 0 0 80px var(--primary-glow);
         }
 
         .cashback-label {
+            position: relative;
+            z-index: 1;
             font-size: 14px;
             font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
         }
 
         .usdt-badge {
+            position: relative;
+            z-index: 1;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
+            gap: 8px;
+            padding: 8px 16px;
             background: rgba(38, 161, 123, 0.15);
-            border-radius: 8px;
-            margin-top: 12px;
+            border: 1px solid rgba(38, 161, 123, 0.3);
+            border-radius: 100px;
         }
 
         .usdt-icon {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             background: linear-gradient(135deg, #26a17b 0%, #4ecda9 100%);
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+            color: white;
         }
 
         .usdt-text {
             font-size: 13px;
             font-weight: 600;
-            color: #26a17b;
+            color: #4ecda9;
         }
 
         /* CTA */
         .hero-cta {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
         }
 
         .btn-claim {
             width: 100%;
-            max-width: 280px;
-            padding: 16px 32px;
-            border-radius: 14px;
-            background: var(--green);
+            max-width: 300px;
+            padding: 18px 36px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, #e5bb00 100%);
             border: none;
             font-family: 'Gilroy', sans-serif;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 16px;
             color: #0a0a0f;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
             text-align: center;
+            box-shadow: 0 8px 32px rgba(251, 206, 4, 0.3);
         }
 
         .btn-claim:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(14, 204, 104, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(251, 206, 4, 0.4);
         }
 
         .min-max-info {
             display: flex;
             align-items: center;
-            gap: 16px;
-            font-size: 12px;
-            color: var(--text-muted);
+            gap: 24px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
         }
 
         .min-max-item {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .min-max-label {
+            font-size: 12px;
             color: var(--text-muted);
         }
 
         .min-max-value {
-            color: var(--text-primary);
-            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .min-max-divider {
+            width: 1px;
+            height: 20px;
+            background: var(--border-subtle);
         }
 
         /* Tiers Section */
@@ -569,7 +787,7 @@
         }
 
         .tier-card.tier-1 {
-            --tier-color: #4ade80;
+            --tier-color: var(--orange);
         }
 
         .tier-card.tier-2 {
@@ -577,9 +795,9 @@
         }
 
         .tier-card.tier-3 {
-            --tier-color: var(--green);
-            border-color: rgba(14, 204, 104, 0.3);
-            background: linear-gradient(90deg, rgba(14, 204, 104, 0.08) 0%, var(--elevation) 100%);
+            --tier-color: var(--primary);
+            border-color: rgba(251, 206, 4, 0.3);
+            background: linear-gradient(90deg, rgba(251, 206, 4, 0.08) 0%, var(--elevation) 100%);
         }
 
         .tier-info {
@@ -633,7 +851,7 @@
         .how-icon {
             width: 24px;
             height: 24px;
-            color: var(--green);
+            color: var(--primary);
         }
 
         .formula-box {
@@ -652,12 +870,13 @@
         .formula-highlight {
             display: block;
             margin-top: 12px;
-            padding: 12px;
-            background: rgba(14, 204, 104, 0.1);
-            border-radius: 8px;
-            font-weight: 600;
-            color: var(--green);
+            padding: 14px;
+            background: var(--primary-dim);
+            border-radius: 10px;
+            font-weight: 700;
+            color: var(--primary);
             text-align: center;
+            border: 1px solid rgba(251, 206, 4, 0.2);
         }
 
         .requirement-box {
@@ -702,21 +921,28 @@
             border: 1px solid var(--border-subtle);
             padding: 20px 12px;
             text-align: center;
+            transition: all 0.3s;
+        }
+
+        .step-card:hover {
+            border-color: rgba(251, 206, 4, 0.3);
+            transform: translateY(-2px);
         }
 
         .step-number {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             margin: 0 auto 12px;
-            background: var(--green-dim);
-            border-radius: 10px;
+            background: var(--primary-dim);
+            border: 1px solid rgba(251, 206, 4, 0.2);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Gilroy', sans-serif;
             font-weight: 800;
-            font-size: 16px;
-            color: var(--green);
+            font-size: 18px;
+            color: var(--primary);
         }
 
         .step-title {
@@ -821,15 +1047,20 @@
         @media (min-width: 768px) {
             .hero {
                 margin: 0 24px;
-                padding: 56px 32px;
+                padding: 64px 40px;
+                min-height: 600px;
             }
 
             .hero-title {
-                font-size: 56px;
+                font-size: 72px;
+            }
+
+            .hero-subtitle {
+                font-size: 24px;
             }
 
             .cashback-percentage {
-                font-size: 80px;
+                font-size: 100px;
             }
 
             .tiers-section,
@@ -886,7 +1117,7 @@
             }
 
             .hero-title {
-                font-size: 64px;
+                font-size: 80px;
             }
 
             .tiers-section,
@@ -964,7 +1195,22 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-particles"></div>
+            <!-- Floating Particles -->
+            <div class="hero-particles">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+            </div>
+
+            <!-- Floating Coins -->
+            <div class="floating-coins">
+                <div class="coin coin-1">$</div>
+                <div class="coin coin-2">$</div>
+                <div class="coin coin-3">$</div>
+            </div>
+
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
@@ -977,10 +1223,11 @@
                 </p>
 
                 <div class="cashback-display">
+                    <div class="cashback-label-top">Up To</div>
                     <div class="cashback-percentage">20%</div>
-                    <div class="cashback-label">Maximum Cashback</div>
+                    <div class="cashback-label">Maximum Cashback Rate</div>
                     <div class="usdt-badge">
-                        <div class="usdt-icon"></div>
+                        <div class="usdt-icon">$</div>
                         <span class="usdt-text">Paid in USDT</span>
                     </div>
                 </div>
@@ -989,11 +1236,12 @@
                     <a href="https://mybc.game/en/slots/all" class="btn-claim" target="_blank">Start Playing Now</a>
                     <div class="min-max-info">
                         <div class="min-max-item">
-                            <span class="min-max-label">Min:</span>
+                            <span class="min-max-label">Min Cashback</span>
                             <span class="min-max-value">$10</span>
                         </div>
+                        <div class="min-max-divider"></div>
                         <div class="min-max-item">
-                            <span class="min-max-label">Max:</span>
+                            <span class="min-max-label">Max Cashback</span>
                             <span class="min-max-value">$30,000</span>
                         </div>
                     </div>
@@ -1151,24 +1399,26 @@
         // Button hover effects
         document.querySelectorAll('.btn-claim, .btn-signup').forEach(btn => {
             btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px)';
+                this.style.transform = 'translateY(-3px)';
             });
             btn.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
             });
         });
 
-        // Animate tier cards on scroll
+        // Animate elements on scroll
         const observerOptions = {
             threshold: 0.2,
             rootMargin: '0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
                 }
             });
         }, observerOptions);
