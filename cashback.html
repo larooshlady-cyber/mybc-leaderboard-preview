@@ -833,9 +833,9 @@
         .how-card {
             position: relative;
             background: linear-gradient(135deg, var(--elevation) 0%, rgba(26, 23, 38, 0.8) 100%);
-            border-radius: 24px;
+            border-radius: 20px;
             border: 1px solid rgba(251, 206, 4, 0.15);
-            padding: 28px 24px;
+            padding: 20px 16px;
             overflow: hidden;
         }
 
@@ -865,209 +865,155 @@
             z-index: 1;
             font-family: 'Gilroy', sans-serif;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             color: var(--text-primary);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .how-icon {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             color: var(--primary);
-            filter: drop-shadow(0 0 8px var(--primary-glow));
         }
 
         .formula-box {
             position: relative;
             z-index: 1;
             background: linear-gradient(145deg, rgba(16, 12, 28, 0.9) 0%, rgba(16, 12, 28, 0.6) 100%);
-            border-radius: 20px;
-            padding: 28px 20px;
-            margin-bottom: 20px;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 16px;
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .formula-text {
-            font-size: 14px;
-            line-height: 1.7;
+            font-size: 13px;
+            line-height: 1.6;
             color: var(--text-secondary);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             text-align: center;
         }
 
-        /* Friendly Formula Display - Premium */
+        /* Compact Formula Display */
         .formula-visual {
             display: flex;
             flex-direction: column;
             gap: 16px;
             align-items: center;
+            padding: 16px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
         }
 
-        .formula-row {
+        .formula-equation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        .formula-part {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .formula-part-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .formula-part-icon.bets {
+            background: rgba(245, 132, 31, 0.2);
+        }
+
+        .formula-part-icon.wins {
+            background: rgba(14, 204, 104, 0.2);
+        }
+
+        .formula-part-icon.percent {
+            background: var(--primary-dim);
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 800;
+            font-size: 12px;
+            color: var(--primary);
+        }
+
+        .formula-part-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .formula-op {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .formula-result-row {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .formula-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 16px 18px;
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            min-width: 85px;
-            transition: all 0.3s ease;
-        }
-
-        .formula-item:hover {
-            transform: translateY(-3px);
-            border-color: rgba(251, 206, 4, 0.3);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-        }
-
-        .formula-item-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .formula-item-icon.bets {
-            background: linear-gradient(135deg, rgba(245, 132, 31, 0.25) 0%, rgba(245, 132, 31, 0.1) 100%);
-            border: 1px solid rgba(245, 132, 31, 0.3);
-        }
-
-        .formula-item-icon.wins {
-            background: linear-gradient(135deg, rgba(14, 204, 104, 0.25) 0%, rgba(14, 204, 104, 0.1) 100%);
-            border: 1px solid rgba(14, 204, 104, 0.3);
-        }
-
-        .formula-item-icon.percent {
-            background: linear-gradient(135deg, var(--primary-dim) 0%, rgba(251, 206, 4, 0.08) 100%);
-            border: 1px solid rgba(251, 206, 4, 0.3);
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 800;
-            font-size: 16px;
-            color: var(--primary);
-        }
-
-        .formula-item-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: center;
-        }
-
-        .formula-operator {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            color: var(--text-muted);
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 8px;
-        }
-
-        .formula-equals {
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            margin-top: 12px;
-            padding-top: 20px;
+            padding-top: 12px;
             border-top: 1px dashed rgba(255, 255, 255, 0.1);
-        }
-
-        .formula-equals .formula-operator {
-            background: linear-gradient(135deg, var(--primary-dim) 0%, rgba(251, 206, 4, 0.08) 100%);
-            color: var(--primary);
-            font-size: 20px;
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            border: 1px solid rgba(251, 206, 4, 0.2);
         }
 
         .formula-result {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 18px 28px;
+            gap: 10px;
+            padding: 12px 20px;
             background: linear-gradient(135deg, rgba(251, 206, 4, 0.15) 0%, rgba(251, 206, 4, 0.05) 100%);
-            border-radius: 18px;
+            border-radius: 14px;
             border: 1px solid rgba(251, 206, 4, 0.3);
-            box-shadow: 0 8px 32px rgba(251, 206, 4, 0.1);
-            animation: resultGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes resultGlow {
-            0%, 100% { box-shadow: 0 8px 32px rgba(251, 206, 4, 0.1); }
-            50% { box-shadow: 0 8px 40px rgba(251, 206, 4, 0.2); }
         }
 
         .formula-result-icon {
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             background: linear-gradient(135deg, var(--primary) 0%, #d4a904 100%);
-            border-radius: 14px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
-            box-shadow: 0 4px 16px rgba(251, 206, 4, 0.3);
+            font-size: 18px;
         }
 
         .formula-result-text {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .formula-result-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .formula-result-value {
             font-family: 'Gilroy', sans-serif;
-            font-weight: 800;
-            font-size: 18px;
-            background: linear-gradient(135deg, var(--primary) 0%, #ffd700 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary);
         }
 
-        /* Example calculation - Premium */
+        /* Example calculation - Compact */
         .formula-example {
             position: relative;
-            margin-top: 20px;
-            padding: 20px;
-            background: linear-gradient(145deg, rgba(251, 206, 4, 0.08) 0%, rgba(251, 206, 4, 0.02) 100%);
-            border-radius: 16px;
-            border: 1px solid rgba(251, 206, 4, 0.15);
+            margin-top: 16px;
+            padding: 16px;
+            background: linear-gradient(145deg, rgba(251, 206, 4, 0.06) 0%, rgba(251, 206, 4, 0.02) 100%);
+            border-radius: 14px;
+            border: 1px solid rgba(251, 206, 4, 0.12);
             overflow: hidden;
         }
 
@@ -1076,62 +1022,71 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
+            width: 3px;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--orange) 100%);
+            background: var(--primary);
         }
 
         .formula-example-title {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+        }
+
+        .formula-example-calc {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 8px;
-        }
-
-        .formula-example-text {
-            font-size: 14px;
+            gap: 6px;
+            font-size: 13px;
             color: var(--text-secondary);
-            line-height: 1.7;
         }
 
-        .formula-example-text strong {
-            color: var(--primary);
+        .formula-example-calc .val {
             font-weight: 700;
+            color: var(--text-primary);
+            padding: 4px 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 6px;
+        }
+
+        .formula-example-calc .val.highlight {
+            color: var(--primary);
+            background: var(--primary-dim);
         }
 
         .formula-example-result {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             margin-top: 10px;
-            padding: 8px 16px;
-            background: rgba(14, 204, 104, 0.15);
-            border: 1px solid rgba(14, 204, 104, 0.3);
+            padding: 8px 14px;
+            background: rgba(14, 204, 104, 0.12);
+            border: 1px solid rgba(14, 204, 104, 0.25);
             border-radius: 10px;
             color: var(--green);
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .requirement-box {
             position: relative;
             z-index: 1;
             display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 18px 20px;
-            background: linear-gradient(135deg, rgba(251, 206, 4, 0.1) 0%, rgba(251, 206, 4, 0.03) 100%);
-            border-radius: 16px;
-            border: 1px solid rgba(251, 206, 4, 0.2);
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, rgba(251, 206, 4, 0.08) 0%, rgba(251, 206, 4, 0.02) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(251, 206, 4, 0.15);
         }
 
         .requirement-icon-wrapper {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background: var(--primary-dim);
-            border: 1px solid rgba(251, 206, 4, 0.25);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1139,20 +1094,20 @@
         }
 
         .requirement-icon {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             color: var(--primary);
         }
 
         .requirement-text {
-            font-size: 14px;
-            line-height: 1.7;
+            font-size: 13px;
+            line-height: 1.5;
             color: var(--text-secondary);
         }
 
         .requirement-text strong {
             color: var(--primary);
-            font-weight: 700;
+            font-weight: 600;
         }
 
         /* Steps Section */
@@ -1567,45 +1522,40 @@
                         Your cashback is calculated based on the difference between your bets and winnings:
                     </p>
 
-                    <!-- Visual Formula -->
+                    <!-- Visual Formula - Compact -->
                     <div class="formula-visual">
-                        <div class="formula-row">
-                            <div class="formula-item">
-                                <div class="formula-item-icon bets">🎰</div>
-                                <span class="formula-item-label">Total Bets</span>
+                        <div class="formula-equation">
+                            <div class="formula-part">
+                                <div class="formula-part-icon bets">🎰</div>
+                                <span class="formula-part-text">Bets</span>
                             </div>
-                            <span class="formula-operator">−</span>
-                            <div class="formula-item">
-                                <div class="formula-item-icon wins">🏆</div>
-                                <span class="formula-item-label">Winnings</span>
+                            <span class="formula-op">−</span>
+                            <div class="formula-part">
+                                <div class="formula-part-icon wins">🏆</div>
+                                <span class="formula-part-text">Wins</span>
                             </div>
-                            <span class="formula-operator">×</span>
-                            <div class="formula-item">
-                                <div class="formula-item-icon percent">%</div>
-                                <span class="formula-item-label">Your Tier</span>
+                            <span class="formula-op">×</span>
+                            <div class="formula-part">
+                                <div class="formula-part-icon percent">%</div>
+                                <span class="formula-part-text">Tier</span>
                             </div>
                         </div>
-                        <div class="formula-equals">
-                            <span class="formula-operator">=</span>
+                        <div class="formula-result-row">
+                            <span class="formula-op">=</span>
                             <div class="formula-result">
                                 <div class="formula-result-icon">💰</div>
-                                <div class="formula-result-text">
-                                    <span class="formula-result-label">You Get</span>
-                                    <span class="formula-result-value">Your Cashback!</span>
-                                </div>
+                                <span class="formula-result-text">Your Cashback!</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Example -->
                     <div class="formula-example">
-                        <div class="formula-example-title">💡 Quick Example</div>
-                        <p class="formula-example-text">
-                            You bet <strong>$5,000</strong> and won <strong>$2,000</strong><br>
-                            Net loss: $5,000 − $2,000 = <strong>$3,000</strong><br>
-                            At 10% tier: $3,000 × 10%
-                        </p>
-                        <span class="formula-example-result">= $300 Cashback! 🎉</span>
+                        <div class="formula-example-title">💡 Example</div>
+                        <div class="formula-example-calc">
+                            <span class="val">$5,000</span> bets − <span class="val">$2,000</span> wins = <span class="val highlight">$3,000</span> × 10%
+                        </div>
+                        <span class="formula-example-result">💰 $300 Cashback!</span>
                     </div>
                 </div>
                 <div class="requirement-box">
