@@ -276,333 +276,248 @@
             font-size: 13px;
         }
 
-        /* Hero Section - Solid Premium Design */
+        /* Hero Section - Powerful & Energetic */
         .hero {
             position: relative;
-            padding: 40px 20px 48px;
+            padding: 48px 20px 56px;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow: hidden;
             border-radius: 24px;
             margin: 0 16px;
-            background: linear-gradient(180deg, #1c1825 0%, #12101a 100%);
-            border: 1px solid rgba(251, 206, 4, 0.15);
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(251, 206, 4, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(251, 206, 4, 0.06) 0%, transparent 40%),
+                linear-gradient(180deg, #1a1520 0%, #0d0a12 100%);
+            border: 1px solid rgba(251, 206, 4, 0.25);
             box-shadow:
-                0 4px 24px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+                0 0 60px rgba(251, 206, 4, 0.1),
+                0 4px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
 
-        /* Subtle top glow */
+        /* Animated glow line at top */
         .hero::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 120px;
-            background: radial-gradient(ellipse at center top, rgba(251, 206, 4, 0.15) 0%, transparent 70%);
-            pointer-events: none;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--primary) 20%,
+                var(--primary) 80%,
+                transparent 100%);
+            box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
         }
-
-        /* Decorative Elements */
-        .hero-decorations {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .deco-coin {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, #d4a904 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            color: #0a0a0f;
-            box-shadow: 0 4px 12px rgba(251, 206, 4, 0.3);
-            opacity: 0.9;
-        }
-
-        .deco-coin-1 {
-            width: 48px;
-            height: 48px;
-            font-size: 20px;
-            top: 12%;
-            left: 5%;
-            transform: rotate(-15deg);
-        }
-
-        .deco-coin-2 {
-            width: 36px;
-            height: 36px;
-            font-size: 14px;
-            top: 8%;
-            right: 8%;
-            transform: rotate(20deg);
-        }
-
-        .deco-coin-3 {
-            width: 28px;
-            height: 28px;
-            font-size: 11px;
-            bottom: 30%;
-            left: 3%;
-            transform: rotate(10deg);
-            opacity: 0.7;
-        }
-
-        .deco-coin-4 {
-            width: 24px;
-            height: 24px;
-            font-size: 10px;
-            bottom: 25%;
-            right: 5%;
-            transform: rotate(-10deg);
-            opacity: 0.6;
-        }
-
-        /* Slot icons */
-        .deco-slot {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .deco-slot-1 {
-            width: 44px;
-            height: 44px;
-            top: 25%;
-            right: 3%;
-        }
-
-        .deco-slot-2 {
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            bottom: 18%;
-            left: 8%;
-        }
-
-        /* Sparkle effects */
-        .deco-sparkle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0.6;
-            box-shadow: 0 0 10px var(--primary);
-        }
-
-        .deco-sparkle-1 { top: 20%; left: 25%; width: 6px; height: 6px; }
-        .deco-sparkle-2 { top: 35%; right: 20%; width: 4px; height: 4px; opacity: 0.4; }
-        .deco-sparkle-3 { bottom: 40%; left: 15%; width: 5px; height: 5px; opacity: 0.5; }
-        .deco-sparkle-4 { top: 15%; right: 30%; width: 4px; height: 4px; opacity: 0.3; }
 
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
         }
 
-        /* Badge */
+        /* Badge - More vibrant */
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
-            background: rgba(251, 206, 4, 0.1);
-            border: 1px solid rgba(251, 206, 4, 0.2);
+            padding: 10px 20px;
+            background: linear-gradient(135deg, rgba(251, 206, 4, 0.2) 0%, rgba(251, 206, 4, 0.08) 100%);
+            border: 1px solid rgba(251, 206, 4, 0.4);
             border-radius: 100px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 0 20px rgba(251, 206, 4, 0.15);
         }
 
         .hero-badge-dot {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background: var(--primary);
             border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
+            animation: pulse 1.5s ease-in-out infinite;
+            box-shadow: 0 0 10px var(--primary);
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px var(--primary); }
+            50% { opacity: 0.7; transform: scale(0.9); box-shadow: 0 0 20px var(--primary); }
         }
 
         .hero-badge-text {
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 800;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
+        /* Title - Bigger & Bolder */
         .hero-title {
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 48px;
+            font-size: 56px;
             line-height: 1;
             color: var(--primary);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 40px rgba(251, 206, 4, 0.4);
         }
 
         .hero-subtitle {
             font-family: 'Gilroy', sans-serif;
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 1.4;
-            color: var(--text-primary);
-            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1.3;
+            color: var(--white);
+            margin-bottom: 12px;
         }
 
         .hero-description {
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.6;
-            color: var(--text-muted);
-            margin-bottom: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
         }
 
-        /* Cashback Display - Cleaner */
+        /* Cashback Display - Powerful */
         .cashback-display {
             position: relative;
-            margin-bottom: 28px;
-            padding: 24px 20px;
-            background: linear-gradient(135deg, rgba(251, 206, 4, 0.08) 0%, rgba(251, 206, 4, 0.02) 100%);
+            margin-bottom: 32px;
+            padding: 28px 24px;
+            background: linear-gradient(135deg, rgba(251, 206, 4, 0.12) 0%, rgba(251, 206, 4, 0.03) 100%);
             border-radius: 20px;
-            border: 1px solid rgba(251, 206, 4, 0.15);
+            border: 2px solid rgba(251, 206, 4, 0.3);
+            box-shadow:
+                0 0 30px rgba(251, 206, 4, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .cashback-label-top {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 4px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
         }
 
         .cashback-percentage {
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 72px;
+            font-size: 88px;
             line-height: 1;
             color: var(--primary);
-            margin-bottom: 4px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 60px rgba(251, 206, 4, 0.5);
         }
 
         .cashback-label {
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .usdt-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: rgba(38, 161, 123, 0.12);
-            border: 1px solid rgba(38, 161, 123, 0.25);
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(38, 161, 123, 0.15);
+            border: 1px solid rgba(38, 161, 123, 0.4);
             border-radius: 100px;
         }
 
         .usdt-icon {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             background: #26a17b;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 700;
             color: white;
         }
 
         .usdt-text {
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
             color: #4ecda9;
         }
 
-        /* CTA */
+        /* CTA - Strong & Bold */
         .hero-cta {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
         }
 
         .btn-claim {
             width: 100%;
-            max-width: 280px;
-            padding: 16px 32px;
+            max-width: 300px;
+            padding: 18px 40px;
             border-radius: 14px;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, #e5bb00 100%);
             border: none;
             font-family: 'Gilroy', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
+            font-weight: 800;
+            font-size: 16px;
             color: #0a0a0f;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
             text-align: center;
+            box-shadow: 0 4px 20px rgba(251, 206, 4, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-claim:hover {
-            background: #e5bb00;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(251, 206, 4, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(251, 206, 4, 0.4);
         }
 
         .min-max-info {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 10px 16px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            gap: 24px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .min-max-item {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .min-max-label {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-muted);
         }
 
         .min-max-value {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--primary);
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .min-max-divider {
             width: 1px;
-            height: 16px;
-            background: rgba(255, 255, 255, 0.1);
+            height: 20px;
+            background: rgba(255, 255, 255, 0.15);
         }
 
         /* Tiers Section */
@@ -1187,23 +1102,6 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <!-- Decorative Elements -->
-            <div class="hero-decorations">
-                <!-- Coins -->
-                <div class="deco-coin deco-coin-1">$</div>
-                <div class="deco-coin deco-coin-2">$</div>
-                <div class="deco-coin deco-coin-3">$</div>
-                <div class="deco-coin deco-coin-4">$</div>
-                <!-- Slot icons -->
-                <div class="deco-slot deco-slot-1">🎰</div>
-                <div class="deco-slot deco-slot-2">🍒</div>
-                <!-- Sparkles -->
-                <div class="deco-sparkle deco-sparkle-1"></div>
-                <div class="deco-sparkle deco-sparkle-2"></div>
-                <div class="deco-sparkle deco-sparkle-3"></div>
-                <div class="deco-sparkle deco-sparkle-4"></div>
-            </div>
-
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
