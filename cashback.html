@@ -205,39 +205,33 @@
             border: 2px solid rgba(255,255,255,0.25);
         }
 
-        /* LEFT SIDE COINS - Edges only */
-        .coin-1 { width: 38px; height: 38px; left: 20px; right: auto; animation: coinFall 8s linear infinite 0s; }
-        .coin-2 { width: 30px; height: 30px; left: 60px; right: auto; animation: coinFall 9s linear infinite 2s; }
-        .coin-3 { width: 26px; height: 26px; left: 35px; right: auto; animation: coinFall 7s linear infinite 4s; }
-        .coin-4 { width: 32px; height: 32px; left: 90px; right: auto; animation: coinFall 8.5s linear infinite 1s; }
-        .coin-9 { width: 24px; height: 24px; left: 50px; right: auto; animation: coinFall 10s linear infinite 3s; }
-        .coin-11 { width: 28px; height: 28px; left: 15px; right: auto; animation: coinFall 7.5s linear infinite 5s; }
+        /* All coins - set initial top position */
+        .crypto-coin {
+            top: -60px;
+            opacity: 0;
+        }
 
-        /* RIGHT SIDE COINS - Edges only */
-        .coin-5 { width: 36px; height: 36px; right: 25px; left: auto; animation: coinFall 8.2s linear infinite 0.5s; }
-        .coin-6 { width: 28px; height: 28px; right: 65px; left: auto; animation: coinFall 9.2s linear infinite 2.5s; }
-        .coin-7 { width: 24px; height: 24px; right: 40px; left: auto; animation: coinFall 7.3s linear infinite 4.5s; }
-        .coin-8 { width: 34px; height: 34px; right: 85px; left: auto; animation: coinFall 8.8s linear infinite 1.5s; }
-        .coin-10 { width: 26px; height: 26px; right: 55px; left: auto; animation: coinFall 9.5s linear infinite 3.5s; }
-        .coin-12 { width: 30px; height: 30px; right: 18px; left: auto; animation: coinFall 7.8s linear infinite 5.5s; }
+        /* LEFT SIDE COINS */
+        .coin-1 { width: 38px; height: 38px; left: 20px; right: auto; animation: coinFall 8s linear infinite; animation-delay: 0s; }
+        .coin-2 { width: 30px; height: 30px; left: 60px; right: auto; animation: coinFall 9s linear infinite; animation-delay: -7s; }
+        .coin-3 { width: 26px; height: 26px; left: 35px; right: auto; animation: coinFall 7s linear infinite; animation-delay: -3s; }
+        .coin-4 { width: 32px; height: 32px; left: 90px; right: auto; animation: coinFall 8.5s linear infinite; animation-delay: -5s; }
+        .coin-9 { width: 24px; height: 24px; left: 50px; right: auto; animation: coinFall 10s linear infinite; animation-delay: -2s; }
+        .coin-11 { width: 28px; height: 28px; left: 15px; right: auto; animation: coinFall 7.5s linear infinite; animation-delay: -6s; }
+
+        /* RIGHT SIDE COINS */
+        .coin-5 { width: 36px; height: 36px; right: 25px; left: auto; animation: coinFall 8.2s linear infinite; animation-delay: -1s; }
+        .coin-6 { width: 28px; height: 28px; right: 65px; left: auto; animation: coinFall 9.2s linear infinite; animation-delay: -4s; }
+        .coin-7 { width: 24px; height: 24px; right: 40px; left: auto; animation: coinFall 7.3s linear infinite; animation-delay: -6.5s; }
+        .coin-8 { width: 34px; height: 34px; right: 85px; left: auto; animation: coinFall 8.8s linear infinite; animation-delay: -2.5s; }
+        .coin-10 { width: 26px; height: 26px; right: 55px; left: auto; animation: coinFall 9.5s linear infinite; animation-delay: -8s; }
+        .coin-12 { width: 30px; height: 30px; right: 18px; left: auto; animation: coinFall 7.8s linear infinite; animation-delay: -4.5s; }
 
         @keyframes coinFall {
-            0% {
-                top: -60px;
-                opacity: 0;
-                transform: rotate(0deg) scale(1);
-            }
-            3% {
-                opacity: 1;
-            }
-            97% {
-                opacity: 1;
-            }
-            100% {
-                top: 100%;
-                opacity: 0;
-                transform: rotate(360deg) scale(1);
-            }
+            0% { top: -60px; opacity: 0; transform: rotate(0deg); }
+            2% { opacity: 1; }
+            98% { opacity: 1; }
+            100% { top: 100%; opacity: 0; transform: rotate(360deg); }
         }
 
         /* Subtle sparkles */
