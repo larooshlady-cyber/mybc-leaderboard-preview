@@ -16,24 +16,6 @@
         }
         @font-face {
             font-family: 'Gilroy';
-            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-Regular.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'Gilroy';
-            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-Medium.woff') format('woff');
-            font-weight: 500;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'Gilroy';
-            src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-SemiBold.woff') format('woff');
-            font-weight: 600;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'Gilroy';
             src: url('https://fonts.cdnfonts.com/s/16219/Gilroy-Bold.woff') format('woff');
             font-weight: 700;
             font-style: normal;
@@ -55,10 +37,7 @@
             --background: #000514;
             --elevation-dark: #100c1c;
             --elevation: #1a1726;
-            --surface-contrast: #151528;
             --primary: #fbce04;
-            --primary-dim: rgba(251, 206, 4, 0.15);
-            --primary-glow: rgba(251, 206, 4, 0.4);
             --text-primary: #f9f9f9;
             --text-secondary: #c2c5d6;
             --text-muted: rgba(255, 255, 255, 0.6);
@@ -73,12 +52,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
@@ -118,11 +91,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s;
-        }
-
-        .menu-btn:hover {
-            background: rgba(255, 255, 255, 0.12);
         }
 
         .logo-img {
@@ -146,11 +114,6 @@
             font-weight: 500;
             font-size: 14px;
             cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-signin:hover {
-            background: rgba(255, 255, 255, 0.12);
         }
 
         .btn-signup {
@@ -163,572 +126,220 @@
             font-weight: 500;
             font-size: 14px;
             cursor: pointer;
-            transition: all 0.2s;
         }
 
-        .btn-signup:hover {
-            background: #e5bb00;
-            transform: translateY(-1px);
-        }
-
-        /* Mobile Navigation */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            pointer-events: none;
-            visibility: hidden;
-        }
-
-        .mobile-nav.active {
-            pointer-events: auto;
-            visibility: visible;
-        }
-
-        .mobile-nav-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .mobile-nav.active .mobile-nav-overlay {
-            opacity: 1;
-        }
-
-        .mobile-nav-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 280px;
-            max-width: 85%;
-            height: 100%;
-            background: var(--elevation-dark);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        .mobile-nav.active .mobile-nav-content {
-            transform: translateX(0);
-        }
-
-        .mobile-nav-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .close-nav {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.08);
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-nav-items {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .mobile-nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 10px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .mobile-nav-item:hover,
-        .mobile-nav-item.active {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--white);
-        }
-
-        .mobile-nav-item.highlight {
-            color: var(--primary);
-        }
-
-        .mobile-nav-item span {
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 13px;
-        }
-
-        /* Hero Section - Full Illustrated Composition */
+        /* ============================================
+           HERO SECTION - FULL ILLUSTRATED COMPOSITION
+           ============================================ */
         .hero {
             position: relative;
-            padding: 50px 20px 44px;
+            margin: 0 16px;
+            border-radius: 24px;
+            overflow: hidden;
+            min-height: 480px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow: hidden;
-            border-radius: 28px;
-            margin: 0 16px;
-            background:
-                radial-gradient(ellipse 120% 80% at 50% 120%, rgba(251, 206, 4, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse 80% 60% at 0% 50%, rgba(205, 127, 50, 0.08) 0%, transparent 40%),
-                radial-gradient(ellipse 80% 60% at 100% 50%, rgba(192, 192, 192, 0.06) 0%, transparent 40%),
-                linear-gradient(180deg, #1a1520 0%, #0d0a12 100%);
-            border: 1px solid rgba(251, 206, 4, 0.25);
+            justify-content: center;
+            padding: 40px 20px 60px;
         }
 
-        /* Full illustration container */
-        .hero-illustration {
+        /* Background gradient - purple theme like reference */
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            pointer-events: none;
-            overflow: hidden;
+            background: linear-gradient(180deg,
+                #2D1B69 0%,
+                #3D2580 30%,
+                #5C3D99 60%,
+                #7B52B8 100%
+            );
+            z-index: 0;
         }
 
-        /* Light rays from bottom */
-        .hero-rays {
+        /* Mountain/Wave landscape at bottom */
+        .hero-landscape {
             position: absolute;
-            bottom: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200%;
-            height: 100%;
-            background:
-                conic-gradient(from 90deg at 50% 100%,
-                    transparent 0deg,
-                    rgba(251, 206, 4, 0.03) 10deg,
-                    transparent 20deg,
-                    rgba(251, 206, 4, 0.04) 40deg,
-                    transparent 50deg,
-                    rgba(251, 206, 4, 0.03) 70deg,
-                    transparent 80deg,
-                    rgba(251, 206, 4, 0.05) 90deg,
-                    transparent 100deg,
-                    rgba(251, 206, 4, 0.03) 120deg,
-                    transparent 130deg,
-                    rgba(251, 206, 4, 0.04) 150deg,
-                    transparent 160deg,
-                    rgba(251, 206, 4, 0.03) 170deg,
-                    transparent 180deg
-                );
-            opacity: 0.8;
-        }
-
-        /* Sparkles */
-        .hero-sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 6px 2px rgba(251, 206, 4, 0.6);
-        }
-
-        .sparkle-1 { top: 15%; left: 10%; animation: sparkle 2s ease-in-out infinite; }
-        .sparkle-2 { top: 25%; right: 15%; animation: sparkle 2.5s ease-in-out infinite 0.3s; }
-        .sparkle-3 { top: 45%; left: 5%; animation: sparkle 1.8s ease-in-out infinite 0.6s; }
-        .sparkle-4 { bottom: 35%; right: 8%; animation: sparkle 2.2s ease-in-out infinite 0.9s; }
-        .sparkle-5 { bottom: 20%; left: 15%; animation: sparkle 2s ease-in-out infinite 1.2s; }
-        .sparkle-6 { top: 10%; right: 25%; animation: sparkle 1.9s ease-in-out infinite 0.5s; }
-        .sparkle-7 { bottom: 45%; right: 20%; animation: sparkle 2.3s ease-in-out infinite 0.8s; }
-        .sparkle-8 { top: 35%; left: 20%; animation: sparkle 2.1s ease-in-out infinite 1s; }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.3; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* Star sparkles (4-point) */
-        .hero-star {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-        }
-
-        .hero-star::before,
-        .hero-star::after {
-            content: '';
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
-        }
-
-        .hero-star::before {
-            width: 100%;
-            height: 2px;
-            top: 50%;
+            bottom: 0;
             left: 0;
-            transform: translateY(-50%);
+            right: 0;
+            height: 45%;
+            z-index: 1;
         }
 
-        .hero-star::after {
-            width: 2px;
+        .hero-landscape svg {
+            width: 100%;
             height: 100%;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
+            display: block;
         }
 
-        .star-1 { top: 20%; left: 8%; animation: starTwinkle 3s ease-in-out infinite; }
-        .star-2 { top: 12%; right: 10%; animation: starTwinkle 2.5s ease-in-out infinite 0.5s; }
-        .star-3 { bottom: 30%; left: 12%; animation: starTwinkle 2.8s ease-in-out infinite 1s; }
-        .star-4 { bottom: 15%; right: 15%; animation: starTwinkle 3.2s ease-in-out infinite 0.7s; }
-
-        @keyframes starTwinkle {
-            0%, 100% { opacity: 0.2; transform: scale(0.6) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1) rotate(45deg); }
-        }
-
-        /* Coin stack - left side */
-        .coin-stack-left {
-            position: absolute;
-            bottom: 10%;
-            left: -5%;
-            width: 90px;
-            animation: stackFloat 4s ease-in-out infinite;
-        }
-
-        /* Coin stack - right side */
-        .coin-stack-right {
-            position: absolute;
-            bottom: 15%;
-            right: -8%;
-            width: 80px;
-            animation: stackFloat 4.5s ease-in-out infinite 0.5s;
-        }
-
-        @keyframes stackFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        /* Flying coins */
-        .flying-coin {
-            position: absolute;
-        }
-
-        .flying-coin svg {
-            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.4));
-        }
-
-        .flying-coin-1 {
-            width: 45px;
-            height: 45px;
-            top: 3%;
-            left: 8%;
-            animation: coinFly1 5s ease-in-out infinite;
-        }
-
-        .flying-coin-2 {
-            width: 38px;
-            height: 38px;
-            top: 8%;
-            right: 8%;
-            animation: coinFly2 4.5s ease-in-out infinite 0.3s;
-        }
-
-        .flying-coin-3 {
-            width: 32px;
-            height: 32px;
-            top: 45%;
-            left: 3%;
-            animation: coinFly3 5.5s ease-in-out infinite 0.6s;
-        }
-
-        .flying-coin-4 {
-            width: 30px;
-            height: 30px;
-            top: 55%;
-            right: 3%;
-            animation: coinFly4 4s ease-in-out infinite 0.9s;
-        }
-
-        .flying-coin-5 {
-            width: 26px;
-            height: 26px;
-            bottom: 28%;
-            left: 6%;
-            animation: coinFly1 4.2s ease-in-out infinite 0.4s;
-        }
-
-        .flying-coin-6 {
-            width: 22px;
-            height: 22px;
-            bottom: 22%;
-            right: 10%;
-            animation: coinFly2 3.8s ease-in-out infinite 0.7s;
-        }
-
-        @keyframes coinFly1 {
-            0%, 100% { transform: translate(0, 0) rotate(-15deg); }
-            50% { transform: translate(10px, 15px) rotate(10deg); }
-        }
-
-        @keyframes coinFly2 {
-            0%, 100% { transform: translate(0, 0) rotate(10deg); }
-            50% { transform: translate(-8px, 12px) rotate(-5deg); }
-        }
-
-        @keyframes coinFly3 {
-            0%, 100% { transform: translate(0, 0) rotate(-10deg); }
-            50% { transform: translate(12px, -10px) rotate(15deg); }
-        }
-
-        @keyframes coinFly4 {
-            0%, 100% { transform: translate(0, 0) rotate(5deg); }
-            50% { transform: translate(-10px, -8px) rotate(-10deg); }
-        }
-
-        /* Glowing orbs */
-        .glow-orb {
+        /* Ground shadows/ellipses */
+        .ground-shadow {
             position: absolute;
             border-radius: 50%;
-            filter: blur(20px);
-            opacity: 0.4;
+            background: rgba(0,0,0,0.3);
+            filter: blur(5px);
+            z-index: 2;
         }
 
-        .glow-orb-1 {
-            width: 100px;
-            height: 100px;
-            background: var(--primary);
-            top: -20px;
-            left: -30px;
-            animation: orbPulse 4s ease-in-out infinite;
-        }
-
-        .glow-orb-2 {
+        .ground-shadow-1 {
             width: 80px;
-            height: 80px;
-            background: #c0c0c0;
-            top: 30%;
-            right: -20px;
-            animation: orbPulse 5s ease-in-out infinite 1s;
-        }
-
-        .glow-orb-3 {
-            width: 70px;
-            height: 70px;
-            background: #cd7f32;
-            bottom: 20%;
-            left: -20px;
-            animation: orbPulse 4.5s ease-in-out infinite 0.5s;
-        }
-
-        @keyframes orbPulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.1); }
-        }
-
-        /* Treasure Chest */
-        .treasure-chest {
-            position: absolute;
-            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5));
-        }
-
-        .chest-left {
-            width: 100px;
-            bottom: 5%;
-            left: -15%;
-            animation: chestFloat 5s ease-in-out infinite;
-        }
-
-        @keyframes chestFloat {
-            0%, 100% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-10px) rotate(-3deg); }
-        }
-
-        /* Money Bag */
-        .money-bag {
-            position: absolute;
-            width: 55px;
+            height: 20px;
             bottom: 8%;
-            right: -5%;
-            animation: bagFloat 4.5s ease-in-out infinite 0.3s;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4));
+            left: 10%;
         }
 
-        @keyframes bagFloat {
-            0%, 100% { transform: translateY(0) rotate(5deg); }
-            50% { transform: translateY(-12px) rotate(8deg); }
+        .ground-shadow-2 {
+            width: 60px;
+            height: 15px;
+            bottom: 12%;
+            right: 15%;
         }
 
-        /* Floating Gems */
-        .floating-gem {
+        .ground-shadow-3 {
+            width: 50px;
+            height: 12px;
+            bottom: 6%;
+            right: 35%;
+        }
+
+        /* Left Side Illustration - Vault/Safe with coins */
+        .illustration-left {
             position: absolute;
-            filter: drop-shadow(0 3px 10px rgba(0,0,0,0.3));
+            left: -5%;
+            bottom: 5%;
+            width: 140px;
+            z-index: 10;
+            animation: floatLeft 4s ease-in-out infinite;
         }
 
-        .gem-1 {
-            width: 30px;
-            top: 8%;
-            left: 12%;
-            animation: gemFloat 4s ease-in-out infinite;
+        @keyframes floatLeft {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        .gem-2 {
-            width: 25px;
-            top: 25%;
-            right: 8%;
-            animation: gemFloat 3.5s ease-in-out infinite 0.5s;
+        /* Right Side Illustration - Percentage Wheel */
+        .illustration-right {
+            position: absolute;
+            right: -8%;
+            bottom: 8%;
+            width: 150px;
+            z-index: 10;
+            animation: floatRight 4.5s ease-in-out infinite 0.5s;
         }
 
-        @keyframes gemFloat {
+        @keyframes floatRight {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Poker Chips scattered on ground */
+        .poker-chip {
+            position: absolute;
+            z-index: 3;
+        }
+
+        .chip-1 { width: 35px; bottom: 4%; left: 20%; }
+        .chip-2 { width: 28px; bottom: 6%; left: 35%; }
+        .chip-3 { width: 32px; bottom: 3%; right: 25%; }
+        .chip-4 { width: 25px; bottom: 8%; right: 40%; }
+        .chip-5 { width: 22px; bottom: 2%; left: 55%; }
+
+        /* Floating coins */
+        .float-coin {
+            position: absolute;
+            z-index: 5;
+        }
+
+        .coin-1 { width: 30px; top: 15%; left: 15%; animation: coinBob 3s ease-in-out infinite; }
+        .coin-2 { width: 25px; top: 25%; right: 20%; animation: coinBob 3.5s ease-in-out infinite 0.5s; }
+        .coin-3 { width: 20px; top: 40%; left: 8%; animation: coinBob 4s ease-in-out infinite 1s; }
+        .coin-4 { width: 22px; bottom: 35%; right: 10%; animation: coinBob 3.2s ease-in-out infinite 0.3s; }
+
+        @keyframes coinBob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        /* Dice */
+        .float-dice {
+            position: absolute;
+            z-index: 5;
+        }
+
+        .dice-1 { width: 28px; top: 20%; right: 12%; animation: diceFloat 5s ease-in-out infinite; }
+        .dice-2 { width: 24px; bottom: 40%; left: 12%; animation: diceFloat 4.5s ease-in-out infinite 1s; }
+
+        @keyframes diceFloat {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-8px) rotate(10deg); }
+            25% { transform: translateY(-10px) rotate(15deg); }
             50% { transform: translateY(-5px) rotate(0deg); }
             75% { transform: translateY(-12px) rotate(-10deg); }
         }
 
-        /* Floating Percentage Symbols */
-        .floating-percent {
+        /* Sparkle stars */
+        .sparkle-star {
             position: absolute;
+            z-index: 6;
         }
 
-        .percent-1 {
-            width: 35px;
-            top: 18%;
-            right: 18%;
-            animation: percentFloat 5s ease-in-out infinite;
+        .star-1 { width: 16px; top: 10%; left: 25%; animation: twinkle 2s ease-in-out infinite; }
+        .star-2 { width: 12px; top: 8%; right: 30%; animation: twinkle 2.5s ease-in-out infinite 0.3s; }
+        .star-3 { width: 14px; top: 30%; left: 5%; animation: twinkle 1.8s ease-in-out infinite 0.6s; }
+        .star-4 { width: 10px; top: 18%; right: 5%; animation: twinkle 2.2s ease-in-out infinite 0.9s; }
+        .star-5 { width: 8px; bottom: 50%; left: 30%; animation: twinkle 2s ease-in-out infinite 1.2s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
-        .percent-2 {
-            width: 28px;
-            bottom: 35%;
-            left: 8%;
-            animation: percentFloat 4.5s ease-in-out infinite 1s;
-        }
-
-        @keyframes percentFloat {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
-            50% { transform: translateY(-15px) scale(1.1); opacity: 0.8; }
-        }
-
-        /* Dollar Bills */
-        .dollar-bill {
+        /* Small decorative elements */
+        .deco-plus {
             position: absolute;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+            font-weight: bold;
+            z-index: 4;
         }
 
-        .bill-1 {
-            width: 55px;
-            top: 12%;
-            left: 3%;
-            animation: billFloat 6s ease-in-out infinite;
-            transform: rotate(-15deg);
-        }
+        .plus-1 { top: 25%; right: 25%; }
+        .plus-2 { top: 50%; left: 20%; }
+        .plus-3 { bottom: 45%; right: 18%; }
 
-        .bill-2 {
-            width: 45px;
-            bottom: 30%;
-            right: 2%;
-            animation: billFloat 5.5s ease-in-out infinite 1s;
-            transform: rotate(20deg);
-        }
-
-        @keyframes billFloat {
-            0%, 100% { transform: translateY(0) rotate(-15deg); }
-            25% { transform: translateY(-10px) rotate(-10deg); }
-            50% { transform: translateY(-5px) rotate(-18deg); }
-            75% { transform: translateY(-15px) rotate(-12deg); }
-        }
-
-        /* Golden Confetti/Particles */
-        .confetti {
+        .deco-diamond {
             position: absolute;
             width: 8px;
             height: 8px;
-            background: linear-gradient(135deg, #FFE55C 0%, #fbce04 100%);
-            border-radius: 2px;
+            background: rgba(255,255,255,0.3);
+            transform: rotate(45deg);
+            z-index: 4;
         }
 
-        .confetti-1 { top: 20%; left: 18%; animation: confettiFall 4s ease-in-out infinite; transform: rotate(45deg); }
-        .confetti-2 { top: 35%; right: 22%; animation: confettiFall 4.5s ease-in-out infinite 0.3s; transform: rotate(-30deg); background: linear-gradient(135deg, #F5F5F5 0%, #C0C0C0 100%); }
-        .confetti-3 { top: 55%; left: 6%; animation: confettiFall 5s ease-in-out infinite 0.6s; transform: rotate(60deg); }
-        .confetti-4 { bottom: 40%; right: 6%; animation: confettiFall 4.2s ease-in-out infinite 0.9s; transform: rotate(-45deg); background: linear-gradient(135deg, #E8A050 0%, #CD7F32 100%); }
-        .confetti-5 { top: 10%; right: 30%; animation: confettiFall 5.5s ease-in-out infinite 1.2s; transform: rotate(30deg); width: 6px; height: 6px; }
-        .confetti-6 { bottom: 25%; left: 22%; animation: confettiFall 4.8s ease-in-out infinite 0.5s; transform: rotate(-60deg); width: 10px; height: 10px; }
+        .diamond-1 { top: 35%; left: 10%; }
+        .diamond-2 { top: 15%; right: 15%; }
+        .diamond-3 { bottom: 55%; left: 25%; }
 
-        @keyframes confettiFall {
-            0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
-            25% { transform: translateY(10px) rotate(90deg); opacity: 1; }
-            50% { transform: translateY(5px) rotate(135deg); opacity: 0.8; }
-            75% { transform: translateY(15px) rotate(180deg); opacity: 1; }
-        }
-
-        /* Adjust coin stacks for better positioning */
-        .coin-stack-left {
-            position: absolute;
-            bottom: 15%;
-            left: -8%;
-            width: 70px;
-            animation: stackFloat 4s ease-in-out infinite;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4));
-        }
-
-        .coin-stack-right {
-            position: absolute;
-            bottom: 20%;
-            right: -10%;
-            width: 60px;
-            animation: stackFloat 4.5s ease-in-out infinite 0.5s;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4));
-        }
-
-        /* Top accent line */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg,
-                transparent 0%,
-                #cd7f32 15%,
-                var(--primary) 50%,
-                #c0c0c0 85%,
-                transparent 100%);
-            z-index: 5;
-        }
-
+        /* Hero Content */
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 20;
             text-align: center;
-            width: 100%;
-            max-width: 400px;
+            max-width: 340px;
         }
 
-        /* Badge with glow */
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: rgba(251, 206, 4, 0.12);
-            border: 1px solid rgba(251, 206, 4, 0.4);
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(251, 206, 4, 0.5);
             border-radius: 100px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(251, 206, 4, 0.15);
+            margin-bottom: 16px;
         }
 
         .hero-badge-dot {
@@ -737,12 +348,11 @@
             background: var(--primary);
             border-radius: 50%;
             animation: pulse 1.5s ease-in-out infinite;
-            box-shadow: 0 0 10px var(--primary);
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px var(--primary); }
-            50% { opacity: 0.8; transform: scale(0.9); box-shadow: 0 0 5px var(--primary); }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.8); }
         }
 
         .hero-badge-text {
@@ -753,50 +363,51 @@
             letter-spacing: 2px;
         }
 
-        /* Title */
         .hero-title {
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 42px;
-            line-height: 1;
+            font-size: 38px;
             color: var(--white);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+        }
+
+        .hero-percentage {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 1;
+            background: linear-gradient(180deg, #FFE55C 0%, #fbce04 50%, #D4A000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+            text-shadow: 0 4px 30px rgba(251, 206, 4, 0.5);
         }
 
         .hero-subtitle {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 1.4;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
         }
 
-        .hero-description {
-            display: none;
-        }
-
-        /* Hero Tiers - Vibrant */
+        /* Hero Tiers */
         .hero-tiers {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 20px;
             width: 100%;
         }
 
         .hero-tier {
             flex: 1;
-            padding: 14px 10px;
-            border-radius: 16px;
+            padding: 12px 8px;
+            border-radius: 14px;
             text-align: center;
             display: flex;
             flex-direction: column;
             gap: 2px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s;
         }
 
         .hero-tier:hover {
@@ -804,56 +415,32 @@
         }
 
         .hero-tier.bronze {
-            background: linear-gradient(135deg, rgba(205, 127, 50, 0.2) 0%, rgba(205, 127, 50, 0.08) 100%);
-            border: 1px solid rgba(205, 127, 50, 0.5);
-            box-shadow: 0 4px 20px rgba(205, 127, 50, 0.15);
-        }
-
-        .hero-tier.bronze:hover {
-            box-shadow: 0 6px 25px rgba(205, 127, 50, 0.25);
+            background: rgba(205, 127, 50, 0.25);
+            border: 1px solid rgba(205, 127, 50, 0.6);
         }
 
         .hero-tier.silver {
-            background: linear-gradient(135deg, rgba(192, 192, 192, 0.18) 0%, rgba(192, 192, 192, 0.06) 100%);
-            border: 1px solid rgba(192, 192, 192, 0.45);
-            box-shadow: 0 4px 20px rgba(192, 192, 192, 0.12);
-        }
-
-        .hero-tier.silver:hover {
-            box-shadow: 0 6px 25px rgba(192, 192, 192, 0.2);
+            background: rgba(192, 192, 192, 0.2);
+            border: 1px solid rgba(192, 192, 192, 0.5);
         }
 
         .hero-tier.gold {
-            background: linear-gradient(135deg, rgba(251, 206, 4, 0.22) 0%, rgba(251, 206, 4, 0.08) 100%);
-            border: 1px solid rgba(251, 206, 4, 0.55);
-            box-shadow: 0 4px 20px rgba(251, 206, 4, 0.2);
+            background: rgba(251, 206, 4, 0.25);
+            border: 1px solid rgba(251, 206, 4, 0.6);
         }
 
-        .hero-tier.gold:hover {
-            box-shadow: 0 6px 25px rgba(251, 206, 4, 0.3);
-        }
-
-        /* Tier icon */
         .hero-tier-icon {
-            width: 28px;
-            height: 28px;
-            margin: 0 auto 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-tier-icon svg {
             width: 24px;
             height: 24px;
+            margin: 0 auto 2px;
         }
 
-        .hero-tier.bronze .hero-tier-icon svg { color: #e8a050; }
-        .hero-tier.silver .hero-tier-icon svg { color: #e0e0e0; }
-        .hero-tier.gold .hero-tier-icon svg { color: var(--primary); }
+        .hero-tier.bronze .hero-tier-icon { color: #e8a050; }
+        .hero-tier.silver .hero-tier-icon { color: #e0e0e0; }
+        .hero-tier.gold .hero-tier-icon { color: var(--primary); }
 
         .hero-tier-label {
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -866,164 +453,97 @@
         .hero-tier-percent {
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 28px;
+            font-size: 24px;
             line-height: 1;
         }
 
-        .hero-tier.bronze .hero-tier-percent {
-            background: linear-gradient(180deg, #e8a050 0%, #cd7f32 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-tier.silver .hero-tier-percent {
-            background: linear-gradient(180deg, #f0f0f0 0%, #c0c0c0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-tier.gold .hero-tier-percent {
-            background: linear-gradient(180deg, #FFE55C 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .hero-tier.bronze .hero-tier-percent { color: #e8a050; }
+        .hero-tier.silver .hero-tier-percent { color: #e0e0e0; }
+        .hero-tier.gold .hero-tier-percent { color: var(--primary); }
 
         .hero-tier-range {
-            font-size: 10px;
-            font-weight: 500;
-            color: var(--text-muted);
-            margin-top: 2px;
+            font-size: 9px;
+            color: rgba(255,255,255,0.6);
         }
 
-        .usdt-badge {
+        /* Info box */
+        .hero-info-box {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: rgba(38, 161, 123, 0.15);
-            border: 1px solid rgba(38, 161, 123, 0.4);
-            border-radius: 100px;
-            margin-bottom: 24px;
+            gap: 16px;
+            padding: 12px 20px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
         }
 
-        .usdt-icon {
-            width: 20px;
-            height: 20px;
-            background: #26a17b;
-            border-radius: 50%;
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            font-weight: 700;
-            color: white;
         }
 
-        .usdt-text {
-            font-size: 13px;
-            font-weight: 700;
-            color: #4ecda9;
+        .info-icon.green { background: rgba(14, 204, 104, 0.2); color: var(--green); }
+        .info-icon.orange { background: rgba(245, 132, 31, 0.2); color: var(--orange); }
+
+        .info-text {
+            text-align: left;
         }
 
-        /* CTA */
-        .hero-cta {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+        .info-label {
+            font-size: 9px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
         }
 
+        .info-value {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .info-divider {
+            width: 1px;
+            height: 30px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* CTA Button */
         .btn-claim {
-            width: 100%;
-            max-width: 280px;
-            padding: 16px 36px;
+            display: inline-block;
+            padding: 16px 40px;
             border-radius: 14px;
             background: linear-gradient(135deg, #FFE55C 0%, var(--primary) 50%, #D4A000 100%);
-            border: none;
             font-family: 'Gilroy', sans-serif;
             font-weight: 800;
             font-size: 15px;
             color: #0a0a0f;
-            cursor: pointer;
-            transition: all 0.3s;
             text-decoration: none;
-            display: inline-block;
-            text-align: center;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(251, 206, 4, 0.35);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-claim::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-claim:hover::before {
-            left: 100%;
+            box-shadow: 0 4px 25px rgba(251, 206, 4, 0.4);
+            transition: all 0.3s;
         }
 
         .btn-claim:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 30px rgba(251, 206, 4, 0.5);
+            box-shadow: 0 8px 35px rgba(251, 206, 4, 0.5);
         }
 
-        .min-max-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 10px 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .min-max-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .min-max-label {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        .min-max-value {
-            font-size: 14px;
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        .min-max-divider {
-            width: 1px;
-            height: 18px;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Tiers Section - Premium */
-        .tiers-section {
+        /* Steps Section */
+        .steps-section {
             padding: 16px;
             margin-top: 32px;
-        }
-
-        .tiers-section .section-header {
-            text-align: center;
-            justify-content: center;
-            margin-bottom: 24px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
         }
 
         .section-title {
@@ -1031,278 +551,6 @@
             font-weight: 700;
             font-size: 18px;
             color: var(--text-primary);
-        }
-
-        .tiers-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .tier-card {
-            position: relative;
-            padding: 24px 20px;
-            border-radius: 18px;
-            background: var(--tier-bg);
-            border: 1px solid var(--tier-border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.2s ease;
-            overflow: hidden;
-        }
-
-        .tier-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--tier-color);
-        }
-
-        .tier-card:hover {
-            transform: translateX(4px);
-            background: var(--tier-bg-hover);
-        }
-
-        .tier-card.tier-1 {
-            --tier-color: #cd7f32;
-            --tier-bg: rgba(205, 127, 50, 0.15);
-            --tier-bg-hover: rgba(205, 127, 50, 0.22);
-            --tier-border: rgba(205, 127, 50, 0.4);
-            --tier-accent: #e8a050;
-        }
-
-        .tier-card.tier-2 {
-            --tier-color: #c0c0c0;
-            --tier-bg: rgba(192, 192, 192, 0.12);
-            --tier-bg-hover: rgba(192, 192, 192, 0.18);
-            --tier-border: rgba(192, 192, 192, 0.35);
-            --tier-accent: #d8d8d8;
-        }
-
-        .tier-card.tier-3 {
-            --tier-color: var(--primary);
-            --tier-bg: rgba(251, 206, 4, 0.15);
-            --tier-bg-hover: rgba(251, 206, 4, 0.22);
-            --tier-border: rgba(251, 206, 4, 0.45);
-            --tier-accent: var(--primary);
-        }
-
-        .tier-info {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tier-icon {
-            width: 36px;
-            height: 36px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            color: var(--tier-accent);
-            margin-bottom: 4px;
-        }
-
-        .tier-icon svg {
-            width: 32px;
-            height: 32px;
-        }
-
-        .tier-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--tier-accent);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .tier-label::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--tier-accent);
-        }
-
-        .tier-range {
-            font-family: 'Gilroy', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .tier-description {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .tier-percentage {
-            position: relative;
-            z-index: 1;
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 900;
-            font-size: 28px;
-            color: var(--tier-accent);
-        }
-
-        /* How It Works Section - Simplified */
-        .how-section {
-            padding: 16px;
-            margin-top: 32px;
-        }
-
-        .how-container {
-            background: var(--elevation);
-            border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            padding: 24px 20px;
-        }
-
-        .how-title {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--text-primary);
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        /* Calculation Flow */
-        .calc-flow {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .calc-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .calc-label {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .calc-value {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 800;
-            font-size: 20px;
-            color: var(--text-primary);
-        }
-
-        .calc-value.green {
-            color: var(--green);
-        }
-
-        .calc-value.orange {
-            color: var(--orange);
-        }
-
-        .calc-value.gold {
-            color: var(--primary);
-        }
-
-        .calc-op {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 600;
-            font-size: 18px;
-            color: var(--text-muted);
-            padding: 0 2px;
-            margin-top: 14px;
-        }
-
-        /* Result */
-        .calc-result {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
-            background: rgba(14, 204, 104, 0.12);
-            border-radius: 12px;
-            border: 1px solid rgba(14, 204, 104, 0.25);
-        }
-
-        .calc-result-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .calc-result-value {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 900;
-            font-size: 28px;
-            color: var(--green);
-        }
-
-
-        /* Minimum Notice */
-        .min-notice {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 16px;
-            padding: 14px 16px;
-            background: rgba(251, 206, 4, 0.06);
-            border-radius: 12px;
-            border: 1px solid rgba(251, 206, 4, 0.12);
-        }
-
-        .min-notice-icon {
-            width: 32px;
-            height: 32px;
-            background: rgba(251, 206, 4, 0.15);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .min-notice-icon svg {
-            width: 16px;
-            height: 16px;
-            color: var(--primary);
-        }
-
-        .min-notice-text {
-            font-size: 13px;
-            line-height: 1.5;
-            color: var(--text-secondary);
-        }
-
-        .min-notice-text strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Steps Section */
-        /* Steps Section - Premium */
-        .steps-section {
-            padding: 16px;
-            margin-top: 32px;
-        }
-
-        .steps-section .section-title {
             text-align: center;
             margin-bottom: 20px;
         }
@@ -1314,7 +562,6 @@
         }
 
         .step-card {
-            position: relative;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -1322,30 +569,6 @@
             border-radius: 16px;
             border: 1px solid rgba(251, 206, 4, 0.15);
             padding: 20px;
-            transition: all 0.2s;
-            overflow: hidden;
-        }
-
-        .step-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--primary);
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .step-card:hover {
-            background: rgba(251, 206, 4, 0.1);
-            border-color: rgba(251, 206, 4, 0.25);
-            transform: translateX(4px);
-        }
-
-        .step-card:hover::before {
-            opacity: 1;
         }
 
         .step-number {
@@ -1372,18 +595,134 @@
             font-size: 15px;
             font-weight: 700;
             color: var(--text-primary);
-            line-height: 1.4;
             margin-bottom: 4px;
         }
 
         .step-desc {
             font-size: 13px;
             color: var(--text-muted);
-            line-height: 1.4;
         }
 
+        /* How It Works */
+        .how-section {
+            padding: 16px;
+            margin-top: 32px;
+        }
 
-        /* V2 Accordion */
+        .how-container {
+            background: var(--elevation);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 24px 20px;
+        }
+
+        .how-title {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .calc-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .calc-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .calc-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .calc-value {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--text-primary);
+        }
+
+        .calc-value.green { color: var(--green); }
+        .calc-value.orange { color: var(--orange); }
+        .calc-value.gold { color: var(--primary); }
+
+        .calc-op {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-top: 14px;
+        }
+
+        .calc-result {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background: rgba(14, 204, 104, 0.12);
+            border-radius: 12px;
+            border: 1px solid rgba(14, 204, 104, 0.25);
+        }
+
+        .calc-result-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .calc-result-value {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--green);
+        }
+
+        .min-notice {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            padding: 14px 16px;
+            background: rgba(251, 206, 4, 0.06);
+            border-radius: 12px;
+            border: 1px solid rgba(251, 206, 4, 0.12);
+        }
+
+        .min-notice-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(251, 206, 4, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary);
+        }
+
+        .min-notice-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .min-notice-text strong {
+            color: var(--primary);
+        }
+
+        /* Accordion */
         .accordion-section-v2 {
             padding: 16px;
             margin-top: 32px;
@@ -1408,11 +747,6 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .accordion-header-v2:hover {
-            background: var(--elevation-dark);
         }
 
         .accordion-title-v2 {
@@ -1441,10 +775,6 @@
 
         .accordion-item-v2.open .accordion-content-v2 {
             max-height: 1000px;
-        }
-
-        .accordion-item-v2.open .accordion-header-v2:hover {
-            background: transparent;
         }
 
         .accordion-body-v2 {
@@ -1484,7 +814,6 @@
             font-size: 13px;
             font-weight: 500;
             color: var(--text-primary);
-            line-height: 1.5;
             margin: 0;
         }
 
@@ -1519,7 +848,6 @@
         .important-notice-v2 p {
             font-size: 12px;
             color: var(--primary);
-            line-height: 1.6;
             margin: 0;
         }
 
@@ -1549,13 +877,10 @@
 
         .footer-desc {
             font-size: 13px;
-            line-height: 1.6;
             color: rgba(255, 255, 255, 0.5);
         }
 
         .footer-section h4 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
             font-size: 11px;
             color: rgba(255, 255, 255, 0.45);
             text-transform: uppercase;
@@ -1578,12 +903,6 @@
             justify-content: center;
             color: var(--text-primary);
             text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .social-icon:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
         }
 
         .footer-nav {
@@ -1596,11 +915,6 @@
             font-size: 13px;
             color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-nav a:hover {
-            color: var(--primary);
         }
 
         .footer-bottom {
@@ -1618,129 +932,25 @@
         @media (min-width: 768px) {
             .hero {
                 margin: 0 24px;
-                padding: 64px 40px;
-                min-height: 600px;
+                min-height: 550px;
             }
 
             .hero-title {
-                font-size: 72px;
+                font-size: 48px;
             }
 
-            .hero-subtitle {
-                font-size: 24px;
-            }
-
-            .cashback-percentage {
+            .hero-percentage {
                 font-size: 100px;
             }
 
-            .tiers-section,
-            .how-section,
-            .steps-section {
-                padding: 24px;
+            .illustration-left {
+                width: 200px;
+                left: 2%;
             }
 
-            .tiers-grid {
-                flex-direction: row;
-                gap: 16px;
-            }
-
-            .tier-card {
-                flex: 1;
-                flex-direction: column;
-                text-align: center;
-                gap: 16px;
-                padding: 28px 24px;
-                min-height: 220px;
-                justify-content: center;
-            }
-
-            .tier-card::before {
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: auto;
-                width: auto;
-                height: 4px;
-                border-radius: 18px 18px 0 0;
-            }
-
-            .tier-info {
-                align-items: center;
-            }
-
-            .tier-icon {
-                display: flex;
-                width: 48px;
-                height: 48px;
-                margin-bottom: 8px;
-            }
-
-            .tier-icon svg {
-                width: 44px;
-                height: 44px;
-            }
-
-            .tier-label::before {
-                display: none;
-            }
-
-            .tier-percentage {
-                font-size: 36px;
-                margin-top: 8px;
-            }
-
-            .tier-range {
-                font-size: 15px;
-            }
-
-            .tier-description {
-                font-size: 11px;
-            }
-
-            .footer {
-                padding: 32px 24px;
-            }
-
-            .footer-content {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-
-            .footer-brand {
-                flex: 1 1 100%;
-            }
-
-            .footer-section {
-                flex: 1 1 calc(50% - 12px);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero {
-                margin: 0 48px;
-            }
-
-            .hero-title {
-                font-size: 80px;
-            }
-
-            .tiers-section,
-            .how-section,
-            .steps-section {
-                padding: 24px 48px;
-            }
-
-            .footer {
-                padding: 32px 48px;
-            }
-
-            .footer-brand {
-                flex: 1 1 40%;
-            }
-
-            .footer-section {
-                flex: 1 1 25%;
+            .illustration-right {
+                width: 220px;
+                right: 0%;
             }
         }
     </style>
@@ -1766,314 +976,279 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
-        <div class="mobile-nav-content">
-            <div class="mobile-nav-header">
-                <div class="logo">
-                    <img src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/28e80ddd-016c-49ac-a5b4-368f8c150fc7" alt="MYBC" class="logo-img">
-                </div>
-                <button class="close-nav" id="closeNav">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="mobile-nav-items">
-                <a href="#" class="mobile-nav-item active">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    <span>Casino</span>
-                </a>
-                <a href="#" class="mobile-nav-item">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6h-7.59l3.29-3.29L16 2l-4 4-4-4-.71.71L10.59 6H3c-1.1 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.11-.9-2-2-2zm0 14H3V8h18v12zM9 10v8l7-4z"/></svg>
-                    <span>Live Casino</span>
-                </a>
-                <a href="#" class="mobile-nav-item highlight">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/></svg>
-                    <span>Promotions</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section with Full Illustration -->
         <section class="hero">
-            <!-- Full Illustrated Composition -->
-            <div class="hero-illustration">
-                <!-- SVG Definitions -->
-                <svg style="position:absolute;width:0;height:0;">
+            <!-- Background -->
+            <div class="hero-bg"></div>
+
+            <!-- Mountain/Wave Landscape -->
+            <div class="hero-landscape">
+                <svg viewBox="0 0 400 200" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Back mountain layer -->
+                    <path d="M0 80 Q50 40 100 70 Q150 100 200 60 Q250 20 300 50 Q350 80 400 40 L400 200 L0 200 Z" fill="#6B3FA0" opacity="0.6"/>
+                    <!-- Middle mountain layer -->
+                    <path d="M0 120 Q60 80 120 100 Q180 120 240 90 Q300 60 360 100 Q400 130 400 110 L400 200 L0 200 Z" fill="#7B52B8" opacity="0.8"/>
+                    <!-- Front ground layer -->
+                    <path d="M0 160 Q80 140 160 155 Q240 170 320 145 Q380 130 400 150 L400 200 L0 200 Z" fill="#8B63C8"/>
+                    <!-- Very front wavy ground -->
+                    <path d="M0 180 Q100 165 200 175 Q300 185 400 170 L400 200 L0 200 Z" fill="#9B73D8"/>
+                </svg>
+            </div>
+
+            <!-- Ground shadows -->
+            <div class="ground-shadow ground-shadow-1"></div>
+            <div class="ground-shadow ground-shadow-2"></div>
+            <div class="ground-shadow ground-shadow-3"></div>
+
+            <!-- LEFT SIDE: Vault/Safe with Coins spilling out -->
+            <div class="illustration-left">
+                <svg viewBox="0 0 180 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Safe/Vault Body -->
+                    <rect x="20" y="50" width="120" height="130" rx="10" fill="#1a1a2e" stroke="#2d2d44" stroke-width="3"/>
+                    <!-- Safe door frame -->
+                    <rect x="30" y="60" width="100" height="110" rx="6" fill="#252540" stroke="#3d3d5c" stroke-width="2"/>
+                    <!-- Handle/Wheel -->
+                    <circle cx="105" cy="115" r="25" fill="#333355" stroke="#4a4a6a" stroke-width="3"/>
+                    <circle cx="105" cy="115" r="18" fill="#252540" stroke="#4a4a6a" stroke-width="2"/>
+                    <!-- Handle spokes -->
+                    <line x1="105" y1="97" x2="105" y2="133" stroke="#fbce04" stroke-width="3"/>
+                    <line x1="87" y1="115" x2="123" y2="115" stroke="#fbce04" stroke-width="3"/>
+                    <!-- Keyhole -->
+                    <circle cx="55" cy="115" r="8" fill="#1a1a2e"/>
+                    <rect x="52" y="115" width="6" height="12" fill="#1a1a2e"/>
+                    <!-- Digital display -->
+                    <rect x="40" y="70" width="50" height="20" rx="3" fill="#0a2a1a"/>
+                    <text x="65" y="85" text-anchor="middle" fill="#0ecc68" font-family="monospace" font-size="12" font-weight="bold">$$$$</text>
+                    <!-- Legs -->
+                    <rect x="25" y="180" width="15" height="15" rx="2" fill="#1a1a2e"/>
+                    <rect x="120" y="180" width="15" height="15" rx="2" fill="#1a1a2e"/>
+
+                    <!-- Coins spilling out from safe -->
+                    <circle cx="45" cy="40" r="18" fill="url(#goldGradVault)" stroke="#C9A000" stroke-width="2"/>
+                    <text x="45" y="46" text-anchor="middle" fill="#8B7500" font-family="Arial" font-size="16" font-weight="bold">$</text>
+
+                    <circle cx="80" cy="30" r="15" fill="url(#goldGradVault)" stroke="#C9A000" stroke-width="2"/>
+                    <text x="80" y="35" text-anchor="middle" fill="#8B7500" font-family="Arial" font-size="14" font-weight="bold">$</text>
+
+                    <circle cx="115" cy="38" r="16" fill="url(#silverGradVault)" stroke="#909090" stroke-width="2"/>
+                    <text x="115" y="44" text-anchor="middle" fill="#606060" font-family="Arial" font-size="14" font-weight="bold">$</text>
+
+                    <circle cx="145" cy="50" r="12" fill="url(#bronzeGradVault)" stroke="#8B5A2B" stroke-width="2"/>
+                    <text x="145" y="55" text-anchor="middle" fill="#5C3D1E" font-family="Arial" font-size="10" font-weight="bold">$</text>
+
+                    <!-- More coins near base -->
+                    <circle cx="150" cy="175" r="14" fill="url(#goldGradVault)" stroke="#C9A000" stroke-width="2"/>
+                    <circle cx="165" cy="185" r="10" fill="url(#goldGradVault)" stroke="#C9A000" stroke-width="2"/>
+
                     <defs>
-                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="goldGradVault" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#FFE55C"/>
                             <stop offset="50%" stop-color="#fbce04"/>
                             <stop offset="100%" stop-color="#C9A000"/>
                         </linearGradient>
-                        <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#FFF8DC" stop-opacity="0.8"/>
-                            <stop offset="50%" stop-color="#FFE55C" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="silverGradVault" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#F5F5F5"/>
                             <stop offset="50%" stop-color="#C0C0C0"/>
                             <stop offset="100%" stop-color="#909090"/>
                         </linearGradient>
-                        <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="bronzeGradVault" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#E8A050"/>
                             <stop offset="50%" stop-color="#CD7F32"/>
                             <stop offset="100%" stop-color="#8B5A2B"/>
                         </linearGradient>
-                        <linearGradient id="chestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#8B5A2B"/>
-                            <stop offset="50%" stop-color="#654321"/>
-                            <stop offset="100%" stop-color="#3E2723"/>
-                        </linearGradient>
-                        <filter id="coinGlow" x="-50%" y="-50%" width="200%" height="200%">
-                            <feGaussianBlur stdDeviation="3" result="blur"/>
-                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
                     </defs>
                 </svg>
-
-                <!-- Light rays from bottom -->
-                <div class="hero-rays"></div>
-
-                <!-- Glowing orbs -->
-                <div class="glow-orb glow-orb-1"></div>
-                <div class="glow-orb glow-orb-2"></div>
-                <div class="glow-orb glow-orb-3"></div>
-
-                <!-- Sparkles -->
-                <div class="hero-sparkle sparkle-1"></div>
-                <div class="hero-sparkle sparkle-2"></div>
-                <div class="hero-sparkle sparkle-3"></div>
-                <div class="hero-sparkle sparkle-4"></div>
-                <div class="hero-sparkle sparkle-5"></div>
-                <div class="hero-sparkle sparkle-6"></div>
-                <div class="hero-sparkle sparkle-7"></div>
-                <div class="hero-sparkle sparkle-8"></div>
-
-                <!-- Star sparkles (4-point) -->
-                <div class="hero-star star-1"></div>
-                <div class="hero-star star-2"></div>
-                <div class="hero-star star-3"></div>
-                <div class="hero-star star-4"></div>
-
-                <!-- Treasure Chest Left -->
-                <div class="treasure-chest chest-left">
-                    <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Chest body -->
-                        <rect x="10" y="45" width="100" height="50" rx="5" fill="url(#chestGrad)" stroke="#2E1810" stroke-width="2"/>
-                        <!-- Chest lid -->
-                        <path d="M10 45 Q60 10 110 45" fill="#654321" stroke="#2E1810" stroke-width="2"/>
-                        <!-- Metal bands -->
-                        <rect x="8" y="55" width="104" height="8" fill="#C9A000" opacity="0.8"/>
-                        <rect x="8" y="80" width="104" height="8" fill="#C9A000" opacity="0.8"/>
-                        <!-- Lock -->
-                        <circle cx="60" cy="65" r="10" fill="#C9A000" stroke="#8B7500" stroke-width="2"/>
-                        <rect x="56" y="62" width="8" height="10" fill="#8B7500"/>
-                        <!-- Coins spilling out -->
-                        <circle cx="25" cy="38" r="12" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="1.5"/>
-                        <circle cx="45" cy="32" r="10" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="1.5"/>
-                        <circle cx="70" cy="35" r="11" fill="url(#silverGrad)" stroke="#909090" stroke-width="1.5"/>
-                        <circle cx="90" cy="40" r="9" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="1.5"/>
-                        <!-- Sparkle on chest -->
-                        <circle cx="30" cy="60" r="2" fill="white" opacity="0.8"/>
-                    </svg>
-                </div>
-
-                <!-- Coin Stack Left -->
-                <div class="coin-stack-left">
-                    <svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Stack of coins (ellipses for 3D effect) -->
-                        <ellipse cx="40" cy="110" rx="35" ry="8" fill="#8B5A2B"/>
-                        <ellipse cx="40" cy="105" rx="35" ry="8" fill="url(#bronzeGrad)"/>
-                        <ellipse cx="40" cy="100" rx="35" ry="8" fill="#8B5A2B"/>
-                        <ellipse cx="40" cy="95" rx="35" ry="8" fill="url(#bronzeGrad)"/>
-                        <ellipse cx="40" cy="90" rx="35" ry="8" fill="#909090"/>
-                        <ellipse cx="40" cy="85" rx="35" ry="8" fill="url(#silverGrad)"/>
-                        <ellipse cx="40" cy="80" rx="35" ry="8" fill="#909090"/>
-                        <ellipse cx="40" cy="75" rx="35" ry="8" fill="url(#silverGrad)"/>
-                        <ellipse cx="40" cy="70" rx="35" ry="8" fill="#C9A000"/>
-                        <ellipse cx="40" cy="65" rx="35" ry="8" fill="url(#goldGrad)"/>
-                        <ellipse cx="40" cy="60" rx="35" ry="8" fill="#C9A000"/>
-                        <ellipse cx="40" cy="55" rx="35" ry="8" fill="url(#goldGrad)"/>
-                        <!-- Shine on top coin -->
-                        <ellipse cx="30" cy="52" rx="10" ry="4" fill="white" opacity="0.3"/>
-                        <!-- Dollar sign on top -->
-                        <text x="40" y="60" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="14" font-weight="900">$</text>
-                    </svg>
-                </div>
-
-                <!-- Coin Stack Right -->
-                <div class="coin-stack-right">
-                    <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Stack of coins -->
-                        <ellipse cx="40" cy="92" rx="32" ry="7" fill="#C9A000"/>
-                        <ellipse cx="40" cy="87" rx="32" ry="7" fill="url(#goldGrad)"/>
-                        <ellipse cx="40" cy="82" rx="32" ry="7" fill="#C9A000"/>
-                        <ellipse cx="40" cy="77" rx="32" ry="7" fill="url(#goldGrad)"/>
-                        <ellipse cx="40" cy="72" rx="32" ry="7" fill="#C9A000"/>
-                        <ellipse cx="40" cy="67" rx="32" ry="7" fill="url(#goldGrad)"/>
-                        <ellipse cx="40" cy="62" rx="32" ry="7" fill="#909090"/>
-                        <ellipse cx="40" cy="57" rx="32" ry="7" fill="url(#silverGrad)"/>
-                        <ellipse cx="40" cy="52" rx="32" ry="7" fill="#909090"/>
-                        <ellipse cx="40" cy="47" rx="32" ry="7" fill="url(#silverGrad)"/>
-                        <!-- Shine -->
-                        <ellipse cx="30" cy="44" rx="8" ry="3" fill="white" opacity="0.3"/>
-                        <text x="40" y="52" text-anchor="middle" fill="#606060" font-family="Arial Black" font-size="12" font-weight="900">$</text>
-                    </svg>
-                </div>
-
-                <!-- Flying coins with detailed SVGs -->
-                <div class="flying-coin flying-coin-1">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="46" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="3"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="#8B7500" stroke-width="2" stroke-dasharray="6 3"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="32" font-weight="900">$</text>
-                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.4"/>
-                    </svg>
-                </div>
-
-                <div class="flying-coin flying-coin-2">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="46" fill="url(#silverGrad)" stroke="#808080" stroke-width="3"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="#606060" stroke-width="2" stroke-dasharray="6 3"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#606060" font-family="Arial Black" font-size="32" font-weight="900">$</text>
-                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.5"/>
-                    </svg>
-                </div>
-
-                <div class="flying-coin flying-coin-3">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="46" fill="url(#bronzeGrad)" stroke="#8B5A2B" stroke-width="3"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="#5C3D1E" stroke-width="2" stroke-dasharray="6 3"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#5C3D1E" font-family="Arial Black" font-size="32" font-weight="900">$</text>
-                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.3"/>
-                    </svg>
-                </div>
-
-                <div class="flying-coin flying-coin-4">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="46" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="3"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="#8B7500" stroke-width="2" stroke-dasharray="6 3"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="32" font-weight="900">$</text>
-                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.4"/>
-                    </svg>
-                </div>
-
-                <!-- Money bag decoration -->
-                <div class="money-bag">
-                    <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Bag body -->
-                        <path d="M15 40 Q10 70 20 90 Q40 105 60 90 Q70 70 65 40 Q55 35 40 30 Q25 35 15 40Z" fill="#2E7D32" stroke="#1B5E20" stroke-width="2"/>
-                        <!-- Bag top/tie -->
-                        <path d="M25 35 Q30 25 40 22 Q50 25 55 35" fill="#388E3C" stroke="#1B5E20" stroke-width="2"/>
-                        <ellipse cx="40" cy="32" rx="8" ry="4" fill="#C9A000"/>
-                        <!-- Dollar sign -->
-                        <text x="40" y="72" text-anchor="middle" fill="#C9A000" font-family="Arial Black" font-size="28" font-weight="900">$</text>
-                        <!-- Shine -->
-                        <ellipse cx="28" cy="55" rx="6" ry="12" fill="white" opacity="0.15"/>
-                    </svg>
-                </div>
-
-                <!-- Floating diamond/gem -->
-                <div class="floating-gem gem-1">
-                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="30,5 55,25 30,55 5,25" fill="#E91E63" opacity="0.8"/>
-                        <polygon points="30,5 55,25 30,28" fill="#F48FB1"/>
-                        <polygon points="30,5 5,25 30,28" fill="#EC407A"/>
-                        <polygon points="5,25 30,55 30,28" fill="#AD1457"/>
-                        <polygon points="55,25 30,55 30,28" fill="#C2185B"/>
-                    </svg>
-                </div>
-
-                <div class="floating-gem gem-2">
-                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="30,5 55,25 30,55 5,25" fill="#00BCD4" opacity="0.8"/>
-                        <polygon points="30,5 55,25 30,28" fill="#80DEEA"/>
-                        <polygon points="30,5 5,25 30,28" fill="#26C6DA"/>
-                        <polygon points="5,25 30,55 30,28" fill="#00838F"/>
-                        <polygon points="55,25 30,55 30,28" fill="#0097A7"/>
-                    </svg>
-                </div>
-
-                <!-- Percentage symbols floating -->
-                <div class="floating-percent percent-1">
-                    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <text x="25" y="38" text-anchor="middle" fill="#fbce04" font-family="Arial Black" font-size="28" font-weight="900" opacity="0.6">%</text>
-                    </svg>
-                </div>
-                <div class="floating-percent percent-2">
-                    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <text x="25" y="38" text-anchor="middle" fill="#C0C0C0" font-family="Arial Black" font-size="28" font-weight="900" opacity="0.5">%</text>
-                    </svg>
-                </div>
-
-                <!-- Additional flying coins -->
-                <div class="flying-coin flying-coin-5">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="46" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="3"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="#8B7500" stroke-width="2" stroke-dasharray="6 3"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="32" font-weight="900">$</text>
-                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.4"/>
-                    </svg>
-                </div>
-
-                <div class="flying-coin flying-coin-6">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="46" fill="url(#bronzeGrad)" stroke="#8B5A2B" stroke-width="3"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="#5C3D1E" stroke-width="2" stroke-dasharray="6 3"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#5C3D1E" font-family="Arial Black" font-size="32" font-weight="900">$</text>
-                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.3"/>
-                    </svg>
-                </div>
-
-                <!-- Floating dollar bills -->
-                <div class="dollar-bill bill-1">
-                    <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="2" width="96" height="46" rx="4" fill="#2E7D32" stroke="#1B5E20" stroke-width="2"/>
-                        <rect x="8" y="8" width="84" height="34" fill="none" stroke="#4CAF50" stroke-width="1" stroke-dasharray="4 2"/>
-                        <circle cx="50" cy="25" r="12" fill="#388E3C" stroke="#4CAF50" stroke-width="1"/>
-                        <text x="50" y="30" text-anchor="middle" fill="#A5D6A7" font-family="Arial Black" font-size="14" font-weight="900">$</text>
-                        <text x="15" y="20" fill="#A5D6A7" font-family="Arial" font-size="8" font-weight="bold">100</text>
-                        <text x="85" y="40" text-anchor="end" fill="#A5D6A7" font-family="Arial" font-size="8" font-weight="bold">100</text>
-                    </svg>
-                </div>
-
-                <div class="dollar-bill bill-2">
-                    <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="2" width="96" height="46" rx="4" fill="#2E7D32" stroke="#1B5E20" stroke-width="2"/>
-                        <rect x="8" y="8" width="84" height="34" fill="none" stroke="#4CAF50" stroke-width="1" stroke-dasharray="4 2"/>
-                        <circle cx="50" cy="25" r="12" fill="#388E3C" stroke="#4CAF50" stroke-width="1"/>
-                        <text x="50" y="30" text-anchor="middle" fill="#A5D6A7" font-family="Arial Black" font-size="14" font-weight="900">$</text>
-                    </svg>
-                </div>
-
-                <!-- Golden confetti/particles -->
-                <div class="confetti confetti-1"></div>
-                <div class="confetti confetti-2"></div>
-                <div class="confetti confetti-3"></div>
-                <div class="confetti confetti-4"></div>
-                <div class="confetti confetti-5"></div>
-                <div class="confetti confetti-6"></div>
             </div>
 
+            <!-- RIGHT SIDE: Percentage/Prize Wheel -->
+            <div class="illustration-right">
+                <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Stand -->
+                    <rect x="90" y="180" width="20" height="35" fill="#2d2d44"/>
+                    <rect x="70" y="210" width="60" height="10" rx="2" fill="#1a1a2e"/>
+
+                    <!-- Wheel outer ring -->
+                    <circle cx="100" cy="100" r="85" fill="#252540" stroke="#fbce04" stroke-width="4"/>
+
+                    <!-- Wheel segments -->
+                    <path d="M100 100 L100 15 A85 85 0 0 1 173.5 57.5 Z" fill="#E91E63"/>
+                    <path d="M100 100 L173.5 57.5 A85 85 0 0 1 173.5 142.5 Z" fill="#FF9800"/>
+                    <path d="M100 100 L173.5 142.5 A85 85 0 0 1 100 185 Z" fill="#4CAF50"/>
+                    <path d="M100 100 L100 185 A85 85 0 0 1 26.5 142.5 Z" fill="#00BCD4"/>
+                    <path d="M100 100 L26.5 142.5 A85 85 0 0 1 26.5 57.5 Z" fill="#9C27B0"/>
+                    <path d="M100 100 L26.5 57.5 A85 85 0 0 1 100 15 Z" fill="#FFEB3B"/>
+
+                    <!-- Percentage labels on wheel -->
+                    <text x="125" y="50" fill="white" font-family="Arial" font-size="14" font-weight="bold" transform="rotate(30 125 50)">10%</text>
+                    <text x="155" y="100" fill="white" font-family="Arial" font-size="14" font-weight="bold" transform="rotate(90 155 100)">15%</text>
+                    <text x="130" y="155" fill="white" font-family="Arial" font-size="14" font-weight="bold" transform="rotate(150 130 155)">20%</text>
+                    <text x="70" y="160" fill="white" font-family="Arial" font-size="14" font-weight="bold" transform="rotate(210 70 160)">10%</text>
+                    <text x="45" y="105" fill="white" font-family="Arial" font-size="14" font-weight="bold" transform="rotate(270 45 105)">15%</text>
+                    <text x="70" y="50" fill="white" font-family="Arial" font-size="14" font-weight="bold" transform="rotate(330 70 50)">20%</text>
+
+                    <!-- Center hub -->
+                    <circle cx="100" cy="100" r="25" fill="#fbce04" stroke="#C9A000" stroke-width="3"/>
+                    <circle cx="100" cy="100" r="15" fill="#1a1a2e"/>
+                    <text x="100" y="106" text-anchor="middle" fill="#fbce04" font-family="Arial" font-size="18" font-weight="bold">$</text>
+
+                    <!-- Pointer at top -->
+                    <polygon points="100,5 90,25 110,25" fill="#fbce04" stroke="#C9A000" stroke-width="2"/>
+
+                    <!-- Decorative lights around edge -->
+                    <circle cx="100" cy="18" r="4" fill="#FFE55C"/>
+                    <circle cx="145" cy="35" r="4" fill="#FFE55C"/>
+                    <circle cx="175" cy="75" r="4" fill="#FFE55C"/>
+                    <circle cx="175" cy="125" r="4" fill="#FFE55C"/>
+                    <circle cx="145" cy="165" r="4" fill="#FFE55C"/>
+                    <circle cx="100" cy="182" r="4" fill="#FFE55C"/>
+                    <circle cx="55" cy="165" r="4" fill="#FFE55C"/>
+                    <circle cx="25" cy="125" r="4" fill="#FFE55C"/>
+                    <circle cx="25" cy="75" r="4" fill="#FFE55C"/>
+                    <circle cx="55" cy="35" r="4" fill="#FFE55C"/>
+                </svg>
+            </div>
+
+            <!-- Poker Chips on ground -->
+            <div class="poker-chip chip-1">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#E91E63" stroke="#AD1457" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="12" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4 2"/>
+                    <text x="20" y="25" text-anchor="middle" fill="white" font-size="12" font-weight="bold">50</text>
+                </svg>
+            </div>
+            <div class="poker-chip chip-2">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="12" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4 2"/>
+                    <text x="20" y="25" text-anchor="middle" fill="white" font-size="12" font-weight="bold">25</text>
+                </svg>
+            </div>
+            <div class="poker-chip chip-3">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="12" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4 2"/>
+                    <text x="20" y="25" text-anchor="middle" fill="white" font-size="12" font-weight="bold">10</text>
+                </svg>
+            </div>
+            <div class="poker-chip chip-4">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#FF9800" stroke="#EF6C00" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="12" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4 2"/>
+                    <text x="20" y="25" text-anchor="middle" fill="white" font-size="10" font-weight="bold">100</text>
+                </svg>
+            </div>
+            <div class="poker-chip chip-5">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#9C27B0" stroke="#6A1B9A" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="12" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4 2"/>
+                    <text x="20" y="25" text-anchor="middle" fill="white" font-size="12" font-weight="bold">5</text>
+                </svg>
+            </div>
+
+            <!-- Floating Coins -->
+            <div class="float-coin coin-1">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="url(#goldCoin)" stroke="#C9A000" stroke-width="2"/>
+                    <text x="20" y="26" text-anchor="middle" fill="#8B7500" font-size="18" font-weight="bold">$</text>
+                    <defs>
+                        <linearGradient id="goldCoin" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFE55C"/>
+                            <stop offset="50%" stop-color="#fbce04"/>
+                            <stop offset="100%" stop-color="#C9A000"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <div class="float-coin coin-2">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="url(#goldCoin)" stroke="#C9A000" stroke-width="2"/>
+                    <text x="20" y="26" text-anchor="middle" fill="#8B7500" font-size="18" font-weight="bold">$</text>
+                </svg>
+            </div>
+            <div class="float-coin coin-3">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#C0C0C0" stroke="#909090" stroke-width="2"/>
+                    <text x="20" y="26" text-anchor="middle" fill="#606060" font-size="18" font-weight="bold">$</text>
+                </svg>
+            </div>
+            <div class="float-coin coin-4">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="url(#goldCoin)" stroke="#C9A000" stroke-width="2"/>
+                    <text x="20" y="26" text-anchor="middle" fill="#8B7500" font-size="18" font-weight="bold">$</text>
+                </svg>
+            </div>
+
+            <!-- Dice -->
+            <div class="float-dice dice-1">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="32" height="32" rx="6" fill="white" stroke="#ddd" stroke-width="2"/>
+                    <circle cx="13" cy="13" r="3" fill="#1a1a2e"/>
+                    <circle cx="27" cy="13" r="3" fill="#1a1a2e"/>
+                    <circle cx="20" cy="20" r="3" fill="#1a1a2e"/>
+                    <circle cx="13" cy="27" r="3" fill="#1a1a2e"/>
+                    <circle cx="27" cy="27" r="3" fill="#1a1a2e"/>
+                </svg>
+            </div>
+            <div class="float-dice dice-2">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="32" height="32" rx="6" fill="#fbce04" stroke="#C9A000" stroke-width="2"/>
+                    <circle cx="13" cy="13" r="3" fill="#1a1a2e"/>
+                    <circle cx="27" cy="27" r="3" fill="#1a1a2e"/>
+                </svg>
+            </div>
+
+            <!-- Sparkle Stars -->
+            <div class="sparkle-star star-1">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#fbce04"/>
+                </svg>
+            </div>
+            <div class="sparkle-star star-2">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#FFE55C"/>
+                </svg>
+            </div>
+            <div class="sparkle-star star-3">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="sparkle-star star-4">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="#fbce04"/>
+                </svg>
+            </div>
+            <div class="sparkle-star star-5">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z" fill="white" opacity="0.6"/>
+                </svg>
+            </div>
+
+            <!-- Decorative elements -->
+            <div class="deco-plus plus-1">+</div>
+            <div class="deco-plus plus-2">+</div>
+            <div class="deco-plus plus-3">+</div>
+            <div class="deco-diamond diamond-1"></div>
+            <div class="deco-diamond diamond-2"></div>
+            <div class="deco-diamond diamond-3"></div>
+
+            <!-- Hero Content -->
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
                     <span class="hero-badge-text">Slots Cashback</span>
                 </div>
 
-                <h1 class="hero-title">CASHBACK</h1>
-                <h2 class="hero-subtitle">Play slots & get real cash back in USDT</h2>
+                <h1 class="hero-title">GET UP TO</h1>
+                <div class="hero-percentage">20%</div>
+                <h2 class="hero-subtitle">Cashback on all slot games, paid in USDT</h2>
 
                 <!-- Hero Tiers -->
                 <div class="hero-tiers">
                     <div class="hero-tier bronze">
                         <div class="hero-tier-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="8" r="6"/>
                                 <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
                             </svg>
@@ -2084,7 +1259,7 @@
                     </div>
                     <div class="hero-tier silver">
                         <div class="hero-tier-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="8" r="6"/>
                                 <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
                             </svg>
@@ -2095,7 +1270,7 @@
                     </div>
                     <div class="hero-tier gold">
                         <div class="hero-tier-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="8" r="6"/>
                                 <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
                             </svg>
@@ -2106,33 +1281,41 @@
                     </div>
                 </div>
 
-                <div class="usdt-badge">
-                    <div class="usdt-icon">$</div>
-                    <span class="usdt-text">Paid in USDT</span>
-                </div>
-
-                <div class="hero-cta">
-                    <a href="https://mybc.game/en/slots/all" class="btn-claim" target="_blank">Start Playing Now</a>
-                    <div class="min-max-info">
-                        <div class="min-max-item">
-                            <span class="min-max-label">Min</span>
-                            <span class="min-max-value">$10</span>
+                <!-- Info Box -->
+                <div class="hero-info-box">
+                    <div class="info-item">
+                        <div class="info-icon green">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M12 12h.01"/>
+                            </svg>
                         </div>
-                        <div class="min-max-divider"></div>
-                        <div class="min-max-item">
-                            <span class="min-max-label">Max</span>
-                            <span class="min-max-value">$30,000</span>
+                        <div class="info-text">
+                            <div class="info-label">Min Cashback</div>
+                            <div class="info-value">$10</div>
+                        </div>
+                    </div>
+                    <div class="info-divider"></div>
+                    <div class="info-item">
+                        <div class="info-icon orange">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="info-text">
+                            <div class="info-label">Max Cashback</div>
+                            <div class="info-value">$30,000</div>
                         </div>
                     </div>
                 </div>
+
+                <a href="https://mybc.game/en/slots/all" class="btn-claim" target="_blank">Start Playing Now</a>
             </div>
         </section>
 
-        <!-- Steps - How to Get Started -->
+        <!-- Steps Section -->
         <section class="steps-section">
-            <div class="section-header">
-                <h2 class="section-title">How to Get Started</h2>
-            </div>
+            <h2 class="section-title">How to Get Started</h2>
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
@@ -2158,12 +1341,10 @@
             </div>
         </section>
 
-
         <!-- How It Works -->
         <section class="how-section">
             <div class="how-container">
                 <h3 class="how-title">Example Calculation</h3>
-
                 <div class="calc-flow">
                     <div class="calc-item">
                         <span class="calc-label">Wagered</span>
@@ -2185,15 +1366,13 @@
                         <span class="calc-value gold">10%</span>
                     </div>
                 </div>
-
                 <div class="calc-result">
                     <span class="calc-result-label">Your cashback</span>
                     <span class="calc-result-value">$300</span>
                 </div>
-
                 <div class="min-notice">
                     <div class="min-notice-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"/>
                             <line x1="12" y1="8" x2="12" y2="12"/>
                             <line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -2206,7 +1385,7 @@
             </div>
         </section>
 
-        <!-- Accordion Sections (V2) -->
+        <!-- Accordion Sections -->
         <section class="accordion-section-v2">
             <div class="accordion-item-v2">
                 <button class="accordion-header-v2">
@@ -2289,7 +1468,6 @@
                 <img src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/28e80ddd-016c-49ac-a5b4-368f8c150fc7" alt="MYBC" class="footer-logo-img">
                 <p class="footer-desc">MYBC is built for the global crypto community - offering fair games, 24/7 rewards, and a smooth gaming experience.</p>
             </div>
-
             <div class="footer-section">
                 <h4>Community</h4>
                 <div class="social-icons">
@@ -2310,7 +1488,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="footer-section">
                 <h4>Navigation</h4>
                 <nav class="footer-nav">
@@ -2320,7 +1497,6 @@
                     <a href="#">Support</a>
                 </nav>
             </div>
-
             <div class="footer-bottom">
                 <p class="footer-copyright">2025 MYBC - All Rights Reserved.</p>
             </div>
@@ -2328,64 +1504,11 @@
     </footer>
 
     <script>
-        // Mobile Navigation
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileNav = document.getElementById('mobileNav');
-        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-        const closeNav = document.getElementById('closeNav');
-
-        menuBtn.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        function closeMobileNav() {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        closeNav.addEventListener('click', closeMobileNav);
-        mobileNavOverlay.addEventListener('click', closeMobileNav);
-
-        // V2 Accordion
+        // Accordion
         document.querySelectorAll('.accordion-header-v2').forEach(header => {
             header.addEventListener('click', () => {
                 header.parentElement.classList.toggle('open');
             });
-        });
-
-        // Button hover effects
-        document.querySelectorAll('.btn-claim, .btn-signup').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px)';
-            });
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.tier-card, .step-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(card);
         });
     </script>
 </body>
