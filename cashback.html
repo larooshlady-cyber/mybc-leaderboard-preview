@@ -181,54 +181,77 @@
             filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
         }
 
-        /* Bitcoin */
+        /* Bitcoin - Orange */
         .coin-btc {
-            background: linear-gradient(145deg, #FFB84D 0%, #F7931A 50%, #D47A10 100%);
-            border: 2px solid rgba(255,255,255,0.25);
+            background: linear-gradient(145deg, #FFB84D 0%, #F7931A 50%, #C77A10 100%);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(247, 147, 26, 0.5), inset 0 2px 4px rgba(255,255,255,0.3);
         }
 
-        /* Ethereum */
+        /* Ethereum - Purple/Blue */
         .coin-eth {
-            background: linear-gradient(145deg, #9999FF 0%, #627EEA 50%, #4A5FC1 100%);
-            border: 2px solid rgba(255,255,255,0.25);
+            background: linear-gradient(145deg, #A4A4FF 0%, #627EEA 50%, #3C5BD8 100%);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(98, 126, 234, 0.5), inset 0 2px 4px rgba(255,255,255,0.3);
         }
 
-        /* USDT */
+        /* Solana - Purple gradient */
+        .coin-sol {
+            background: linear-gradient(145deg, #DC1FFF 0%, #9945FF 50%, #14F195 100%);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(153, 69, 255, 0.5), inset 0 2px 4px rgba(255,255,255,0.3);
+        }
+
+        /* Litecoin - Silver */
+        .coin-ltc {
+            background: linear-gradient(145deg, #FFFFFF 0%, #BFBBBB 50%, #838383 100%);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(191, 187, 187, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);
+        }
+
+        /* USDT - Teal */
         .coin-usdt {
-            background: linear-gradient(145deg, #5CC9A7 0%, #26A17B 50%, #1A8A68 100%);
-            border: 2px solid rgba(255,255,255,0.25);
+            background: linear-gradient(145deg, #53D5A5 0%, #26A17B 50%, #1A8A68 100%);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(38, 161, 123, 0.5), inset 0 2px 4px rgba(255,255,255,0.3);
         }
 
-        /* BNB */
-        .coin-bnb {
-            background: linear-gradient(145deg, #FFE066 0%, #F3BA2F 50%, #D4A020 100%);
-            border: 2px solid rgba(255,255,255,0.25);
+        /* USDC - Blue */
+        .coin-usdc {
+            background: linear-gradient(145deg, #5AA9F5 0%, #2775CA 50%, #1A5DAA 100%);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(39, 117, 202, 0.5), inset 0 2px 4px rgba(255,255,255,0.3);
         }
 
-        /* All coins - set initial top position */
+        /* All coins - base styles */
         .crypto-coin {
-            top: -60px;
+            top: -70px;
             opacity: 0;
         }
 
-        /* LEFT SIDE COINS */
-        .coin-1 { width: 38px; height: 38px; left: 20px; right: auto; animation: coinFall 8s linear infinite; animation-delay: 0s; }
-        .coin-2 { width: 30px; height: 30px; left: 60px; right: auto; animation: coinFall 9s linear infinite; animation-delay: -7s; }
-        .coin-3 { width: 26px; height: 26px; left: 35px; right: auto; animation: coinFall 7s linear infinite; animation-delay: -3s; }
-        .coin-4 { width: 32px; height: 32px; left: 90px; right: auto; animation: coinFall 8.5s linear infinite; animation-delay: -5s; }
-        .coin-9 { width: 24px; height: 24px; left: 50px; right: auto; animation: coinFall 10s linear infinite; animation-delay: -2s; }
-        .coin-11 { width: 28px; height: 28px; left: 15px; right: auto; animation: coinFall 7.5s linear infinite; animation-delay: -6s; }
+        .crypto-coin svg {
+            width: 60%;
+            height: 60%;
+        }
 
-        /* RIGHT SIDE COINS */
-        .coin-5 { width: 36px; height: 36px; right: 25px; left: auto; animation: coinFall 8.2s linear infinite; animation-delay: -1s; }
-        .coin-6 { width: 28px; height: 28px; right: 65px; left: auto; animation: coinFall 9.2s linear infinite; animation-delay: -4s; }
-        .coin-7 { width: 24px; height: 24px; right: 40px; left: auto; animation: coinFall 7.3s linear infinite; animation-delay: -6.5s; }
-        .coin-8 { width: 34px; height: 34px; right: 85px; left: auto; animation: coinFall 8.8s linear infinite; animation-delay: -2.5s; }
-        .coin-10 { width: 26px; height: 26px; right: 55px; left: auto; animation: coinFall 9.5s linear infinite; animation-delay: -8s; }
-        .coin-12 { width: 30px; height: 30px; right: 18px; left: auto; animation: coinFall 7.8s linear infinite; animation-delay: -4.5s; }
+        /* LEFT SIDE COINS - Bigger sizes */
+        .coin-1 { width: 48px; height: 48px; left: 15px; right: auto; animation: coinFall 9s linear infinite; animation-delay: 0s; }
+        .coin-2 { width: 44px; height: 44px; left: 70px; right: auto; animation: coinFall 10s linear infinite; animation-delay: -7s; }
+        .coin-3 { width: 40px; height: 40px; left: 40px; right: auto; animation: coinFall 8s linear infinite; animation-delay: -3s; }
+        .coin-4 { width: 46px; height: 46px; left: 100px; right: auto; animation: coinFall 9.5s linear infinite; animation-delay: -5s; }
+        .coin-9 { width: 38px; height: 38px; left: 55px; right: auto; animation: coinFall 11s linear infinite; animation-delay: -2s; }
+        .coin-11 { width: 42px; height: 42px; left: 25px; right: auto; animation: coinFall 8.5s linear infinite; animation-delay: -6s; }
+
+        /* RIGHT SIDE COINS - Bigger sizes */
+        .coin-5 { width: 50px; height: 50px; right: 20px; left: auto; animation: coinFall 9.2s linear infinite; animation-delay: -1s; }
+        .coin-6 { width: 42px; height: 42px; right: 75px; left: auto; animation: coinFall 10.2s linear infinite; animation-delay: -4s; }
+        .coin-7 { width: 38px; height: 38px; right: 45px; left: auto; animation: coinFall 8.3s linear infinite; animation-delay: -6.5s; }
+        .coin-8 { width: 46px; height: 46px; right: 95px; left: auto; animation: coinFall 9.8s linear infinite; animation-delay: -2.5s; }
+        .coin-10 { width: 40px; height: 40px; right: 60px; left: auto; animation: coinFall 10.5s linear infinite; animation-delay: -8s; }
+        .coin-12 { width: 44px; height: 44px; right: 30px; left: auto; animation: coinFall 8.8s linear infinite; animation-delay: -4.5s; }
 
         @keyframes coinFall {
-            0% { top: -60px; opacity: 0; transform: rotate(0deg); }
+            0% { top: -70px; opacity: 0; transform: rotate(0deg); }
             2% { opacity: 1; }
             98% { opacity: 1; }
             100% { top: 100%; opacity: 0; transform: rotate(360deg); }
@@ -897,26 +920,20 @@
             .hero-tier-label { font-size: 11px; }
             .hero-tier-percent { font-size: 40px; }
             .hero-tier-range { font-size: 10px; }
-            .crypto-coin {
-                box-shadow:
-                    0 8px 30px rgba(0,0,0,0.4),
-                    inset 0 3px 6px rgba(255,255,255,0.25),
-                    inset 0 -3px 6px rgba(0,0,0,0.25);
-            }
-            /* Left coins - desktop */
-            .coin-1 { width: 52px; height: 52px; left: 40px; }
-            .coin-2 { width: 42px; height: 42px; left: 120px; }
-            .coin-3 { width: 36px; height: 36px; left: 70px; }
-            .coin-4 { width: 48px; height: 48px; left: 180px; }
-            .coin-9 { width: 34px; height: 34px; left: 100px; }
-            .coin-11 { width: 40px; height: 40px; left: 30px; }
-            /* Right coins - desktop */
-            .coin-5 { width: 50px; height: 50px; right: 45px; }
-            .coin-6 { width: 40px; height: 40px; right: 130px; }
-            .coin-7 { width: 34px; height: 34px; right: 80px; }
-            .coin-8 { width: 46px; height: 46px; right: 170px; }
-            .coin-10 { width: 38px; height: 38px; right: 110px; }
-            .coin-12 { width: 44px; height: 44px; right: 35px; }
+            /* Left coins - desktop (bigger sizes) */
+            .coin-1 { width: 56px; height: 56px; left: 50px; }   /* BTC */
+            .coin-2 { width: 52px; height: 52px; left: 140px; }  /* SOL */
+            .coin-3 { width: 50px; height: 50px; left: 80px; }   /* USDT */
+            .coin-4 { width: 54px; height: 54px; left: 200px; }  /* ETH */
+            .coin-9 { width: 48px; height: 48px; left: 110px; }  /* USDT */
+            .coin-11 { width: 50px; height: 50px; left: 35px; }  /* LTC */
+            /* Right coins - desktop (bigger sizes) */
+            .coin-5 { width: 58px; height: 58px; right: 55px; }  /* ETH */
+            .coin-6 { width: 50px; height: 50px; right: 150px; } /* LTC */
+            .coin-7 { width: 48px; height: 48px; right: 90px; }  /* USDC */
+            .coin-8 { width: 54px; height: 54px; right: 190px; } /* BTC */
+            .coin-10 { width: 52px; height: 52px; right: 120px; }/* SOL */
+            .coin-12 { width: 50px; height: 50px; right: 45px; } /* USDC */
         }
     </style>
 </head>
@@ -942,49 +959,66 @@
         <section class="hero">
             <div class="hero-bg"></div>
 
-            <!-- Falling Crypto Coins - Spread across entire hero -->
-            <!-- Bitcoin coins -->
+            <!-- Falling Crypto Coins - BTC, ETH, SOL, LTC, USDT, USDC -->
+
+            <!-- Bitcoin (BTC) - Left side -->
             <div class="crypto-coin coin-btc coin-1">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.5 14.5h-1v1.5h-1v-1.5h-1v1.5h-1v-1.5H8v-1h1v-6H8v-1h1.5V7h1v1.5h1V7h1v1.54c1.59.31 2.5 1.31 2.5 2.46 0 .78-.42 1.48-1.08 1.91.93.4 1.58 1.26 1.58 2.27 0 1.45-1.23 2.32-3 2.32zm-.5-6h-2v2h2c.55 0 1-.45 1-1s-.45-1-1-1zm.5 3h-2.5v2h2.5c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
-            </div>
-            <div class="crypto-coin coin-btc coin-5">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.5 14.5h-1v1.5h-1v-1.5h-1v1.5h-1v-1.5H8v-1h1v-6H8v-1h1.5V7h1v1.5h1V7h1v1.54c1.59.31 2.5 1.31 2.5 2.46 0 .78-.42 1.48-1.08 1.91.93.4 1.58 1.26 1.58 2.27 0 1.45-1.23 2.32-3 2.32zm-.5-6h-2v2h2c.55 0 1-.45 1-1s-.45-1-1-1zm.5 3h-2.5v2h2.5c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
-            </div>
-            <div class="crypto-coin coin-btc coin-9">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.5 14.5h-1v1.5h-1v-1.5h-1v1.5h-1v-1.5H8v-1h1v-6H8v-1h1.5V7h1v1.5h1V7h1v1.54c1.59.31 2.5 1.31 2.5 2.46 0 .78-.42 1.48-1.08 1.91.93.4 1.58 1.26 1.58 2.27 0 1.45-1.23 2.32-3 2.32zm-.5-6h-2v2h2c.55 0 1-.45 1-1s-.45-1-1-1zm.5 3h-2.5v2h2.5c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg>
+                <svg viewBox="0 0 32 32" fill="white"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm1.94-18.28c.558-.144.954-.402 1.188-.773.234-.37.35-.83.35-1.378 0-.694-.195-1.246-.588-1.656-.392-.41-.974-.683-1.746-.82V7h-1.5v2.074h-.938V7h-1.5v2.074H11v1.5h1.062v10.852H11v1.5h2.188V25h1.5v-2.074h.937V25h1.5v-2.1c.903-.087 1.63-.372 2.18-.854.55-.482.824-1.14.824-1.972 0-.622-.164-1.143-.492-1.564-.328-.42-.81-.723-1.448-.908zm-2.69 4.706v-2.852h1.266c.478 0 .846.108 1.104.325.258.217.387.528.387.933 0 .416-.132.74-.397.97-.264.23-.642.344-1.133.344h-1.227zm0-4.352v-2.5h1.094c.423 0 .745.096.967.287.222.19.333.466.333.826 0 .37-.11.654-.33.852-.22.198-.538.297-.954.297h-1.11z"/></svg>
             </div>
 
-            <!-- Ethereum coins -->
-            <div class="crypto-coin coin-eth coin-2">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2L4 12l8 4.5 8-4.5L12 2zm0 15l-8-4.5L12 22l8-9.5L12 17z"/></svg>
-            </div>
-            <div class="crypto-coin coin-eth coin-6">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2L4 12l8 4.5 8-4.5L12 2zm0 15l-8-4.5L12 22l8-9.5L12 17z"/></svg>
-            </div>
-            <div class="crypto-coin coin-eth coin-10">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2L4 12l8 4.5 8-4.5L12 2zm0 15l-8-4.5L12 22l8-9.5L12 17z"/></svg>
+            <!-- Ethereum (ETH) - Right side -->
+            <div class="crypto-coin coin-eth coin-5">
+                <svg viewBox="0 0 32 32" fill="white"><path d="M16 0l-.335.572v21.44l.335.196 9.665-5.717L16 0z" fill-opacity=".8"/><path d="M16 0L6.335 16.491 16 22.208V0z"/><path d="M16 24.064l-.189.231v7.418l.189.551 9.671-13.628L16 24.064z" fill-opacity=".8"/><path d="M16 32.264V24.064l-9.665-5.428L16 32.264z"/><path d="M16 22.208l9.665-5.717L16 12.2v10.008z" fill-opacity=".6"/><path d="M6.335 16.491L16 22.208V12.2L6.335 16.491z" fill-opacity=".8"/></svg>
             </div>
 
-            <!-- USDT coins -->
+            <!-- Solana (SOL) - Left side -->
+            <div class="crypto-coin coin-sol coin-2">
+                <svg viewBox="0 0 32 32" fill="white"><path d="M6.065 21.608a.996.996 0 01.705-.292h19.636c.445 0 .668.538.354.852l-4.122 4.122a.996.996 0 01-.705.293H2.297a.5.5 0 01-.354-.853l4.122-4.122zm0-15.899a1.025 1.025 0 01.705-.292h19.636a.5.5 0 01.354.853l-4.122 4.122a.996.996 0 01-.705.292H2.297a.5.5 0 01-.354-.852L6.065 5.71zm19.87 5.047a.996.996 0 00-.705-.292H5.594a.5.5 0 00-.354.853l4.122 4.122c.187.187.44.292.705.292h19.636a.5.5 0 00.354-.852l-4.122-4.123z"/></svg>
+            </div>
+
+            <!-- Litecoin (LTC) - Right side -->
+            <div class="crypto-coin coin-ltc coin-6">
+                <svg viewBox="0 0 32 32" fill="#345D9D"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm-1.758-9.207h6.527l.79-3.092h-3.727l1.82-7.138 3.79-1.46.496-1.94-3.79 1.46L22 3.655h-3.414l-1.635 6.413-2.79 1.074-.496 1.94 2.79-1.074-1.308 5.132-2.73 1.05-.496 1.94 2.73-1.05-.409 1.713z"/></svg>
+            </div>
+
+            <!-- USDT - Left side -->
             <div class="crypto-coin coin-usdt coin-3">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .45 2 1s-.9 1-2 1-2-.45-2-1 .9-1 2-1zm4 4v1h-3v7h-2v-7H8V9h8z"/></svg>
-            </div>
-            <div class="crypto-coin coin-usdt coin-7">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .45 2 1s-.9 1-2 1-2-.45-2-1 .9-1 2-1zm4 4v1h-3v7h-2v-7H8V9h8z"/></svg>
-            </div>
-            <div class="crypto-coin coin-usdt coin-11">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.1 0 2 .45 2 1s-.9 1-2 1-2-.45-2-1 .9-1 2-1zm4 4v1h-3v7h-2v-7H8V9h8z"/></svg>
+                <svg viewBox="0 0 32 32" fill="white"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm1.922-18.207v-2.366h5.414V7.819H8.595v3.608h5.414v2.365c-4.4.202-7.709 1.074-7.709 2.118 0 1.044 3.309 1.915 7.709 2.118v7.582h3.922v-7.584c4.393-.202 7.694-1.073 7.694-2.116 0-1.043-3.301-1.914-7.694-2.117zm0 3.59v-.002c-.11.008-.677.042-1.942.042-1.01 0-1.721-.03-1.971-.042v.003c-3.888-.171-6.79-.848-6.79-1.658 0-.809 2.902-1.486 6.79-1.66v2.644c.254.018.982.061 1.988.061 1.207 0 1.812-.05 1.925-.06v-2.643c3.88.173 6.775.85 6.775 1.658 0 .81-2.895 1.485-6.775 1.657z"/></svg>
             </div>
 
-            <!-- BNB coins -->
-            <div class="crypto-coin coin-bnb coin-4">
-                <svg viewBox="0 0 24 24" fill="#1E2026"><path d="M12 2L7.5 6.5 9.62 8.62 12 6.24l2.38 2.38L16.5 6.5 12 2zM4.5 9.5L2 12l2.5 2.5 2.12-2.12L4.5 9.5zm15 0l-2.12 2.88L19.5 14.5 22 12l-2.5-2.5zM12 9.88L9.62 12.26 12 14.64l2.38-2.38L12 9.88zM7.5 17.5L12 22l4.5-4.5-2.12-2.12L12 17.76l-2.38-2.38L7.5 17.5z"/></svg>
+            <!-- USDC - Right side -->
+            <div class="crypto-coin coin-usdc coin-7">
+                <svg viewBox="0 0 32 32" fill="white"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm-6.5-14.5c0 2.485 1.485 4.535 3.5 5.26v1.74h1.5v-1.5h3v1.5h1.5v-1.74c2.015-.725 3.5-2.775 3.5-5.26s-1.485-4.535-3.5-5.26V10.5h-1.5V12h-3v-1.5H13v1.74c-2.015.725-3.5 2.775-3.5 5.26zm3.5 3.155c-1.38-.535-2.25-1.685-2.25-3.155s.87-2.62 2.25-3.155v6.31zm4.5 0v-6.31c1.38.535 2.25 1.685 2.25 3.155s-.87 2.62-2.25 3.155z"/></svg>
             </div>
-            <div class="crypto-coin coin-bnb coin-8">
-                <svg viewBox="0 0 24 24" fill="#1E2026"><path d="M12 2L7.5 6.5 9.62 8.62 12 6.24l2.38 2.38L16.5 6.5 12 2zM4.5 9.5L2 12l2.5 2.5 2.12-2.12L4.5 9.5zm15 0l-2.12 2.88L19.5 14.5 22 12l-2.5-2.5zM12 9.88L9.62 12.26 12 14.64l2.38-2.38L12 9.88zM7.5 17.5L12 22l4.5-4.5-2.12-2.12L12 17.76l-2.38-2.38L7.5 17.5z"/></svg>
+
+            <!-- Bitcoin (BTC) #2 - Right side -->
+            <div class="crypto-coin coin-btc coin-8">
+                <svg viewBox="0 0 32 32" fill="white"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm1.94-18.28c.558-.144.954-.402 1.188-.773.234-.37.35-.83.35-1.378 0-.694-.195-1.246-.588-1.656-.392-.41-.974-.683-1.746-.82V7h-1.5v2.074h-.938V7h-1.5v2.074H11v1.5h1.062v10.852H11v1.5h2.188V25h1.5v-2.074h.937V25h1.5v-2.1c.903-.087 1.63-.372 2.18-.854.55-.482.824-1.14.824-1.972 0-.622-.164-1.143-.492-1.564-.328-.42-.81-.723-1.448-.908zm-2.69 4.706v-2.852h1.266c.478 0 .846.108 1.104.325.258.217.387.528.387.933 0 .416-.132.74-.397.97-.264.23-.642.344-1.133.344h-1.227zm0-4.352v-2.5h1.094c.423 0 .745.096.967.287.222.19.333.466.333.826 0 .37-.11.654-.33.852-.22.198-.538.297-.954.297h-1.11z"/></svg>
             </div>
-            <div class="crypto-coin coin-bnb coin-12">
-                <svg viewBox="0 0 24 24" fill="#1E2026"><path d="M12 2L7.5 6.5 9.62 8.62 12 6.24l2.38 2.38L16.5 6.5 12 2zM4.5 9.5L2 12l2.5 2.5 2.12-2.12L4.5 9.5zm15 0l-2.12 2.88L19.5 14.5 22 12l-2.5-2.5zM12 9.88L9.62 12.26 12 14.64l2.38-2.38L12 9.88zM7.5 17.5L12 22l4.5-4.5-2.12-2.12L12 17.76l-2.38-2.38L7.5 17.5z"/></svg>
+
+            <!-- Ethereum (ETH) #2 - Left side -->
+            <div class="crypto-coin coin-eth coin-4">
+                <svg viewBox="0 0 32 32" fill="white"><path d="M16 0l-.335.572v21.44l.335.196 9.665-5.717L16 0z" fill-opacity=".8"/><path d="M16 0L6.335 16.491 16 22.208V0z"/><path d="M16 24.064l-.189.231v7.418l.189.551 9.671-13.628L16 24.064z" fill-opacity=".8"/><path d="M16 32.264V24.064l-9.665-5.428L16 32.264z"/><path d="M16 22.208l9.665-5.717L16 12.2v10.008z" fill-opacity=".6"/><path d="M6.335 16.491L16 22.208V12.2L6.335 16.491z" fill-opacity=".8"/></svg>
+            </div>
+
+            <!-- Solana (SOL) #2 - Right side -->
+            <div class="crypto-coin coin-sol coin-10">
+                <svg viewBox="0 0 32 32" fill="white"><path d="M6.065 21.608a.996.996 0 01.705-.292h19.636c.445 0 .668.538.354.852l-4.122 4.122a.996.996 0 01-.705.293H2.297a.5.5 0 01-.354-.853l4.122-4.122zm0-15.899a1.025 1.025 0 01.705-.292h19.636a.5.5 0 01.354.853l-4.122 4.122a.996.996 0 01-.705.292H2.297a.5.5 0 01-.354-.852L6.065 5.71zm19.87 5.047a.996.996 0 00-.705-.292H5.594a.5.5 0 00-.354.853l4.122 4.122c.187.187.44.292.705.292h19.636a.5.5 0 00.354-.852l-4.122-4.123z"/></svg>
+            </div>
+
+            <!-- USDT #2 - Left side -->
+            <div class="crypto-coin coin-usdt coin-9">
+                <svg viewBox="0 0 32 32" fill="white"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm1.922-18.207v-2.366h5.414V7.819H8.595v3.608h5.414v2.365c-4.4.202-7.709 1.074-7.709 2.118 0 1.044 3.309 1.915 7.709 2.118v7.582h3.922v-7.584c4.393-.202 7.694-1.073 7.694-2.116 0-1.043-3.301-1.914-7.694-2.117zm0 3.59v-.002c-.11.008-.677.042-1.942.042-1.01 0-1.721-.03-1.971-.042v.003c-3.888-.171-6.79-.848-6.79-1.658 0-.809 2.902-1.486 6.79-1.66v2.644c.254.018.982.061 1.988.061 1.207 0 1.812-.05 1.925-.06v-2.643c3.88.173 6.775.85 6.775 1.658 0 .81-2.895 1.485-6.775 1.657z"/></svg>
+            </div>
+
+            <!-- Litecoin (LTC) #2 - Left side -->
+            <div class="crypto-coin coin-ltc coin-11">
+                <svg viewBox="0 0 32 32" fill="#345D9D"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm-1.758-9.207h6.527l.79-3.092h-3.727l1.82-7.138 3.79-1.46.496-1.94-3.79 1.46L22 3.655h-3.414l-1.635 6.413-2.79 1.074-.496 1.94 2.79-1.074-1.308 5.132-2.73 1.05-.496 1.94 2.73-1.05-.409 1.713z"/></svg>
+            </div>
+
+            <!-- USDC #2 - Right side -->
+            <div class="crypto-coin coin-usdc coin-12">
+                <svg viewBox="0 0 32 32" fill="white"><path d="M16 32C7.163 32 0 24.837 0 16S7.163 0 16 0s16 7.163 16 16-7.163 16-16 16zm-6.5-14.5c0 2.485 1.485 4.535 3.5 5.26v1.74h1.5v-1.5h3v1.5h1.5v-1.74c2.015-.725 3.5-2.775 3.5-5.26s-1.485-4.535-3.5-5.26V10.5h-1.5V12h-3v-1.5H13v1.74c-2.015.725-3.5 2.775-3.5 5.26zm3.5 3.155c-1.38-.535-2.25-1.685-2.25-3.155s.87-2.62 2.25-3.155v6.31zm4.5 0v-6.31c1.38.535 2.25 1.685 2.25 3.155s-.87 2.62-2.25 3.155z"/></svg>
             </div>
 
             <!-- Premium Sparkles -->
