@@ -381,8 +381,8 @@
         .hero-info-box {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
+            gap: 12px;
+            padding: 10px 16px;
             background: rgba(0,0,0,0.5);
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.1);
@@ -393,16 +393,22 @@
         .info-item {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 8px;
         }
 
         .info-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 6px;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon svg {
+            width: 16px;
+            height: 16px;
         }
 
         .info-icon.green { background: rgba(14, 204, 104, 0.25); color: var(--green); }
@@ -425,7 +431,7 @@
 
         .info-divider {
             width: 1px;
-            height: 24px;
+            height: 32px;
             background: rgba(255,255,255,0.15);
         }
 
