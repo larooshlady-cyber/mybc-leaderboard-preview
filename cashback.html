@@ -161,7 +161,7 @@
             z-index: 1;
         }
 
-        /* Crypto Coins - Full coin visual (no separate background) */
+        /* Crypto Coins - Full coin visual (no shadows) */
         .crypto-coin {
             position: absolute;
             border-radius: 50%;
@@ -178,32 +178,23 @@
         .crypto-coin svg {
             width: 100%;
             height: 100%;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
         }
 
-        /* Individual coin glow effects */
-        .coin-btc { filter: drop-shadow(0 4px 15px rgba(247, 147, 26, 0.6)); }
-        .coin-eth { filter: drop-shadow(0 4px 15px rgba(98, 126, 234, 0.6)); }
-        .coin-sol { filter: drop-shadow(0 4px 15px rgba(153, 69, 255, 0.6)); }
-        .coin-ltc { filter: drop-shadow(0 4px 15px rgba(191, 187, 187, 0.5)); }
-        .coin-usdt { filter: drop-shadow(0 4px 15px rgba(38, 161, 123, 0.6)); }
-        .coin-usdc { filter: drop-shadow(0 4px 15px rgba(39, 117, 202, 0.6)); }
+        /* LEFT SIDE COINS - Mobile */
+        .coin-1 { width: 36px; height: 36px; left: 8px; right: auto; animation: coinFall 9s linear infinite; animation-delay: 0s; }
+        .coin-2 { width: 32px; height: 32px; left: 50px; right: auto; animation: coinFall 10s linear infinite; animation-delay: -7s; }
+        .coin-3 { width: 30px; height: 30px; left: 25px; right: auto; animation: coinFall 8s linear infinite; animation-delay: -3s; }
+        .coin-4 { width: 34px; height: 34px; left: 70px; right: auto; animation: coinFall 9.5s linear infinite; animation-delay: -5s; }
+        .coin-9 { width: 28px; height: 28px; left: 40px; right: auto; animation: coinFall 11s linear infinite; animation-delay: -2s; }
+        .coin-11 { width: 32px; height: 32px; left: 15px; right: auto; animation: coinFall 8.5s linear infinite; animation-delay: -6s; }
 
-        /* LEFT SIDE COINS - Bigger sizes */
-        .coin-1 { width: 48px; height: 48px; left: 15px; right: auto; animation: coinFall 9s linear infinite; animation-delay: 0s; }
-        .coin-2 { width: 44px; height: 44px; left: 70px; right: auto; animation: coinFall 10s linear infinite; animation-delay: -7s; }
-        .coin-3 { width: 40px; height: 40px; left: 40px; right: auto; animation: coinFall 8s linear infinite; animation-delay: -3s; }
-        .coin-4 { width: 46px; height: 46px; left: 100px; right: auto; animation: coinFall 9.5s linear infinite; animation-delay: -5s; }
-        .coin-9 { width: 38px; height: 38px; left: 55px; right: auto; animation: coinFall 11s linear infinite; animation-delay: -2s; }
-        .coin-11 { width: 42px; height: 42px; left: 25px; right: auto; animation: coinFall 8.5s linear infinite; animation-delay: -6s; }
-
-        /* RIGHT SIDE COINS - Bigger sizes */
-        .coin-5 { width: 50px; height: 50px; right: 20px; left: auto; animation: coinFall 9.2s linear infinite; animation-delay: -1s; }
-        .coin-6 { width: 42px; height: 42px; right: 75px; left: auto; animation: coinFall 10.2s linear infinite; animation-delay: -4s; }
-        .coin-7 { width: 38px; height: 38px; right: 45px; left: auto; animation: coinFall 8.3s linear infinite; animation-delay: -6.5s; }
-        .coin-8 { width: 46px; height: 46px; right: 95px; left: auto; animation: coinFall 9.8s linear infinite; animation-delay: -2.5s; }
-        .coin-10 { width: 40px; height: 40px; right: 60px; left: auto; animation: coinFall 10.5s linear infinite; animation-delay: -8s; }
-        .coin-12 { width: 44px; height: 44px; right: 30px; left: auto; animation: coinFall 8.8s linear infinite; animation-delay: -4.5s; }
+        /* RIGHT SIDE COINS - Mobile */
+        .coin-5 { width: 38px; height: 38px; right: 10px; left: auto; animation: coinFall 9.2s linear infinite; animation-delay: -1s; }
+        .coin-6 { width: 32px; height: 32px; right: 55px; left: auto; animation: coinFall 10.2s linear infinite; animation-delay: -4s; }
+        .coin-7 { width: 28px; height: 28px; right: 30px; left: auto; animation: coinFall 8.3s linear infinite; animation-delay: -6.5s; }
+        .coin-8 { width: 34px; height: 34px; right: 70px; left: auto; animation: coinFall 9.8s linear infinite; animation-delay: -2.5s; }
+        .coin-10 { width: 30px; height: 30px; right: 45px; left: auto; animation: coinFall 10.5s linear infinite; animation-delay: -8s; }
+        .coin-12 { width: 32px; height: 32px; right: 18px; left: auto; animation: coinFall 8.8s linear infinite; animation-delay: -4.5s; }
 
         @keyframes coinFall {
             0% { top: -70px; opacity: 0; transform: rotate(0deg); }
@@ -866,8 +857,9 @@
             color: rgba(255, 255, 255, 0.4);
         }
 
+        /* Tablet */
         @media (min-width: 768px) {
-            .hero { margin: 0 24px; min-height: 550px; }
+            .hero { margin: 0 24px; min-height: 520px; }
             .hero-tiers-title { font-size: 28px; }
             .hero-tiers-subtitle { font-size: 15px; }
             .hero-tier { padding: 20px 12px; border-radius: 18px; }
@@ -875,20 +867,67 @@
             .hero-tier-label { font-size: 11px; }
             .hero-tier-percent { font-size: 40px; }
             .hero-tier-range { font-size: 10px; }
-            /* Left coins - desktop (bigger sizes) */
-            .coin-1 { width: 56px; height: 56px; left: 50px; }   /* BTC */
-            .coin-2 { width: 52px; height: 52px; left: 140px; }  /* SOL */
-            .coin-3 { width: 50px; height: 50px; left: 80px; }   /* USDT */
-            .coin-4 { width: 54px; height: 54px; left: 200px; }  /* ETH */
-            .coin-9 { width: 48px; height: 48px; left: 110px; }  /* USDT */
-            .coin-11 { width: 50px; height: 50px; left: 35px; }  /* LTC */
-            /* Right coins - desktop (bigger sizes) */
-            .coin-5 { width: 58px; height: 58px; right: 55px; }  /* ETH */
-            .coin-6 { width: 50px; height: 50px; right: 150px; } /* LTC */
-            .coin-7 { width: 48px; height: 48px; right: 90px; }  /* USDC */
-            .coin-8 { width: 54px; height: 54px; right: 190px; } /* BTC */
-            .coin-10 { width: 52px; height: 52px; right: 120px; }/* SOL */
-            .coin-12 { width: 50px; height: 50px; right: 45px; } /* USDC */
+            /* Left coins - tablet */
+            .coin-1 { width: 48px; height: 48px; left: 30px; }
+            .coin-2 { width: 44px; height: 44px; left: 100px; }
+            .coin-3 { width: 42px; height: 42px; left: 60px; }
+            .coin-4 { width: 46px; height: 46px; left: 140px; }
+            .coin-9 { width: 40px; height: 40px; left: 80px; }
+            .coin-11 { width: 42px; height: 42px; left: 20px; }
+            /* Right coins - tablet */
+            .coin-5 { width: 50px; height: 50px; right: 35px; }
+            .coin-6 { width: 44px; height: 44px; right: 110px; }
+            .coin-7 { width: 40px; height: 40px; right: 65px; }
+            .coin-8 { width: 46px; height: 46px; right: 150px; }
+            .coin-10 { width: 42px; height: 42px; right: 90px; }
+            .coin-12 { width: 44px; height: 44px; right: 30px; }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .hero { margin: 0 40px; min-height: 550px; }
+            .hero-content { max-width: 420px; }
+            .hero-tiers-title { font-size: 32px; }
+            .hero-tiers-subtitle { font-size: 16px; }
+            .hero-tier { padding: 24px 16px; }
+            .hero-tier-percent { font-size: 46px; }
+            .hero-tier-range { font-size: 11px; }
+            /* Left coins - desktop */
+            .coin-1 { width: 56px; height: 56px; left: 60px; }
+            .coin-2 { width: 52px; height: 52px; left: 180px; }
+            .coin-3 { width: 48px; height: 48px; left: 110px; }
+            .coin-4 { width: 54px; height: 54px; left: 250px; }
+            .coin-9 { width: 46px; height: 46px; left: 140px; }
+            .coin-11 { width: 50px; height: 50px; left: 40px; }
+            /* Right coins - desktop */
+            .coin-5 { width: 58px; height: 58px; right: 70px; }
+            .coin-6 { width: 52px; height: 52px; right: 200px; }
+            .coin-7 { width: 46px; height: 46px; right: 120px; }
+            .coin-8 { width: 54px; height: 54px; right: 260px; }
+            .coin-10 { width: 50px; height: 50px; right: 160px; }
+            .coin-12 { width: 52px; height: 52px; right: 50px; }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .hero { margin: 0 80px; min-height: 600px; }
+            .hero-content { max-width: 480px; }
+            .hero-tiers-title { font-size: 36px; }
+            .hero-tier-percent { font-size: 52px; }
+            /* Left coins - large desktop (spread wider) */
+            .coin-1 { width: 64px; height: 64px; left: 80px; }
+            .coin-2 { width: 58px; height: 58px; left: 220px; }
+            .coin-3 { width: 54px; height: 54px; left: 140px; }
+            .coin-4 { width: 60px; height: 60px; left: 320px; }
+            .coin-9 { width: 52px; height: 52px; left: 180px; }
+            .coin-11 { width: 56px; height: 56px; left: 50px; }
+            /* Right coins - large desktop (spread wider) */
+            .coin-5 { width: 66px; height: 66px; right: 90px; }
+            .coin-6 { width: 58px; height: 58px; right: 250px; }
+            .coin-7 { width: 52px; height: 52px; right: 150px; }
+            .coin-8 { width: 60px; height: 60px; right: 340px; }
+            .coin-10 { width: 56px; height: 56px; right: 200px; }
+            .coin-12 { width: 58px; height: 58px; right: 60px; }
         }
     </style>
 </head>
