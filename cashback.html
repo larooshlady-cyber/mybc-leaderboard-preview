@@ -290,7 +290,7 @@
             border: 1px solid rgba(251, 206, 4, 0.25);
         }
 
-        /* Decorative coin illustrations */
+        /* Decorative SVG coin illustrations */
         .hero-coins {
             position: absolute;
             top: 0;
@@ -303,83 +303,78 @@
 
         .hero-coin {
             position: absolute;
-            border-radius: 50%;
-            opacity: 0.6;
+            opacity: 0.85;
+        }
+
+        .hero-coin svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
         }
 
         .hero-coin-1 {
-            width: 80px;
-            height: 80px;
-            top: -20px;
-            left: -20px;
-            background: linear-gradient(135deg, #FFE55C 0%, var(--primary) 50%, #D4A000 100%);
-            box-shadow: inset -4px -4px 12px rgba(0,0,0,0.3), 0 0 30px rgba(251, 206, 4, 0.4);
+            width: 70px;
+            height: 70px;
+            top: -10px;
+            left: -15px;
             animation: coinFloat1 4s ease-in-out infinite;
         }
 
         .hero-coin-2 {
-            width: 50px;
-            height: 50px;
-            top: 30%;
-            right: -15px;
-            background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #a0a0a0 100%);
-            box-shadow: inset -3px -3px 8px rgba(0,0,0,0.3), 0 0 20px rgba(192, 192, 192, 0.3);
+            width: 55px;
+            height: 55px;
+            top: 25%;
+            right: -12px;
             animation: coinFloat2 5s ease-in-out infinite;
         }
 
         .hero-coin-3 {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: -18px;
-            background: linear-gradient(135deg, #e8a050 0%, #cd7f32 50%, #a05a20 100%);
-            box-shadow: inset -3px -3px 10px rgba(0,0,0,0.3), 0 0 25px rgba(205, 127, 50, 0.35);
+            width: 50px;
+            height: 50px;
+            bottom: 25%;
+            left: -12px;
             animation: coinFloat3 4.5s ease-in-out infinite;
         }
 
         .hero-coin-4 {
-            width: 40px;
-            height: 40px;
-            top: 15%;
-            right: 15%;
-            background: linear-gradient(135deg, #FFE55C 0%, var(--primary) 100%);
-            box-shadow: inset -2px -2px 6px rgba(0,0,0,0.3), 0 0 15px rgba(251, 206, 4, 0.3);
+            width: 35px;
+            height: 35px;
+            top: 12%;
+            right: 12%;
             animation: coinFloat4 3.5s ease-in-out infinite;
         }
 
         .hero-coin-5 {
-            width: 35px;
-            height: 35px;
-            bottom: 10%;
-            right: -10px;
-            background: linear-gradient(135deg, #FFE55C 0%, var(--primary) 100%);
-            box-shadow: inset -2px -2px 5px rgba(0,0,0,0.3), 0 0 12px rgba(251, 206, 4, 0.25);
+            width: 40px;
+            height: 40px;
+            bottom: 12%;
+            right: -8px;
             animation: coinFloat5 5.5s ease-in-out infinite;
         }
 
         @keyframes coinFloat1 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(8px, 12px) rotate(10deg); }
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(8px) rotate(5deg); }
         }
 
         @keyframes coinFloat2 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-10px, 8px) rotate(-15deg); }
+            0%, 100% { transform: translateY(0) rotate(10deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
         }
 
         @keyframes coinFloat3 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(12px, -10px) rotate(12deg); }
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(10px) rotate(5deg); }
         }
 
         @keyframes coinFloat4 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-5px, 8px) scale(1.1); }
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(6px) scale(1.05); }
         }
 
         @keyframes coinFloat5 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-8px, -12px) rotate(-10deg); }
+            0%, 100% { transform: translateY(0) rotate(5deg); }
+            50% { transform: translateY(-8px) rotate(-10deg); }
         }
 
         /* Top accent line */
@@ -1490,11 +1485,87 @@
         <section class="hero">
             <!-- Decorative Coins -->
             <div class="hero-coins">
-                <div class="hero-coin hero-coin-1"></div>
-                <div class="hero-coin hero-coin-2"></div>
-                <div class="hero-coin hero-coin-3"></div>
-                <div class="hero-coin hero-coin-4"></div>
-                <div class="hero-coin hero-coin-5"></div>
+                <!-- Gold Coin 1 (Large, top-left) -->
+                <div class="hero-coin hero-coin-1">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFE55C"/>
+                                <stop offset="50%" stop-color="#fbce04"/>
+                                <stop offset="100%" stop-color="#C9A000"/>
+                            </linearGradient>
+                            <linearGradient id="goldShine1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFF8DC" stop-opacity="0.8"/>
+                                <stop offset="50%" stop-color="#FFE55C" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" fill="url(#goldGrad1)" stroke="#C9A000" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="42" fill="none" stroke="#C9A000" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="36" font-weight="900">$</text>
+                        <ellipse cx="35" cy="30" rx="15" ry="10" fill="url(#goldShine1)"/>
+                    </svg>
+                </div>
+                <!-- Silver Coin (Right side) -->
+                <div class="hero-coin hero-coin-2">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#F5F5F5"/>
+                                <stop offset="50%" stop-color="#C0C0C0"/>
+                                <stop offset="100%" stop-color="#909090"/>
+                            </linearGradient>
+                            <linearGradient id="silverShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+                                <stop offset="50%" stop-color="#F0F0F0" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" fill="url(#silverGrad)" stroke="#808080" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="42" fill="none" stroke="#909090" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#606060" font-family="Arial Black" font-size="36" font-weight="900">$</text>
+                        <ellipse cx="35" cy="30" rx="15" ry="10" fill="url(#silverShine)"/>
+                    </svg>
+                </div>
+                <!-- Bronze Coin (Left side) -->
+                <div class="hero-coin hero-coin-3">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#E8A050"/>
+                                <stop offset="50%" stop-color="#CD7F32"/>
+                                <stop offset="100%" stop-color="#8B5A2B"/>
+                            </linearGradient>
+                            <linearGradient id="bronzeShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFD699" stop-opacity="0.8"/>
+                                <stop offset="50%" stop-color="#E8A050" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="48" fill="url(#bronzeGrad)" stroke="#8B5A2B" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="42" fill="none" stroke="#8B5A2B" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#5C3D1E" font-family="Arial Black" font-size="36" font-weight="900">$</text>
+                        <ellipse cx="35" cy="30" rx="15" ry="10" fill="url(#bronzeShine)"/>
+                    </svg>
+                </div>
+                <!-- Small Gold Coin (Top-right) -->
+                <div class="hero-coin hero-coin-4">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="url(#goldGrad1)" stroke="#C9A000" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#C9A000" stroke-width="1.5" stroke-dasharray="3 2"/>
+                        <text x="50" y="64" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="40" font-weight="900">$</text>
+                        <ellipse cx="35" cy="30" rx="12" ry="8" fill="url(#goldShine1)"/>
+                    </svg>
+                </div>
+                <!-- Small Gold Coin (Bottom-right) -->
+                <div class="hero-coin hero-coin-5">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="url(#goldGrad1)" stroke="#C9A000" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#C9A000" stroke-width="1.5" stroke-dasharray="3 2"/>
+                        <text x="50" y="64" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="40" font-weight="900">$</text>
+                        <ellipse cx="35" cy="30" rx="12" ry="8" fill="url(#goldShine1)"/>
+                    </svg>
+                </div>
             </div>
 
             <div class="hero-content">
