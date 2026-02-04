@@ -276,7 +276,7 @@
             font-size: 13px;
         }
 
-        /* Hero Section - Illustrated */
+        /* Hero Section - Full Illustrated Composition */
         .hero {
             position: relative;
             padding: 50px 20px 44px;
@@ -286,12 +286,16 @@
             overflow: hidden;
             border-radius: 28px;
             margin: 0 16px;
-            background: linear-gradient(180deg, #1a1520 0%, #0d0a12 100%);
+            background:
+                radial-gradient(ellipse 120% 80% at 50% 120%, rgba(251, 206, 4, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 80% 60% at 0% 50%, rgba(205, 127, 50, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse 80% 60% at 100% 50%, rgba(192, 192, 192, 0.06) 0%, transparent 40%),
+                linear-gradient(180deg, #1a1520 0%, #0d0a12 100%);
             border: 1px solid rgba(251, 206, 4, 0.25);
         }
 
-        /* Decorative SVG coin illustrations */
-        .hero-coins {
+        /* Full illustration container */
+        .hero-illustration {
             position: absolute;
             top: 0;
             left: 0;
@@ -301,80 +305,392 @@
             overflow: hidden;
         }
 
-        .hero-coin {
+        /* Light rays from bottom */
+        .hero-rays {
             position: absolute;
-            opacity: 0.85;
-        }
-
-        .hero-coin svg {
-            width: 100%;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
             height: 100%;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+            background:
+                conic-gradient(from 90deg at 50% 100%,
+                    transparent 0deg,
+                    rgba(251, 206, 4, 0.03) 10deg,
+                    transparent 20deg,
+                    rgba(251, 206, 4, 0.04) 40deg,
+                    transparent 50deg,
+                    rgba(251, 206, 4, 0.03) 70deg,
+                    transparent 80deg,
+                    rgba(251, 206, 4, 0.05) 90deg,
+                    transparent 100deg,
+                    rgba(251, 206, 4, 0.03) 120deg,
+                    transparent 130deg,
+                    rgba(251, 206, 4, 0.04) 150deg,
+                    transparent 160deg,
+                    rgba(251, 206, 4, 0.03) 170deg,
+                    transparent 180deg
+                );
+            opacity: 0.8;
         }
 
-        .hero-coin-1 {
+        /* Sparkles */
+        .hero-sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 6px 2px rgba(251, 206, 4, 0.6);
+        }
+
+        .sparkle-1 { top: 15%; left: 10%; animation: sparkle 2s ease-in-out infinite; }
+        .sparkle-2 { top: 25%; right: 15%; animation: sparkle 2.5s ease-in-out infinite 0.3s; }
+        .sparkle-3 { top: 45%; left: 5%; animation: sparkle 1.8s ease-in-out infinite 0.6s; }
+        .sparkle-4 { bottom: 35%; right: 8%; animation: sparkle 2.2s ease-in-out infinite 0.9s; }
+        .sparkle-5 { bottom: 20%; left: 15%; animation: sparkle 2s ease-in-out infinite 1.2s; }
+        .sparkle-6 { top: 10%; right: 25%; animation: sparkle 1.9s ease-in-out infinite 0.5s; }
+        .sparkle-7 { bottom: 45%; right: 20%; animation: sparkle 2.3s ease-in-out infinite 0.8s; }
+        .sparkle-8 { top: 35%; left: 20%; animation: sparkle 2.1s ease-in-out infinite 1s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Star sparkles (4-point) */
+        .hero-star {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+        }
+
+        .hero-star::before,
+        .hero-star::after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
+        }
+
+        .hero-star::before {
+            width: 100%;
+            height: 2px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .hero-star::after {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+
+        .star-1 { top: 20%; left: 8%; animation: starTwinkle 3s ease-in-out infinite; }
+        .star-2 { top: 12%; right: 10%; animation: starTwinkle 2.5s ease-in-out infinite 0.5s; }
+        .star-3 { bottom: 30%; left: 12%; animation: starTwinkle 2.8s ease-in-out infinite 1s; }
+        .star-4 { bottom: 15%; right: 15%; animation: starTwinkle 3.2s ease-in-out infinite 0.7s; }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.6) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(45deg); }
+        }
+
+        /* Coin stack - left side */
+        .coin-stack-left {
+            position: absolute;
+            bottom: 10%;
+            left: -5%;
+            width: 90px;
+            animation: stackFloat 4s ease-in-out infinite;
+        }
+
+        /* Coin stack - right side */
+        .coin-stack-right {
+            position: absolute;
+            bottom: 15%;
+            right: -8%;
+            width: 80px;
+            animation: stackFloat 4.5s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes stackFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Flying coins */
+        .flying-coin {
+            position: absolute;
+        }
+
+        .flying-coin svg {
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.4));
+        }
+
+        .flying-coin-1 {
+            width: 45px;
+            height: 45px;
+            top: 3%;
+            left: 8%;
+            animation: coinFly1 5s ease-in-out infinite;
+        }
+
+        .flying-coin-2 {
+            width: 38px;
+            height: 38px;
+            top: 8%;
+            right: 8%;
+            animation: coinFly2 4.5s ease-in-out infinite 0.3s;
+        }
+
+        .flying-coin-3 {
+            width: 32px;
+            height: 32px;
+            top: 45%;
+            left: 3%;
+            animation: coinFly3 5.5s ease-in-out infinite 0.6s;
+        }
+
+        .flying-coin-4 {
+            width: 30px;
+            height: 30px;
+            top: 55%;
+            right: 3%;
+            animation: coinFly4 4s ease-in-out infinite 0.9s;
+        }
+
+        .flying-coin-5 {
+            width: 26px;
+            height: 26px;
+            bottom: 28%;
+            left: 6%;
+            animation: coinFly1 4.2s ease-in-out infinite 0.4s;
+        }
+
+        .flying-coin-6 {
+            width: 22px;
+            height: 22px;
+            bottom: 22%;
+            right: 10%;
+            animation: coinFly2 3.8s ease-in-out infinite 0.7s;
+        }
+
+        @keyframes coinFly1 {
+            0%, 100% { transform: translate(0, 0) rotate(-15deg); }
+            50% { transform: translate(10px, 15px) rotate(10deg); }
+        }
+
+        @keyframes coinFly2 {
+            0%, 100% { transform: translate(0, 0) rotate(10deg); }
+            50% { transform: translate(-8px, 12px) rotate(-5deg); }
+        }
+
+        @keyframes coinFly3 {
+            0%, 100% { transform: translate(0, 0) rotate(-10deg); }
+            50% { transform: translate(12px, -10px) rotate(15deg); }
+        }
+
+        @keyframes coinFly4 {
+            0%, 100% { transform: translate(0, 0) rotate(5deg); }
+            50% { transform: translate(-10px, -8px) rotate(-10deg); }
+        }
+
+        /* Glowing orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.4;
+        }
+
+        .glow-orb-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            top: -20px;
+            left: -30px;
+            animation: orbPulse 4s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 80px;
+            height: 80px;
+            background: #c0c0c0;
+            top: 30%;
+            right: -20px;
+            animation: orbPulse 5s ease-in-out infinite 1s;
+        }
+
+        .glow-orb-3 {
             width: 70px;
             height: 70px;
-            top: -10px;
-            left: -15px;
-            animation: coinFloat1 4s ease-in-out infinite;
+            background: #cd7f32;
+            bottom: 20%;
+            left: -20px;
+            animation: orbPulse 4.5s ease-in-out infinite 0.5s;
         }
 
-        .hero-coin-2 {
-            width: 55px;
-            height: 55px;
-            top: 25%;
-            right: -12px;
-            animation: coinFloat2 5s ease-in-out infinite;
+        @keyframes orbPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
         }
 
-        .hero-coin-3 {
-            width: 50px;
-            height: 50px;
-            bottom: 25%;
-            left: -12px;
-            animation: coinFloat3 4.5s ease-in-out infinite;
+        /* Treasure Chest */
+        .treasure-chest {
+            position: absolute;
+            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5));
         }
 
-        .hero-coin-4 {
-            width: 35px;
-            height: 35px;
-            top: 12%;
-            right: 12%;
-            animation: coinFloat4 3.5s ease-in-out infinite;
+        .chest-left {
+            width: 100px;
+            bottom: 5%;
+            left: -15%;
+            animation: chestFloat 5s ease-in-out infinite;
         }
 
-        .hero-coin-5 {
-            width: 40px;
-            height: 40px;
-            bottom: 12%;
-            right: -8px;
-            animation: coinFloat5 5.5s ease-in-out infinite;
-        }
-
-        @keyframes coinFloat1 {
+        @keyframes chestFloat {
             0%, 100% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(8px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-3deg); }
         }
 
-        @keyframes coinFloat2 {
-            0%, 100% { transform: translateY(0) rotate(10deg); }
-            50% { transform: translateY(-10px) rotate(-5deg); }
+        /* Money Bag */
+        .money-bag {
+            position: absolute;
+            width: 55px;
+            bottom: 8%;
+            right: -5%;
+            animation: bagFloat 4.5s ease-in-out infinite 0.3s;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4));
         }
 
-        @keyframes coinFloat3 {
-            0%, 100% { transform: translateY(0) rotate(-10deg); }
-            50% { transform: translateY(10px) rotate(5deg); }
-        }
-
-        @keyframes coinFloat4 {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(6px) scale(1.05); }
-        }
-
-        @keyframes coinFloat5 {
+        @keyframes bagFloat {
             0%, 100% { transform: translateY(0) rotate(5deg); }
-            50% { transform: translateY(-8px) rotate(-10deg); }
+            50% { transform: translateY(-12px) rotate(8deg); }
+        }
+
+        /* Floating Gems */
+        .floating-gem {
+            position: absolute;
+            filter: drop-shadow(0 3px 10px rgba(0,0,0,0.3));
+        }
+
+        .gem-1 {
+            width: 30px;
+            top: 8%;
+            left: 12%;
+            animation: gemFloat 4s ease-in-out infinite;
+        }
+
+        .gem-2 {
+            width: 25px;
+            top: 25%;
+            right: 8%;
+            animation: gemFloat 3.5s ease-in-out infinite 0.5s;
+        }
+
+        @keyframes gemFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(10deg); }
+            50% { transform: translateY(-5px) rotate(0deg); }
+            75% { transform: translateY(-12px) rotate(-10deg); }
+        }
+
+        /* Floating Percentage Symbols */
+        .floating-percent {
+            position: absolute;
+        }
+
+        .percent-1 {
+            width: 35px;
+            top: 18%;
+            right: 18%;
+            animation: percentFloat 5s ease-in-out infinite;
+        }
+
+        .percent-2 {
+            width: 28px;
+            bottom: 35%;
+            left: 8%;
+            animation: percentFloat 4.5s ease-in-out infinite 1s;
+        }
+
+        @keyframes percentFloat {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-15px) scale(1.1); opacity: 0.8; }
+        }
+
+        /* Dollar Bills */
+        .dollar-bill {
+            position: absolute;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+        }
+
+        .bill-1 {
+            width: 55px;
+            top: 12%;
+            left: 3%;
+            animation: billFloat 6s ease-in-out infinite;
+            transform: rotate(-15deg);
+        }
+
+        .bill-2 {
+            width: 45px;
+            bottom: 30%;
+            right: 2%;
+            animation: billFloat 5.5s ease-in-out infinite 1s;
+            transform: rotate(20deg);
+        }
+
+        @keyframes billFloat {
+            0%, 100% { transform: translateY(0) rotate(-15deg); }
+            25% { transform: translateY(-10px) rotate(-10deg); }
+            50% { transform: translateY(-5px) rotate(-18deg); }
+            75% { transform: translateY(-15px) rotate(-12deg); }
+        }
+
+        /* Golden Confetti/Particles */
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #FFE55C 0%, #fbce04 100%);
+            border-radius: 2px;
+        }
+
+        .confetti-1 { top: 20%; left: 18%; animation: confettiFall 4s ease-in-out infinite; transform: rotate(45deg); }
+        .confetti-2 { top: 35%; right: 22%; animation: confettiFall 4.5s ease-in-out infinite 0.3s; transform: rotate(-30deg); background: linear-gradient(135deg, #F5F5F5 0%, #C0C0C0 100%); }
+        .confetti-3 { top: 55%; left: 6%; animation: confettiFall 5s ease-in-out infinite 0.6s; transform: rotate(60deg); }
+        .confetti-4 { bottom: 40%; right: 6%; animation: confettiFall 4.2s ease-in-out infinite 0.9s; transform: rotate(-45deg); background: linear-gradient(135deg, #E8A050 0%, #CD7F32 100%); }
+        .confetti-5 { top: 10%; right: 30%; animation: confettiFall 5.5s ease-in-out infinite 1.2s; transform: rotate(30deg); width: 6px; height: 6px; }
+        .confetti-6 { bottom: 25%; left: 22%; animation: confettiFall 4.8s ease-in-out infinite 0.5s; transform: rotate(-60deg); width: 10px; height: 10px; }
+
+        @keyframes confettiFall {
+            0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
+            25% { transform: translateY(10px) rotate(90deg); opacity: 1; }
+            50% { transform: translateY(5px) rotate(135deg); opacity: 0.8; }
+            75% { transform: translateY(15px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Adjust coin stacks for better positioning */
+        .coin-stack-left {
+            position: absolute;
+            bottom: 15%;
+            left: -8%;
+            width: 70px;
+            animation: stackFloat 4s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4));
+        }
+
+        .coin-stack-right {
+            position: absolute;
+            bottom: 20%;
+            right: -10%;
+            width: 60px;
+            animation: stackFloat 4.5s ease-in-out infinite 0.5s;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4));
         }
 
         /* Top accent line */
@@ -391,6 +707,7 @@
                 var(--primary) 50%,
                 #c0c0c0 85%,
                 transparent 100%);
+            z-index: 5;
         }
 
         .hero-content {
@@ -1483,89 +1800,264 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <!-- Decorative Coins -->
-            <div class="hero-coins">
-                <!-- Gold Coin 1 (Large, top-left) -->
-                <div class="hero-coin hero-coin-1">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#FFE55C"/>
-                                <stop offset="50%" stop-color="#fbce04"/>
-                                <stop offset="100%" stop-color="#C9A000"/>
-                            </linearGradient>
-                            <linearGradient id="goldShine1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#FFF8DC" stop-opacity="0.8"/>
-                                <stop offset="50%" stop-color="#FFE55C" stop-opacity="0"/>
-                            </linearGradient>
-                        </defs>
-                        <circle cx="50" cy="50" r="48" fill="url(#goldGrad1)" stroke="#C9A000" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="42" fill="none" stroke="#C9A000" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="36" font-weight="900">$</text>
-                        <ellipse cx="35" cy="30" rx="15" ry="10" fill="url(#goldShine1)"/>
+            <!-- Full Illustrated Composition -->
+            <div class="hero-illustration">
+                <!-- SVG Definitions -->
+                <svg style="position:absolute;width:0;height:0;">
+                    <defs>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFE55C"/>
+                            <stop offset="50%" stop-color="#fbce04"/>
+                            <stop offset="100%" stop-color="#C9A000"/>
+                        </linearGradient>
+                        <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFF8DC" stop-opacity="0.8"/>
+                            <stop offset="50%" stop-color="#FFE55C" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#F5F5F5"/>
+                            <stop offset="50%" stop-color="#C0C0C0"/>
+                            <stop offset="100%" stop-color="#909090"/>
+                        </linearGradient>
+                        <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#E8A050"/>
+                            <stop offset="50%" stop-color="#CD7F32"/>
+                            <stop offset="100%" stop-color="#8B5A2B"/>
+                        </linearGradient>
+                        <linearGradient id="chestGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#8B5A2B"/>
+                            <stop offset="50%" stop-color="#654321"/>
+                            <stop offset="100%" stop-color="#3E2723"/>
+                        </linearGradient>
+                        <filter id="coinGlow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                </svg>
+
+                <!-- Light rays from bottom -->
+                <div class="hero-rays"></div>
+
+                <!-- Glowing orbs -->
+                <div class="glow-orb glow-orb-1"></div>
+                <div class="glow-orb glow-orb-2"></div>
+                <div class="glow-orb glow-orb-3"></div>
+
+                <!-- Sparkles -->
+                <div class="hero-sparkle sparkle-1"></div>
+                <div class="hero-sparkle sparkle-2"></div>
+                <div class="hero-sparkle sparkle-3"></div>
+                <div class="hero-sparkle sparkle-4"></div>
+                <div class="hero-sparkle sparkle-5"></div>
+                <div class="hero-sparkle sparkle-6"></div>
+                <div class="hero-sparkle sparkle-7"></div>
+                <div class="hero-sparkle sparkle-8"></div>
+
+                <!-- Star sparkles (4-point) -->
+                <div class="hero-star star-1"></div>
+                <div class="hero-star star-2"></div>
+                <div class="hero-star star-3"></div>
+                <div class="hero-star star-4"></div>
+
+                <!-- Treasure Chest Left -->
+                <div class="treasure-chest chest-left">
+                    <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Chest body -->
+                        <rect x="10" y="45" width="100" height="50" rx="5" fill="url(#chestGrad)" stroke="#2E1810" stroke-width="2"/>
+                        <!-- Chest lid -->
+                        <path d="M10 45 Q60 10 110 45" fill="#654321" stroke="#2E1810" stroke-width="2"/>
+                        <!-- Metal bands -->
+                        <rect x="8" y="55" width="104" height="8" fill="#C9A000" opacity="0.8"/>
+                        <rect x="8" y="80" width="104" height="8" fill="#C9A000" opacity="0.8"/>
+                        <!-- Lock -->
+                        <circle cx="60" cy="65" r="10" fill="#C9A000" stroke="#8B7500" stroke-width="2"/>
+                        <rect x="56" y="62" width="8" height="10" fill="#8B7500"/>
+                        <!-- Coins spilling out -->
+                        <circle cx="25" cy="38" r="12" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="1.5"/>
+                        <circle cx="45" cy="32" r="10" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="1.5"/>
+                        <circle cx="70" cy="35" r="11" fill="url(#silverGrad)" stroke="#909090" stroke-width="1.5"/>
+                        <circle cx="90" cy="40" r="9" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="1.5"/>
+                        <!-- Sparkle on chest -->
+                        <circle cx="30" cy="60" r="2" fill="white" opacity="0.8"/>
                     </svg>
                 </div>
-                <!-- Silver Coin (Right side) -->
-                <div class="hero-coin hero-coin-2">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#F5F5F5"/>
-                                <stop offset="50%" stop-color="#C0C0C0"/>
-                                <stop offset="100%" stop-color="#909090"/>
-                            </linearGradient>
-                            <linearGradient id="silverShine" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
-                                <stop offset="50%" stop-color="#F0F0F0" stop-opacity="0"/>
-                            </linearGradient>
-                        </defs>
-                        <circle cx="50" cy="50" r="48" fill="url(#silverGrad)" stroke="#808080" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="42" fill="none" stroke="#909090" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#606060" font-family="Arial Black" font-size="36" font-weight="900">$</text>
-                        <ellipse cx="35" cy="30" rx="15" ry="10" fill="url(#silverShine)"/>
+
+                <!-- Coin Stack Left -->
+                <div class="coin-stack-left">
+                    <svg viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Stack of coins (ellipses for 3D effect) -->
+                        <ellipse cx="40" cy="110" rx="35" ry="8" fill="#8B5A2B"/>
+                        <ellipse cx="40" cy="105" rx="35" ry="8" fill="url(#bronzeGrad)"/>
+                        <ellipse cx="40" cy="100" rx="35" ry="8" fill="#8B5A2B"/>
+                        <ellipse cx="40" cy="95" rx="35" ry="8" fill="url(#bronzeGrad)"/>
+                        <ellipse cx="40" cy="90" rx="35" ry="8" fill="#909090"/>
+                        <ellipse cx="40" cy="85" rx="35" ry="8" fill="url(#silverGrad)"/>
+                        <ellipse cx="40" cy="80" rx="35" ry="8" fill="#909090"/>
+                        <ellipse cx="40" cy="75" rx="35" ry="8" fill="url(#silverGrad)"/>
+                        <ellipse cx="40" cy="70" rx="35" ry="8" fill="#C9A000"/>
+                        <ellipse cx="40" cy="65" rx="35" ry="8" fill="url(#goldGrad)"/>
+                        <ellipse cx="40" cy="60" rx="35" ry="8" fill="#C9A000"/>
+                        <ellipse cx="40" cy="55" rx="35" ry="8" fill="url(#goldGrad)"/>
+                        <!-- Shine on top coin -->
+                        <ellipse cx="30" cy="52" rx="10" ry="4" fill="white" opacity="0.3"/>
+                        <!-- Dollar sign on top -->
+                        <text x="40" y="60" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="14" font-weight="900">$</text>
                     </svg>
                 </div>
-                <!-- Bronze Coin (Left side) -->
-                <div class="hero-coin hero-coin-3">
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#E8A050"/>
-                                <stop offset="50%" stop-color="#CD7F32"/>
-                                <stop offset="100%" stop-color="#8B5A2B"/>
-                            </linearGradient>
-                            <linearGradient id="bronzeShine" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#FFD699" stop-opacity="0.8"/>
-                                <stop offset="50%" stop-color="#E8A050" stop-opacity="0"/>
-                            </linearGradient>
-                        </defs>
-                        <circle cx="50" cy="50" r="48" fill="url(#bronzeGrad)" stroke="#8B5A2B" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="42" fill="none" stroke="#8B5A2B" stroke-width="1.5" stroke-dasharray="4 2"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-                        <text x="50" y="62" text-anchor="middle" fill="#5C3D1E" font-family="Arial Black" font-size="36" font-weight="900">$</text>
-                        <ellipse cx="35" cy="30" rx="15" ry="10" fill="url(#bronzeShine)"/>
+
+                <!-- Coin Stack Right -->
+                <div class="coin-stack-right">
+                    <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Stack of coins -->
+                        <ellipse cx="40" cy="92" rx="32" ry="7" fill="#C9A000"/>
+                        <ellipse cx="40" cy="87" rx="32" ry="7" fill="url(#goldGrad)"/>
+                        <ellipse cx="40" cy="82" rx="32" ry="7" fill="#C9A000"/>
+                        <ellipse cx="40" cy="77" rx="32" ry="7" fill="url(#goldGrad)"/>
+                        <ellipse cx="40" cy="72" rx="32" ry="7" fill="#C9A000"/>
+                        <ellipse cx="40" cy="67" rx="32" ry="7" fill="url(#goldGrad)"/>
+                        <ellipse cx="40" cy="62" rx="32" ry="7" fill="#909090"/>
+                        <ellipse cx="40" cy="57" rx="32" ry="7" fill="url(#silverGrad)"/>
+                        <ellipse cx="40" cy="52" rx="32" ry="7" fill="#909090"/>
+                        <ellipse cx="40" cy="47" rx="32" ry="7" fill="url(#silverGrad)"/>
+                        <!-- Shine -->
+                        <ellipse cx="30" cy="44" rx="8" ry="3" fill="white" opacity="0.3"/>
+                        <text x="40" y="52" text-anchor="middle" fill="#606060" font-family="Arial Black" font-size="12" font-weight="900">$</text>
                     </svg>
                 </div>
-                <!-- Small Gold Coin (Top-right) -->
-                <div class="hero-coin hero-coin-4">
+
+                <!-- Flying coins with detailed SVGs -->
+                <div class="flying-coin flying-coin-1">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="48" fill="url(#goldGrad1)" stroke="#C9A000" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="40" fill="none" stroke="#C9A000" stroke-width="1.5" stroke-dasharray="3 2"/>
-                        <text x="50" y="64" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="40" font-weight="900">$</text>
-                        <ellipse cx="35" cy="30" rx="12" ry="8" fill="url(#goldShine1)"/>
+                        <circle cx="50" cy="50" r="46" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#8B7500" stroke-width="2" stroke-dasharray="6 3"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="32" font-weight="900">$</text>
+                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.4"/>
                     </svg>
                 </div>
-                <!-- Small Gold Coin (Bottom-right) -->
-                <div class="hero-coin hero-coin-5">
+
+                <div class="flying-coin flying-coin-2">
                     <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="48" fill="url(#goldGrad1)" stroke="#C9A000" stroke-width="2"/>
-                        <circle cx="50" cy="50" r="40" fill="none" stroke="#C9A000" stroke-width="1.5" stroke-dasharray="3 2"/>
-                        <text x="50" y="64" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="40" font-weight="900">$</text>
-                        <ellipse cx="35" cy="30" rx="12" ry="8" fill="url(#goldShine1)"/>
+                        <circle cx="50" cy="50" r="46" fill="url(#silverGrad)" stroke="#808080" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#606060" stroke-width="2" stroke-dasharray="6 3"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#606060" font-family="Arial Black" font-size="32" font-weight="900">$</text>
+                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.5"/>
                     </svg>
                 </div>
+
+                <div class="flying-coin flying-coin-3">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="46" fill="url(#bronzeGrad)" stroke="#8B5A2B" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#5C3D1E" stroke-width="2" stroke-dasharray="6 3"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#5C3D1E" font-family="Arial Black" font-size="32" font-weight="900">$</text>
+                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.3"/>
+                    </svg>
+                </div>
+
+                <div class="flying-coin flying-coin-4">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="46" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#8B7500" stroke-width="2" stroke-dasharray="6 3"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="32" font-weight="900">$</text>
+                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.4"/>
+                    </svg>
+                </div>
+
+                <!-- Money bag decoration -->
+                <div class="money-bag">
+                    <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bag body -->
+                        <path d="M15 40 Q10 70 20 90 Q40 105 60 90 Q70 70 65 40 Q55 35 40 30 Q25 35 15 40Z" fill="#2E7D32" stroke="#1B5E20" stroke-width="2"/>
+                        <!-- Bag top/tie -->
+                        <path d="M25 35 Q30 25 40 22 Q50 25 55 35" fill="#388E3C" stroke="#1B5E20" stroke-width="2"/>
+                        <ellipse cx="40" cy="32" rx="8" ry="4" fill="#C9A000"/>
+                        <!-- Dollar sign -->
+                        <text x="40" y="72" text-anchor="middle" fill="#C9A000" font-family="Arial Black" font-size="28" font-weight="900">$</text>
+                        <!-- Shine -->
+                        <ellipse cx="28" cy="55" rx="6" ry="12" fill="white" opacity="0.15"/>
+                    </svg>
+                </div>
+
+                <!-- Floating diamond/gem -->
+                <div class="floating-gem gem-1">
+                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="30,5 55,25 30,55 5,25" fill="#E91E63" opacity="0.8"/>
+                        <polygon points="30,5 55,25 30,28" fill="#F48FB1"/>
+                        <polygon points="30,5 5,25 30,28" fill="#EC407A"/>
+                        <polygon points="5,25 30,55 30,28" fill="#AD1457"/>
+                        <polygon points="55,25 30,55 30,28" fill="#C2185B"/>
+                    </svg>
+                </div>
+
+                <div class="floating-gem gem-2">
+                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="30,5 55,25 30,55 5,25" fill="#00BCD4" opacity="0.8"/>
+                        <polygon points="30,5 55,25 30,28" fill="#80DEEA"/>
+                        <polygon points="30,5 5,25 30,28" fill="#26C6DA"/>
+                        <polygon points="5,25 30,55 30,28" fill="#00838F"/>
+                        <polygon points="55,25 30,55 30,28" fill="#0097A7"/>
+                    </svg>
+                </div>
+
+                <!-- Percentage symbols floating -->
+                <div class="floating-percent percent-1">
+                    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="25" y="38" text-anchor="middle" fill="#fbce04" font-family="Arial Black" font-size="28" font-weight="900" opacity="0.6">%</text>
+                    </svg>
+                </div>
+                <div class="floating-percent percent-2">
+                    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="25" y="38" text-anchor="middle" fill="#C0C0C0" font-family="Arial Black" font-size="28" font-weight="900" opacity="0.5">%</text>
+                    </svg>
+                </div>
+
+                <!-- Additional flying coins -->
+                <div class="flying-coin flying-coin-5">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="46" fill="url(#goldGrad)" stroke="#C9A000" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#8B7500" stroke-width="2" stroke-dasharray="6 3"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#8B7500" font-family="Arial Black" font-size="32" font-weight="900">$</text>
+                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.4"/>
+                    </svg>
+                </div>
+
+                <div class="flying-coin flying-coin-6">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="46" fill="url(#bronzeGrad)" stroke="#8B5A2B" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#5C3D1E" stroke-width="2" stroke-dasharray="6 3"/>
+                        <text x="50" y="62" text-anchor="middle" fill="#5C3D1E" font-family="Arial Black" font-size="32" font-weight="900">$</text>
+                        <ellipse cx="32" cy="30" rx="12" ry="8" fill="white" opacity="0.3"/>
+                    </svg>
+                </div>
+
+                <!-- Floating dollar bills -->
+                <div class="dollar-bill bill-1">
+                    <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="96" height="46" rx="4" fill="#2E7D32" stroke="#1B5E20" stroke-width="2"/>
+                        <rect x="8" y="8" width="84" height="34" fill="none" stroke="#4CAF50" stroke-width="1" stroke-dasharray="4 2"/>
+                        <circle cx="50" cy="25" r="12" fill="#388E3C" stroke="#4CAF50" stroke-width="1"/>
+                        <text x="50" y="30" text-anchor="middle" fill="#A5D6A7" font-family="Arial Black" font-size="14" font-weight="900">$</text>
+                        <text x="15" y="20" fill="#A5D6A7" font-family="Arial" font-size="8" font-weight="bold">100</text>
+                        <text x="85" y="40" text-anchor="end" fill="#A5D6A7" font-family="Arial" font-size="8" font-weight="bold">100</text>
+                    </svg>
+                </div>
+
+                <div class="dollar-bill bill-2">
+                    <svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="96" height="46" rx="4" fill="#2E7D32" stroke="#1B5E20" stroke-width="2"/>
+                        <rect x="8" y="8" width="84" height="34" fill="none" stroke="#4CAF50" stroke-width="1" stroke-dasharray="4 2"/>
+                        <circle cx="50" cy="25" r="12" fill="#388E3C" stroke="#4CAF50" stroke-width="1"/>
+                        <text x="50" y="30" text-anchor="middle" fill="#A5D6A7" font-family="Arial Black" font-size="14" font-weight="900">$</text>
+                    </svg>
+                </div>
+
+                <!-- Golden confetti/particles -->
+                <div class="confetti confetti-1"></div>
+                <div class="confetti confetti-2"></div>
+                <div class="confetti confetti-3"></div>
+                <div class="confetti confetti-4"></div>
+                <div class="confetti confetti-5"></div>
+                <div class="confetti confetti-6"></div>
             </div>
 
             <div class="hero-content">
