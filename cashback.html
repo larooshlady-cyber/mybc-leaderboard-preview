@@ -117,181 +117,266 @@
         }
 
         /* ============================================
-           HERO SECTION - BEAUTIFUL ILLUSTRATED SCENE
+           HERO SECTION - TREASURE VAULT THEME
+           Deep teal/emerald with golden treasure
            ============================================ */
         .hero {
             position: relative;
             margin: 0 16px;
             border-radius: 24px;
             overflow: hidden;
-            min-height: 500px;
+            min-height: 520px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px 80px;
+            padding: 40px 20px 60px;
         }
 
-        /* Background - Rich purple gradient */
+        /* Background - Deep teal to dark gradient */
         .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg,
-                #1E0A3C 0%,
-                #2D1660 25%,
-                #4A2387 50%,
-                #6B35B0 75%,
-                #8B4BC8 100%
+            background: linear-gradient(135deg,
+                #0A1628 0%,
+                #0D2137 20%,
+                #0F3D3E 50%,
+                #145A5C 80%,
+                #1A7373 100%
             );
             z-index: 0;
         }
 
-        /* Subtle radial glow */
+        /* Golden center glow */
         .hero-bg::before {
             content: '';
             position: absolute;
-            top: 20%;
+            top: 30%;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%;
-            height: 60%;
-            background: radial-gradient(ellipse, rgba(251, 206, 4, 0.08) 0%, transparent 70%);
+            width: 100%;
+            height: 70%;
+            background: radial-gradient(ellipse at center, rgba(251, 206, 4, 0.15) 0%, rgba(251, 206, 4, 0.05) 30%, transparent 60%);
             z-index: 1;
         }
 
-        /* Rolling Hills/Mountains */
-        .hero-landscape {
+        /* Animated light rays from center */
+        .hero-bg::after {
+            content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            height: 50%;
-            z-index: 2;
+            bottom: 0;
+            background:
+                conic-gradient(from 0deg at 50% 60%,
+                    transparent 0deg,
+                    rgba(251, 206, 4, 0.03) 15deg,
+                    transparent 30deg,
+                    transparent 60deg,
+                    rgba(251, 206, 4, 0.03) 75deg,
+                    transparent 90deg,
+                    transparent 120deg,
+                    rgba(251, 206, 4, 0.03) 135deg,
+                    transparent 150deg,
+                    transparent 180deg,
+                    rgba(251, 206, 4, 0.03) 195deg,
+                    transparent 210deg,
+                    transparent 240deg,
+                    rgba(251, 206, 4, 0.03) 255deg,
+                    transparent 270deg,
+                    transparent 300deg,
+                    rgba(251, 206, 4, 0.03) 315deg,
+                    transparent 330deg
+                );
+            z-index: 1;
+            animation: raysSpin 30s linear infinite;
         }
 
-        /* Slot Machine - LEFT */
-        .slot-machine {
+        @keyframes raysSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Main Treasure Chest - Center Bottom */
+        .treasure-chest {
             position: absolute;
-            left: -2%;
-            bottom: 8%;
-            width: 160px;
-            z-index: 15;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-            animation: slotFloat 5s ease-in-out infinite;
+            bottom: 2%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            z-index: 20;
+            filter: drop-shadow(0 10px 40px rgba(251, 206, 4, 0.4));
         }
 
-        @keyframes slotFloat {
-            0%, 100% { transform: translateY(0) rotate(-3deg); }
-            50% { transform: translateY(-15px) rotate(-1deg); }
+        /* Vault Door - Left */
+        .vault-door {
+            position: absolute;
+            left: -8%;
+            bottom: 10%;
+            width: 140px;
+            z-index: 12;
+            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5));
+            animation: vaultGlow 4s ease-in-out infinite;
         }
 
-        /* Prize Wheel - RIGHT */
-        .prize-wheel {
+        @keyframes vaultGlow {
+            0%, 100% { filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5)) drop-shadow(0 0 15px rgba(251, 206, 4, 0.2)); }
+            50% { filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5)) drop-shadow(0 0 30px rgba(251, 206, 4, 0.4)); }
+        }
+
+        /* Safe Stack - Right */
+        .safe-stack {
             position: absolute;
             right: -5%;
-            bottom: 5%;
-            width: 180px;
+            bottom: 8%;
+            width: 130px;
+            z-index: 12;
+            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5));
+        }
+
+        /* Golden Coin Waterfall */
+        .coin-stream {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 150px;
             z-index: 15;
-            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-            animation: wheelFloat 6s ease-in-out infinite 0.5s;
+            overflow: visible;
         }
 
-        @keyframes wheelFloat {
-            0%, 100% { transform: translateY(0) rotate(2deg); }
-            50% { transform: translateY(-12px) rotate(0deg); }
+        .falling-coin {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFE55C 0%, #fbce04 50%, #C9A000 100%);
+            border: 2px solid #B8960A;
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 3px 8px rgba(0,0,0,0.3);
         }
 
-        /* Poker Chips */
-        .chip {
+        .falling-coin::after {
+            content: '$';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            font-weight: bold;
+            color: #8B7500;
+        }
+
+        .falling-coin:nth-child(1) { left: 10%; animation: coinFall 2s ease-in infinite 0s; }
+        .falling-coin:nth-child(2) { left: 30%; animation: coinFall 2.2s ease-in infinite 0.3s; width: 20px; height: 20px; }
+        .falling-coin:nth-child(3) { left: 50%; animation: coinFall 1.8s ease-in infinite 0.6s; }
+        .falling-coin:nth-child(4) { left: 70%; animation: coinFall 2.4s ease-in infinite 0.2s; width: 18px; height: 18px; }
+        .falling-coin:nth-child(5) { left: 85%; animation: coinFall 2s ease-in infinite 0.8s; width: 22px; height: 22px; }
+        .falling-coin:nth-child(6) { left: 20%; animation: coinFall 2.1s ease-in infinite 1s; width: 16px; height: 16px; }
+        .falling-coin:nth-child(7) { left: 60%; animation: coinFall 1.9s ease-in infinite 0.5s; }
+        .falling-coin:nth-child(8) { left: 40%; animation: coinFall 2.3s ease-in infinite 1.2s; width: 20px; height: 20px; }
+
+        @keyframes coinFall {
+            0% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(130px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Money Stacks on sides */
+        .money-stack {
             position: absolute;
             z-index: 10;
-            filter: drop-shadow(0 3px 8px rgba(0,0,0,0.4));
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
         }
 
-        .chip-1 { width: 38px; bottom: 6%; left: 18%; animation: chipBounce 3s ease-in-out infinite; }
-        .chip-2 { width: 32px; bottom: 4%; left: 38%; animation: chipBounce 3.5s ease-in-out infinite 0.2s; }
-        .chip-3 { width: 28px; bottom: 8%; right: 32%; animation: chipBounce 2.8s ease-in-out infinite 0.4s; }
-        .chip-4 { width: 35px; bottom: 3%; right: 20%; animation: chipBounce 3.2s ease-in-out infinite 0.6s; }
-        .chip-5 { width: 25px; bottom: 10%; left: 50%; animation: chipBounce 3.8s ease-in-out infinite 0.8s; }
+        .money-stack-1 { width: 60px; bottom: 5%; left: 15%; animation: stackFloat 4s ease-in-out infinite; }
+        .money-stack-2 { width: 50px; bottom: 8%; right: 18%; animation: stackFloat 4.5s ease-in-out infinite 0.5s; }
+        .money-stack-3 { width: 45px; bottom: 3%; left: 35%; animation: stackFloat 3.8s ease-in-out infinite 1s; }
+        .money-stack-4 { width: 55px; bottom: 6%; right: 35%; animation: stackFloat 4.2s ease-in-out infinite 0.8s; }
 
-        @keyframes chipBounce {
+        @keyframes stackFloat {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-8px); }
         }
 
-        /* Floating Coins */
-        .coin {
+        /* Gold Bars */
+        .gold-bar {
             position: absolute;
-            z-index: 8;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+            z-index: 11;
+            filter: drop-shadow(0 4px 15px rgba(251, 206, 4, 0.3));
         }
 
-        .coin-1 { width: 35px; top: 12%; left: 12%; animation: coinFloat 4s ease-in-out infinite; }
-        .coin-2 { width: 28px; top: 22%; right: 15%; animation: coinFloat 4.5s ease-in-out infinite 0.3s; }
-        .coin-3 { width: 22px; top: 38%; left: 6%; animation: coinFloat 5s ease-in-out infinite 0.6s; }
-        .coin-4 { width: 25px; bottom: 38%; right: 8%; animation: coinFloat 3.8s ease-in-out infinite 0.9s; }
+        .gold-bar-1 { width: 50px; bottom: 12%; left: 8%; transform: rotate(-15deg); animation: barShine 3s ease-in-out infinite; }
+        .gold-bar-2 { width: 40px; bottom: 15%; right: 12%; transform: rotate(10deg); animation: barShine 3.5s ease-in-out infinite 0.5s; }
+        .gold-bar-3 { width: 35px; bottom: 4%; left: 28%; transform: rotate(5deg); animation: barShine 2.8s ease-in-out infinite 1s; }
 
-        @keyframes coinFloat {
-            0%, 100% { transform: translateY(0) rotate(-10deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+        @keyframes barShine {
+            0%, 100% { filter: drop-shadow(0 4px 15px rgba(251, 206, 4, 0.3)); }
+            50% { filter: drop-shadow(0 4px 25px rgba(251, 206, 4, 0.6)); }
         }
 
-        /* Dice */
-        .dice {
+        /* Floating Gems */
+        .gem {
             position: absolute;
-            z-index: 8;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+            z-index: 14;
         }
 
-        .dice-1 { width: 30px; top: 18%; right: 10%; animation: diceRoll 6s ease-in-out infinite; }
-        .dice-2 { width: 26px; bottom: 42%; left: 8%; animation: diceRoll 5s ease-in-out infinite 1s; }
+        .gem-1 { width: 28px; top: 15%; left: 8%; animation: gemFloat 5s ease-in-out infinite; }
+        .gem-2 { width: 22px; top: 10%; right: 12%; animation: gemFloat 4.5s ease-in-out infinite 0.5s; }
+        .gem-3 { width: 18px; top: 25%; left: 18%; animation: gemFloat 5.5s ease-in-out infinite 1s; }
+        .gem-4 { width: 24px; top: 20%; right: 8%; animation: gemFloat 4s ease-in-out infinite 1.5s; }
+        .gem-5 { width: 16px; top: 8%; left: 25%; animation: gemFloat 4.8s ease-in-out infinite 0.8s; }
 
-        @keyframes diceRoll {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-12px) rotate(20deg); }
-            50% { transform: translateY(-8px) rotate(0deg); }
-            75% { transform: translateY(-15px) rotate(-15deg); }
+        @keyframes gemFloat {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-18px) rotate(5deg); }
         }
 
-        /* Sparkle Stars */
-        .star {
+        /* Sparkles */
+        .sparkle {
             position: absolute;
-            z-index: 12;
+            z-index: 16;
         }
 
-        .star-1 { width: 20px; top: 8%; left: 22%; animation: starPulse 2s ease-in-out infinite; }
-        .star-2 { width: 14px; top: 15%; right: 25%; animation: starPulse 2.5s ease-in-out infinite 0.3s; }
-        .star-3 { width: 16px; top: 28%; left: 4%; animation: starPulse 1.8s ease-in-out infinite 0.6s; }
-        .star-4 { width: 12px; top: 6%; right: 8%; animation: starPulse 2.2s ease-in-out infinite 0.9s; }
-        .star-5 { width: 10px; bottom: 48%; left: 28%; animation: starPulse 2s ease-in-out infinite 1.2s; }
-        .star-6 { width: 18px; top: 5%; left: 45%; animation: starPulse 2.3s ease-in-out infinite 0.4s; }
+        .sparkle-1 { width: 16px; top: 12%; left: 30%; animation: sparkleGlow 1.5s ease-in-out infinite; }
+        .sparkle-2 { width: 12px; top: 8%; right: 25%; animation: sparkleGlow 2s ease-in-out infinite 0.3s; }
+        .sparkle-3 { width: 14px; top: 22%; right: 20%; animation: sparkleGlow 1.8s ease-in-out infinite 0.6s; }
+        .sparkle-4 { width: 10px; top: 5%; left: 45%; animation: sparkleGlow 2.2s ease-in-out infinite 0.9s; }
+        .sparkle-5 { width: 18px; top: 18%; left: 5%; animation: sparkleGlow 1.6s ease-in-out infinite 1.2s; }
+        .sparkle-6 { width: 8px; top: 28%; right: 5%; animation: sparkleGlow 1.9s ease-in-out infinite 0.4s; }
+        .sparkle-7 { width: 20px; top: 3%; right: 35%; animation: sparkleGlow 2.1s ease-in-out infinite 0.7s; }
+        .sparkle-8 { width: 11px; top: 15%; left: 50%; animation: sparkleGlow 1.7s ease-in-out infinite 1s; }
 
-        @keyframes starPulse {
-            0%, 100% { opacity: 0.4; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.3); }
+        @keyframes sparkleGlow {
+            0%, 100% { opacity: 0.3; transform: scale(0.6) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
         }
 
-        /* Small particles */
+        /* Floating particles */
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
-            z-index: 6;
+            background: rgba(251, 206, 4, 0.6);
+            z-index: 8;
         }
 
-        .particle-1 { top: 20%; left: 35%; animation: particleFloat 4s ease-in-out infinite; }
-        .particle-2 { top: 35%; right: 30%; animation: particleFloat 5s ease-in-out infinite 0.5s; }
-        .particle-3 { bottom: 55%; left: 18%; animation: particleFloat 4.5s ease-in-out infinite 1s; }
-        .particle-4 { top: 45%; right: 18%; animation: particleFloat 3.5s ease-in-out infinite 1.5s; }
+        .particle-1 { width: 4px; height: 4px; top: 35%; left: 20%; animation: particleRise 6s ease-in-out infinite; }
+        .particle-2 { width: 3px; height: 3px; top: 40%; right: 25%; animation: particleRise 7s ease-in-out infinite 1s; }
+        .particle-3 { width: 5px; height: 5px; top: 50%; left: 30%; animation: particleRise 5s ease-in-out infinite 2s; }
+        .particle-4 { width: 3px; height: 3px; top: 45%; right: 35%; animation: particleRise 6.5s ease-in-out infinite 0.5s; }
+        .particle-5 { width: 4px; height: 4px; top: 55%; left: 40%; animation: particleRise 5.5s ease-in-out infinite 1.5s; }
+        .particle-6 { width: 2px; height: 2px; top: 60%; right: 40%; animation: particleRise 7.5s ease-in-out infinite 2.5s; }
 
-        @keyframes particleFloat {
-            0%, 100% { opacity: 0.3; transform: translateY(0); }
-            50% { opacity: 0.8; transform: translateY(-10px); }
+        @keyframes particleRise {
+            0%, 100% { transform: translateY(0); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(-80px); opacity: 0; }
         }
 
         /* Hero Content */
@@ -307,8 +392,8 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: rgba(0,0,0,0.4);
-            border: 1.5px solid rgba(251, 206, 4, 0.6);
+            background: rgba(0, 30, 40, 0.6);
+            border: 1.5px solid rgba(14, 204, 104, 0.6);
             border-radius: 100px;
             margin-bottom: 16px;
             backdrop-filter: blur(10px);
@@ -317,21 +402,21 @@
         .hero-badge-dot {
             width: 10px;
             height: 10px;
-            background: var(--primary);
+            background: var(--green);
             border-radius: 50%;
             animation: pulse 1.5s ease-in-out infinite;
-            box-shadow: 0 0 10px var(--primary);
+            box-shadow: 0 0 10px var(--green);
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--primary); }
-            50% { opacity: 0.6; box-shadow: 0 0 5px var(--primary); }
+            0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--green); }
+            50% { opacity: 0.6; box-shadow: 0 0 5px var(--green); }
         }
 
         .hero-badge-text {
             font-size: 11px;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--green);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -914,8 +999,9 @@
             .hero { margin: 0 24px; min-height: 580px; }
             .hero-title { font-size: 36px; }
             .hero-percentage { font-size: 110px; }
-            .slot-machine { width: 220px; left: 2%; }
-            .prize-wheel { width: 250px; right: 0%; }
+            .treasure-chest { width: 240px; }
+            .vault-door { width: 180px; left: 2%; }
+            .safe-stack { width: 160px; right: 2%; }
         }
     </style>
 </head>
@@ -941,67 +1027,65 @@
         <section class="hero">
             <div class="hero-bg"></div>
 
-            <!-- Landscape/Hills -->
-            <div class="hero-landscape">
-                <svg viewBox="0 0 400 200" preserveAspectRatio="none" fill="none">
-                    <path d="M0 100 Q40 60 80 80 Q120 100 160 70 Q200 40 240 60 Q280 80 320 50 Q360 20 400 60 L400 200 L0 200 Z" fill="#5A2D82" opacity="0.5"/>
-                    <path d="M0 130 Q50 100 100 115 Q150 130 200 105 Q250 80 300 100 Q350 120 400 95 L400 200 L0 200 Z" fill="#6B3FA0" opacity="0.7"/>
-                    <path d="M0 160 Q60 135 120 150 Q180 165 240 140 Q300 115 360 145 Q400 165 400 150 L400 200 L0 200 Z" fill="#7B4FB8"/>
-                    <path d="M0 180 Q80 165 160 175 Q240 185 320 170 Q380 158 400 175 L400 200 L0 200 Z" fill="#8B5FC8"/>
+            <!-- VAULT DOOR - Left Side -->
+            <div class="vault-door">
+                <svg viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Vault body -->
+                    <rect x="10" y="20" width="160" height="180" rx="12" fill="#2A3A4A"/>
+                    <rect x="10" y="20" width="160" height="180" rx="12" stroke="#1E2D3D" stroke-width="4"/>
+                    <!-- Inner door frame -->
+                    <rect x="25" y="35" width="130" height="150" rx="8" fill="#1E2D3D"/>
+                    <rect x="25" y="35" width="130" height="150" rx="8" stroke="#3D5A6A" stroke-width="2"/>
+                    <!-- Vault wheel -->
+                    <circle cx="90" cy="110" r="40" fill="#3D5A6A" stroke="#FFD700" stroke-width="4"/>
+                    <circle cx="90" cy="110" r="30" fill="#2A3A4A"/>
+                    <circle cx="90" cy="110" r="8" fill="#FFD700"/>
+                    <!-- Wheel spokes -->
+                    <line x1="90" y1="75" x2="90" y2="95" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="90" y1="125" x2="90" y2="145" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="55" y1="110" x2="75" y2="110" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="105" y1="110" x2="125" y2="110" stroke="#FFD700" stroke-width="3"/>
+                    <!-- Handle bars -->
+                    <rect x="135" y="80" width="12" height="60" rx="4" fill="#FFD700"/>
+                    <rect x="135" y="90" width="20" height="15" rx="3" fill="#C9A000"/>
+                    <rect x="135" y="115" width="20" height="15" rx="3" fill="#C9A000"/>
+                    <!-- Dollar sign -->
+                    <text x="90" y="118" text-anchor="middle" fill="#FFD700" font-size="20" font-weight="bold">$</text>
+                    <!-- Hinges -->
+                    <rect x="12" y="50" width="8" height="25" rx="2" fill="#4A5A6A"/>
+                    <rect x="12" y="145" width="8" height="25" rx="2" fill="#4A5A6A"/>
+                    <!-- Light glow from inside -->
+                    <ellipse cx="90" cy="180" rx="50" ry="8" fill="#FFD700" opacity="0.3"/>
                 </svg>
             </div>
 
-            <!-- SLOT MACHINE - Left Side -->
-            <div class="slot-machine">
-                <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Machine body -->
-                    <rect x="20" y="40" width="160" height="200" rx="15" fill="#7C3AED"/>
-                    <rect x="20" y="40" width="160" height="200" rx="15" stroke="#9F67FF" stroke-width="3"/>
-
-                    <!-- Top decoration -->
-                    <path d="M40 40 Q100 10 160 40" stroke="#FFD700" stroke-width="4" fill="none"/>
-                    <circle cx="100" cy="20" r="12" fill="#FFD700"/>
-                    <text x="100" y="25" text-anchor="middle" fill="#7C3AED" font-size="14" font-weight="bold">★</text>
-
-                    <!-- JACKPOT text -->
-                    <rect x="45" y="55" width="110" height="28" rx="6" fill="#1a1a2e"/>
-                    <text x="100" y="75" text-anchor="middle" fill="#FF6B6B" font-family="Arial" font-size="16" font-weight="bold">JACKPOT</text>
-
-                    <!-- Slot window -->
-                    <rect x="35" y="95" width="130" height="70" rx="8" fill="#1a1a2e"/>
-                    <rect x="35" y="95" width="130" height="70" rx="8" stroke="#FFD700" stroke-width="2" stroke-dasharray="4 2"/>
-
-                    <!-- Slot symbols -->
-                    <rect x="42" y="105" width="35" height="50" rx="4" fill="#2a2a4e"/>
-                    <text x="60" y="140" text-anchor="middle" fill="#FFD700" font-size="28">7</text>
-
-                    <rect x="82" y="105" width="35" height="50" rx="4" fill="#2a2a4e"/>
-                    <text x="100" y="140" text-anchor="middle" fill="#FFD700" font-size="28">7</text>
-
-                    <rect x="122" y="105" width="35" height="50" rx="4" fill="#2a2a4e"/>
-                    <text x="140" y="140" text-anchor="middle" fill="#FFD700" font-size="28">7</text>
-
-                    <!-- WIN display -->
-                    <rect x="50" y="175" width="100" height="25" rx="5" fill="#0a2a1a"/>
-                    <text x="100" y="193" text-anchor="middle" fill="#0ecc68" font-family="monospace" font-size="12" font-weight="bold">777 — WIN!</text>
-
-                    <!-- Buttons -->
-                    <circle cx="55" cy="220" r="14" fill="#10B981"/>
-                    <text x="55" y="224" text-anchor="middle" fill="white" font-size="8" font-weight="bold">MAX</text>
-
-                    <circle cx="100" cy="220" r="16" fill="#EF4444"/>
-                    <text x="100" y="224" text-anchor="middle" fill="white" font-size="8" font-weight="bold">SPIN</text>
-
-                    <circle cx="145" cy="220" r="14" fill="#F59E0B"/>
-                    <text x="145" y="224" text-anchor="middle" fill="white" font-size="8" font-weight="bold">BET</text>
-
-                    <!-- Coins coming out -->
-                    <circle cx="30" cy="250" r="12" fill="url(#slotGold)"/>
-                    <circle cx="55" cy="255" r="10" fill="url(#slotGold)"/>
-                    <circle cx="170" cy="252" r="11" fill="url(#slotGold)"/>
-
+            <!-- SAFE STACK - Right Side -->
+            <div class="safe-stack">
+                <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Bottom safe -->
+                    <rect x="10" y="120" width="140" height="70" rx="8" fill="#2A3A4A"/>
+                    <rect x="10" y="120" width="140" height="70" rx="8" stroke="#1E2D3D" stroke-width="3"/>
+                    <rect x="25" y="135" width="50" height="40" rx="4" fill="#1E2D3D"/>
+                    <circle cx="50" cy="155" r="12" fill="#3D5A6A" stroke="#FFD700" stroke-width="2"/>
+                    <text x="50" y="160" text-anchor="middle" fill="#FFD700" font-size="10" font-weight="bold">$</text>
+                    <rect x="90" y="145" width="45" height="10" rx="3" fill="#0ecc68"/>
+                    <text x="112" y="153" text-anchor="middle" fill="white" font-size="6" font-weight="bold">OPEN</text>
+                    <!-- Top safe -->
+                    <rect x="25" y="55" width="110" height="60" rx="8" fill="#3D5A6A"/>
+                    <rect x="25" y="55" width="110" height="60" rx="8" stroke="#2A3A4A" stroke-width="3"/>
+                    <rect x="40" y="65" width="40" height="35" rx="4" fill="#2A3A4A"/>
+                    <circle cx="60" cy="82" r="10" fill="#4A6A7A" stroke="#FFD700" stroke-width="2"/>
+                    <rect x="95" y="75" width="30" height="8" rx="2" fill="#FFD700"/>
+                    <rect x="95" y="87" width="25" height="6" rx="2" fill="#C9A000"/>
+                    <!-- Coins spilling out -->
+                    <circle cx="140" cy="140" r="10" fill="url(#safeGold)"/>
+                    <circle cx="150" cy="155" r="8" fill="url(#safeGold)"/>
+                    <circle cx="145" cy="170" r="9" fill="url(#safeGold)"/>
+                    <!-- Money sticking out -->
+                    <rect x="75" y="48" width="30" height="15" rx="2" fill="#0ecc68" transform="rotate(-10 75 48)"/>
+                    <rect x="72" y="45" width="30" height="15" rx="2" fill="#10B981" transform="rotate(-15 72 45)"/>
                     <defs>
-                        <linearGradient id="slotGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="safeGold" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#FFE55C"/>
                             <stop offset="50%" stop-color="#fbce04"/>
                             <stop offset="100%" stop-color="#C9A000"/>
@@ -1010,109 +1094,168 @@
                 </svg>
             </div>
 
-            <!-- PRIZE WHEEL - Right Side -->
-            <div class="prize-wheel">
-                <svg viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Stand -->
-                    <rect x="95" y="210" width="30" height="40" fill="#4A2387"/>
-                    <rect x="75" y="245" width="70" height="12" rx="3" fill="#2D1660"/>
-
-                    <!-- Wheel outer glow -->
-                    <circle cx="110" cy="110" r="100" fill="#2D1660" opacity="0.5"/>
-
-                    <!-- Wheel border -->
-                    <circle cx="110" cy="110" r="90" fill="#1E0A3C" stroke="#FFD700" stroke-width="5"/>
-
-                    <!-- Wheel segments -->
-                    <path d="M110 110 L110 20 A90 90 0 0 1 187.9 65 Z" fill="#E91E63"/>
-                    <path d="M110 110 L187.9 65 A90 90 0 0 1 187.9 155 Z" fill="#FF9800"/>
-                    <path d="M110 110 L187.9 155 A90 90 0 0 1 110 200 Z" fill="#4CAF50"/>
-                    <path d="M110 110 L110 200 A90 90 0 0 1 32.1 155 Z" fill="#00BCD4"/>
-                    <path d="M110 110 L32.1 155 A90 90 0 0 1 32.1 65 Z" fill="#9C27B0"/>
-                    <path d="M110 110 L32.1 65 A90 90 0 0 1 110 20 Z" fill="#FFEB3B"/>
-
-                    <!-- Segment labels -->
-                    <text x="135" y="55" fill="white" font-family="Arial" font-size="11" font-weight="bold" transform="rotate(30 135 55)">$7</text>
-                    <text x="170" y="95" fill="white" font-family="Arial" font-size="11" font-weight="bold" transform="rotate(90 170 95)">$15</text>
-                    <text x="160" y="155" fill="white" font-family="Arial" font-size="11" font-weight="bold" transform="rotate(150 160 155)">$20</text>
-                    <text x="85" y="170" fill="white" font-family="Arial" font-size="11" font-weight="bold" transform="rotate(210 85 170)">$5</text>
-                    <text x="50" y="125" fill="white" font-family="Arial" font-size="11" font-weight="bold" transform="rotate(270 50 125)">$25</text>
-                    <text x="70" y="60" fill="#333" font-family="Arial" font-size="11" font-weight="bold" transform="rotate(330 70 60)">$10</text>
-
-                    <!-- Decorative dots around edge -->
-                    <circle cx="110" cy="23" r="5" fill="#FFE55C"/>
-                    <circle cx="160" cy="40" r="5" fill="#FFE55C"/>
-                    <circle cx="193" cy="85" r="5" fill="#FFE55C"/>
-                    <circle cx="193" cy="135" r="5" fill="#FFE55C"/>
-                    <circle cx="160" cy="180" r="5" fill="#FFE55C"/>
-                    <circle cx="110" cy="197" r="5" fill="#FFE55C"/>
-                    <circle cx="60" cy="180" r="5" fill="#FFE55C"/>
-                    <circle cx="27" cy="135" r="5" fill="#FFE55C"/>
-                    <circle cx="27" cy="85" r="5" fill="#FFE55C"/>
-                    <circle cx="60" cy="40" r="5" fill="#FFE55C"/>
-
-                    <!-- Center hub -->
-                    <circle cx="110" cy="110" r="28" fill="#FFD700" stroke="#C9A000" stroke-width="3"/>
-                    <circle cx="110" cy="110" r="18" fill="#1E0A3C"/>
-                    <text x="110" y="117" text-anchor="middle" fill="#FFD700" font-family="Arial" font-size="22" font-weight="bold">$</text>
-
-                    <!-- Pointer -->
-                    <polygon points="110,12 100,35 120,35" fill="#FFD700" stroke="#C9A000" stroke-width="2"/>
+            <!-- TREASURE CHEST - Center Bottom -->
+            <div class="treasure-chest">
+                <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Chest body -->
+                    <rect x="20" y="70" width="160" height="80" rx="8" fill="#8B4513"/>
+                    <rect x="20" y="70" width="160" height="80" rx="8" stroke="#5D2E0C" stroke-width="4"/>
+                    <!-- Chest lid (open) -->
+                    <path d="M20 70 Q100 20 180 70" fill="#A0522D" stroke="#5D2E0C" stroke-width="4"/>
+                    <path d="M30 68 Q100 28 170 68" fill="#8B4513"/>
+                    <!-- Metal bands -->
+                    <rect x="15" y="85" width="170" height="8" rx="2" fill="#FFD700"/>
+                    <rect x="15" y="115" width="170" height="8" rx="2" fill="#FFD700"/>
+                    <!-- Lock -->
+                    <rect x="85" y="100" width="30" height="35" rx="4" fill="#FFD700"/>
+                    <circle cx="100" cy="115" r="8" fill="#C9A000"/>
+                    <rect x="96" y="115" width="8" height="15" rx="2" fill="#C9A000"/>
+                    <!-- Gold coins overflowing -->
+                    <circle cx="50" cy="60" r="14" fill="url(#chestGold)"/>
+                    <circle cx="75" cy="50" r="12" fill="url(#chestGold)"/>
+                    <circle cx="100" cy="45" r="15" fill="url(#chestGold)"/>
+                    <circle cx="125" cy="50" r="12" fill="url(#chestGold)"/>
+                    <circle cx="150" cy="58" r="14" fill="url(#chestGold)"/>
+                    <circle cx="60" cy="45" r="10" fill="url(#chestGold)"/>
+                    <circle cx="140" cy="42" r="11" fill="url(#chestGold)"/>
+                    <circle cx="100" cy="30" r="13" fill="url(#chestGold)"/>
+                    <circle cx="80" cy="35" r="9" fill="url(#chestGold)"/>
+                    <circle cx="120" cy="35" r="10" fill="url(#chestGold)"/>
+                    <!-- Dollar signs on coins -->
+                    <text x="100" y="50" text-anchor="middle" fill="#8B7500" font-size="14" font-weight="bold">$</text>
+                    <text x="75" y="55" text-anchor="middle" fill="#8B7500" font-size="10" font-weight="bold">$</text>
+                    <text x="125" y="55" text-anchor="middle" fill="#8B7500" font-size="10" font-weight="bold">$</text>
+                    <!-- Gems in chest -->
+                    <polygon points="65,55 70,65 60,65" fill="#E91E63"/>
+                    <polygon points="135,52 140,62 130,62" fill="#00BCD4"/>
+                    <polygon points="100,58 107,68 93,68" fill="#9C27B0"/>
+                    <defs>
+                        <linearGradient id="chestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFE55C"/>
+                            <stop offset="50%" stop-color="#fbce04"/>
+                            <stop offset="100%" stop-color="#C9A000"/>
+                        </linearGradient>
+                    </defs>
                 </svg>
             </div>
 
-            <!-- Poker Chips -->
-            <div class="chip chip-1">
-                <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="#E91E63" stroke="#AD1457" stroke-width="3"/><circle cx="25" cy="25" r="14" fill="none" stroke="white" stroke-width="2" stroke-dasharray="5 3"/><text x="25" y="30" text-anchor="middle" fill="white" font-size="14" font-weight="bold">50</text></svg>
-            </div>
-            <div class="chip chip-2">
-                <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="#4CAF50" stroke="#2E7D32" stroke-width="3"/><circle cx="25" cy="25" r="14" fill="none" stroke="white" stroke-width="2" stroke-dasharray="5 3"/><text x="25" y="30" text-anchor="middle" fill="white" font-size="14" font-weight="bold">25</text></svg>
-            </div>
-            <div class="chip chip-3">
-                <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="#2196F3" stroke="#1565C0" stroke-width="3"/><circle cx="25" cy="25" r="14" fill="none" stroke="white" stroke-width="2" stroke-dasharray="5 3"/><text x="25" y="30" text-anchor="middle" fill="white" font-size="14" font-weight="bold">10</text></svg>
-            </div>
-            <div class="chip chip-4">
-                <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="#FF9800" stroke="#EF6C00" stroke-width="3"/><circle cx="25" cy="25" r="14" fill="none" stroke="white" stroke-width="2" stroke-dasharray="5 3"/><text x="25" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold">100</text></svg>
-            </div>
-            <div class="chip chip-5">
-                <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="#9C27B0" stroke="#6A1B9A" stroke-width="3"/><circle cx="25" cy="25" r="14" fill="none" stroke="white" stroke-width="2" stroke-dasharray="5 3"/><text x="25" y="30" text-anchor="middle" fill="white" font-size="14" font-weight="bold">5</text></svg>
+            <!-- Falling Coins Stream -->
+            <div class="coin-stream">
+                <div class="falling-coin"></div>
+                <div class="falling-coin"></div>
+                <div class="falling-coin"></div>
+                <div class="falling-coin"></div>
+                <div class="falling-coin"></div>
+                <div class="falling-coin"></div>
+                <div class="falling-coin"></div>
+                <div class="falling-coin"></div>
             </div>
 
-            <!-- Floating Coins -->
-            <div class="coin coin-1">
-                <svg viewBox="0 0 50 50"><defs><linearGradient id="gc1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFE55C"/><stop offset="50%" stop-color="#fbce04"/><stop offset="100%" stop-color="#C9A000"/></linearGradient></defs><circle cx="25" cy="25" r="22" fill="url(#gc1)" stroke="#C9A000" stroke-width="2"/><text x="25" y="32" text-anchor="middle" fill="#8B7500" font-size="22" font-weight="bold">$</text></svg>
+            <!-- Money Stacks -->
+            <div class="money-stack money-stack-1">
+                <svg viewBox="0 0 80 60" fill="none">
+                    <rect x="5" y="40" width="70" height="15" rx="2" fill="#0ecc68"/>
+                    <rect x="8" y="28" width="64" height="15" rx="2" fill="#10B981"/>
+                    <rect x="10" y="16" width="60" height="15" rx="2" fill="#0ecc68"/>
+                    <rect x="12" y="4" width="56" height="15" rx="2" fill="#10B981"/>
+                    <text x="40" y="50" text-anchor="middle" fill="white" font-size="8" font-weight="bold">$100</text>
+                </svg>
             </div>
-            <div class="coin coin-2">
-                <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="url(#gc1)" stroke="#C9A000" stroke-width="2"/><text x="25" y="32" text-anchor="middle" fill="#8B7500" font-size="22" font-weight="bold">$</text></svg>
+            <div class="money-stack money-stack-2">
+                <svg viewBox="0 0 80 60" fill="none">
+                    <rect x="5" y="35" width="70" height="15" rx="2" fill="#0ecc68"/>
+                    <rect x="8" y="22" width="64" height="15" rx="2" fill="#10B981"/>
+                    <rect x="10" y="9" width="60" height="15" rx="2" fill="#0ecc68"/>
+                    <text x="40" y="45" text-anchor="middle" fill="white" font-size="8" font-weight="bold">$100</text>
+                </svg>
             </div>
-            <div class="coin coin-3">
-                <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="#C0C0C0" stroke="#909090" stroke-width="2"/><text x="25" y="32" text-anchor="middle" fill="#606060" font-size="22" font-weight="bold">$</text></svg>
+            <div class="money-stack money-stack-3">
+                <svg viewBox="0 0 60 45" fill="none">
+                    <rect x="5" y="25" width="50" height="12" rx="2" fill="#0ecc68"/>
+                    <rect x="7" y="15" width="46" height="12" rx="2" fill="#10B981"/>
+                    <rect x="9" y="5" width="42" height="12" rx="2" fill="#0ecc68"/>
+                </svg>
             </div>
-            <div class="coin coin-4">
-                <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="url(#gc1)" stroke="#C9A000" stroke-width="2"/><text x="25" y="32" text-anchor="middle" fill="#8B7500" font-size="22" font-weight="bold">$</text></svg>
+            <div class="money-stack money-stack-4">
+                <svg viewBox="0 0 60 45" fill="none">
+                    <rect x="5" y="25" width="50" height="12" rx="2" fill="#0ecc68"/>
+                    <rect x="7" y="15" width="46" height="12" rx="2" fill="#10B981"/>
+                </svg>
             </div>
 
-            <!-- Dice -->
-            <div class="dice dice-1">
-                <svg viewBox="0 0 50 50"><rect x="5" y="5" width="40" height="40" rx="8" fill="white" stroke="#ddd" stroke-width="2"/><circle cx="15" cy="15" r="4" fill="#1a1a2e"/><circle cx="35" cy="15" r="4" fill="#1a1a2e"/><circle cx="25" cy="25" r="4" fill="#1a1a2e"/><circle cx="15" cy="35" r="4" fill="#1a1a2e"/><circle cx="35" cy="35" r="4" fill="#1a1a2e"/></svg>
+            <!-- Gold Bars -->
+            <div class="gold-bar gold-bar-1">
+                <svg viewBox="0 0 70 35" fill="none">
+                    <path d="M10 30 L20 5 L50 5 L60 30 Z" fill="url(#barGold)"/>
+                    <path d="M10 30 L20 5 L50 5 L60 30 Z" stroke="#C9A000" stroke-width="2"/>
+                    <path d="M20 5 L25 12 L45 12 L50 5" fill="#FFE55C" opacity="0.5"/>
+                    <defs><linearGradient id="barGold" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FFE55C"/><stop offset="100%" stop-color="#C9A000"/></linearGradient></defs>
+                </svg>
             </div>
-            <div class="dice dice-2">
-                <svg viewBox="0 0 50 50"><rect x="5" y="5" width="40" height="40" rx="8" fill="#fbce04" stroke="#C9A000" stroke-width="2"/><circle cx="15" cy="15" r="4" fill="#1a1a2e"/><circle cx="35" cy="35" r="4" fill="#1a1a2e"/></svg>
+            <div class="gold-bar gold-bar-2">
+                <svg viewBox="0 0 70 35" fill="none">
+                    <path d="M10 30 L20 5 L50 5 L60 30 Z" fill="url(#barGold)"/>
+                    <path d="M10 30 L20 5 L50 5 L60 30 Z" stroke="#C9A000" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="gold-bar gold-bar-3">
+                <svg viewBox="0 0 70 35" fill="none">
+                    <path d="M10 30 L20 5 L50 5 L60 30 Z" fill="url(#barGold)"/>
+                    <path d="M10 30 L20 5 L50 5 L60 30 Z" stroke="#C9A000" stroke-width="2"/>
+                </svg>
             </div>
 
-            <!-- Sparkle Stars -->
-            <div class="star star-1"><svg viewBox="0 0 30 30"><path d="M15 0 L18 12 L30 15 L18 18 L15 30 L12 18 L0 15 L12 12 Z" fill="#FFD700"/></svg></div>
-            <div class="star star-2"><svg viewBox="0 0 30 30"><path d="M15 0 L18 12 L30 15 L18 18 L15 30 L12 18 L0 15 L12 12 Z" fill="#FFE55C"/></svg></div>
-            <div class="star star-3"><svg viewBox="0 0 30 30"><path d="M15 0 L18 12 L30 15 L18 18 L15 30 L12 18 L0 15 L12 12 Z" fill="white"/></svg></div>
-            <div class="star star-4"><svg viewBox="0 0 30 30"><path d="M15 0 L18 12 L30 15 L18 18 L15 30 L12 18 L0 15 L12 12 Z" fill="#FFD700"/></svg></div>
-            <div class="star star-5"><svg viewBox="0 0 30 30"><path d="M15 0 L18 12 L30 15 L18 18 L15 30 L12 18 L0 15 L12 12 Z" fill="white" opacity="0.7"/></svg></div>
-            <div class="star star-6"><svg viewBox="0 0 30 30"><path d="M15 0 L18 12 L30 15 L18 18 L15 30 L12 18 L0 15 L12 12 Z" fill="#FFE55C"/></svg></div>
+            <!-- Floating Gems -->
+            <div class="gem gem-1">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <polygon points="20,2 35,15 28,38 12,38 5,15" fill="#E91E63"/>
+                    <polygon points="20,2 35,15 20,20 5,15" fill="#FF4081" opacity="0.6"/>
+                    <polygon points="20,20 35,15 28,38" fill="#C2185B"/>
+                </svg>
+            </div>
+            <div class="gem gem-2">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <polygon points="20,2 35,15 28,38 12,38 5,15" fill="#00BCD4"/>
+                    <polygon points="20,2 35,15 20,20 5,15" fill="#4DD0E1" opacity="0.6"/>
+                    <polygon points="20,20 35,15 28,38" fill="#0097A7"/>
+                </svg>
+            </div>
+            <div class="gem gem-3">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <polygon points="20,2 35,15 28,38 12,38 5,15" fill="#4CAF50"/>
+                    <polygon points="20,2 35,15 20,20 5,15" fill="#81C784" opacity="0.6"/>
+                </svg>
+            </div>
+            <div class="gem gem-4">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <polygon points="20,2 35,15 28,38 12,38 5,15" fill="#9C27B0"/>
+                    <polygon points="20,2 35,15 20,20 5,15" fill="#BA68C8" opacity="0.6"/>
+                </svg>
+            </div>
+            <div class="gem gem-5">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <polygon points="20,2 35,15 28,38 12,38 5,15" fill="#FF9800"/>
+                    <polygon points="20,2 35,15 20,20 5,15" fill="#FFB74D" opacity="0.6"/>
+                </svg>
+            </div>
 
-            <!-- Particles -->
+            <!-- Sparkles -->
+            <div class="sparkle sparkle-1"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="#FFD700"/></svg></div>
+            <div class="sparkle sparkle-2"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="#FFE55C"/></svg></div>
+            <div class="sparkle sparkle-3"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="white"/></svg></div>
+            <div class="sparkle sparkle-4"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="#00BCD4"/></svg></div>
+            <div class="sparkle sparkle-5"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="#FFD700"/></svg></div>
+            <div class="sparkle sparkle-6"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="white" opacity="0.7"/></svg></div>
+            <div class="sparkle sparkle-7"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="#FFE55C"/></svg></div>
+            <div class="sparkle sparkle-8"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="#0ecc68"/></svg></div>
+
+            <!-- Floating Particles -->
             <div class="particle particle-1"></div>
             <div class="particle particle-2"></div>
             <div class="particle particle-3"></div>
             <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
 
             <!-- Hero Content -->
             <div class="hero-content">
