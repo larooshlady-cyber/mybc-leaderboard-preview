@@ -276,25 +276,113 @@
             font-size: 13px;
         }
 
-        /* Hero Section - Vibrant */
+        /* Hero Section - Illustrated */
         .hero {
             position: relative;
-            padding: 60px 20px 50px;
+            padding: 50px 20px 44px;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow: hidden;
             border-radius: 28px;
             margin: 0 16px;
-            background:
-                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(251, 206, 4, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(205, 127, 50, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 20% 80%, rgba(192, 192, 192, 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, #1a1520 0%, #0d0a12 100%);
+            background: linear-gradient(180deg, #1a1520 0%, #0d0a12 100%);
             border: 1px solid rgba(251, 206, 4, 0.25);
         }
 
-        /* Animated glow border */
+        /* Decorative coin illustrations */
+        .hero-coins {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-coin {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .hero-coin-1 {
+            width: 80px;
+            height: 80px;
+            top: -20px;
+            left: -20px;
+            background: linear-gradient(135deg, #FFE55C 0%, var(--primary) 50%, #D4A000 100%);
+            box-shadow: inset -4px -4px 12px rgba(0,0,0,0.3), 0 0 30px rgba(251, 206, 4, 0.4);
+            animation: coinFloat1 4s ease-in-out infinite;
+        }
+
+        .hero-coin-2 {
+            width: 50px;
+            height: 50px;
+            top: 30%;
+            right: -15px;
+            background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #a0a0a0 100%);
+            box-shadow: inset -3px -3px 8px rgba(0,0,0,0.3), 0 0 20px rgba(192, 192, 192, 0.3);
+            animation: coinFloat2 5s ease-in-out infinite;
+        }
+
+        .hero-coin-3 {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: -18px;
+            background: linear-gradient(135deg, #e8a050 0%, #cd7f32 50%, #a05a20 100%);
+            box-shadow: inset -3px -3px 10px rgba(0,0,0,0.3), 0 0 25px rgba(205, 127, 50, 0.35);
+            animation: coinFloat3 4.5s ease-in-out infinite;
+        }
+
+        .hero-coin-4 {
+            width: 40px;
+            height: 40px;
+            top: 15%;
+            right: 15%;
+            background: linear-gradient(135deg, #FFE55C 0%, var(--primary) 100%);
+            box-shadow: inset -2px -2px 6px rgba(0,0,0,0.3), 0 0 15px rgba(251, 206, 4, 0.3);
+            animation: coinFloat4 3.5s ease-in-out infinite;
+        }
+
+        .hero-coin-5 {
+            width: 35px;
+            height: 35px;
+            bottom: 10%;
+            right: -10px;
+            background: linear-gradient(135deg, #FFE55C 0%, var(--primary) 100%);
+            box-shadow: inset -2px -2px 5px rgba(0,0,0,0.3), 0 0 12px rgba(251, 206, 4, 0.25);
+            animation: coinFloat5 5.5s ease-in-out infinite;
+        }
+
+        @keyframes coinFloat1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(8px, 12px) rotate(10deg); }
+        }
+
+        @keyframes coinFloat2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-10px, 8px) rotate(-15deg); }
+        }
+
+        @keyframes coinFloat3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(12px, -10px) rotate(12deg); }
+        }
+
+        @keyframes coinFloat4 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-5px, 8px) scale(1.1); }
+        }
+
+        @keyframes coinFloat5 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-8px, -12px) rotate(-10deg); }
+        }
+
+        /* Top accent line */
         .hero::before {
             content: '';
             position: absolute;
@@ -308,37 +396,6 @@
                 var(--primary) 50%,
                 #c0c0c0 85%,
                 transparent 100%);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        /* Floating coins animation */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(251, 206, 4, 0.3) 0%, transparent 2%),
-                radial-gradient(circle at 90% 30%, rgba(251, 206, 4, 0.2) 0%, transparent 2%),
-                radial-gradient(circle at 20% 70%, rgba(205, 127, 50, 0.25) 0%, transparent 1.5%),
-                radial-gradient(circle at 80% 80%, rgba(192, 192, 192, 0.2) 0%, transparent 1.5%),
-                radial-gradient(circle at 50% 10%, rgba(251, 206, 4, 0.25) 0%, transparent 2%),
-                radial-gradient(circle at 30% 40%, rgba(251, 206, 4, 0.15) 0%, transparent 1%),
-                radial-gradient(circle at 70% 60%, rgba(205, 127, 50, 0.15) 0%, transparent 1%);
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         .hero-content {
@@ -382,34 +439,6 @@
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
-
-        /* Big Percentage Display */
-        .hero-main-percent {
-            position: relative;
-            margin-bottom: 8px;
-        }
-
-        .hero-main-percent-value {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 900;
-            font-size: 100px;
-            line-height: 1;
-            background: linear-gradient(180deg, #FFE55C 0%, var(--primary) 50%, #D4A000 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 60px rgba(251, 206, 4, 0.4);
-            filter: drop-shadow(0 4px 20px rgba(251, 206, 4, 0.3));
-        }
-
-        .hero-main-percent-label {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 6px;
         }
 
         /* Title */
@@ -494,9 +523,22 @@
 
         /* Tier icon */
         .hero-tier-icon {
-            font-size: 20px;
-            margin-bottom: 2px;
+            width: 28px;
+            height: 28px;
+            margin: 0 auto 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
+        .hero-tier-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .hero-tier.bronze .hero-tier-icon svg { color: #e8a050; }
+        .hero-tier.silver .hero-tier-icon svg { color: #e0e0e0; }
+        .hero-tier.gold .hero-tier-icon svg { color: var(--primary); }
 
         .hero-tier-label {
             font-size: 10px;
@@ -1446,15 +1488,19 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
+            <!-- Decorative Coins -->
+            <div class="hero-coins">
+                <div class="hero-coin hero-coin-1"></div>
+                <div class="hero-coin hero-coin-2"></div>
+                <div class="hero-coin hero-coin-3"></div>
+                <div class="hero-coin hero-coin-4"></div>
+                <div class="hero-coin hero-coin-5"></div>
+            </div>
+
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
                     <span class="hero-badge-text">Slots Cashback</span>
-                </div>
-
-                <div class="hero-main-percent">
-                    <div class="hero-main-percent-label">Up To</div>
-                    <div class="hero-main-percent-value">20%</div>
                 </div>
 
                 <h1 class="hero-title">CASHBACK</h1>
@@ -1463,19 +1509,34 @@
                 <!-- Hero Tiers -->
                 <div class="hero-tiers">
                     <div class="hero-tier bronze">
-                        <span class="hero-tier-icon">🥉</span>
+                        <div class="hero-tier-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6"/>
+                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                            </svg>
+                        </div>
                         <span class="hero-tier-label">Bronze</span>
                         <span class="hero-tier-percent">10%</span>
                         <span class="hero-tier-range">$100 – $20K</span>
                     </div>
                     <div class="hero-tier silver">
-                        <span class="hero-tier-icon">🥈</span>
+                        <div class="hero-tier-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6"/>
+                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                            </svg>
+                        </div>
                         <span class="hero-tier-label">Silver</span>
                         <span class="hero-tier-percent">15%</span>
                         <span class="hero-tier-range">$20K – $50K</span>
                     </div>
                     <div class="hero-tier gold">
-                        <span class="hero-tier-icon">🥇</span>
+                        <div class="hero-tier-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6"/>
+                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                            </svg>
+                        </div>
                         <span class="hero-tier-label">Gold</span>
                         <span class="hero-tier-percent">20%</span>
                         <span class="hero-tier-range">$50K+</span>
