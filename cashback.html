@@ -117,64 +117,51 @@
         }
 
         /* ============================================
-           HERO SECTION - RICH GREEN THEME
-           Premium green gradient with falling crypto coins
+           HERO SECTION - PREMIUM GREEN THEME
+           Clean design with smooth falling crypto coins
            ============================================ */
         .hero {
             position: relative;
             margin: 0 16px;
             border-radius: 24px;
             overflow: hidden;
-            min-height: 500px;
+            min-height: 480px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px 50px;
+            padding: 32px 20px 40px;
         }
 
-        /* Background - Premium rich green gradient */
+        /* Background - Beautiful green gradient */
         .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(145deg,
-                #001a0d 0%,
-                #003d1f 25%,
-                #006633 50%,
-                #008844 75%,
-                #00aa55 100%
+            background: linear-gradient(155deg,
+                #001f0f 0%,
+                #003d1a 30%,
+                #005c28 60%,
+                #007a38 100%
             );
             z-index: 0;
         }
 
-        /* Multiple glow layers for depth */
+        /* Soft ambient glow */
         .hero-bg::before {
             content: '';
             position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120%;
-            height: 100%;
-            background: radial-gradient(ellipse at center top, rgba(14, 204, 104, 0.2) 0%, transparent 50%);
-            z-index: 1;
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0, 26, 13, 0.6) 0%, transparent 100%);
+            bottom: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(14, 204, 104, 0.12) 0%, transparent 60%);
             z-index: 1;
         }
 
-        /* Crypto Coins Base - Premium styling */
+        /* Crypto Coins - Premium 3D styling */
         .crypto-coin {
             position: absolute;
             border-radius: 50%;
@@ -183,163 +170,93 @@
             align-items: center;
             justify-content: center;
             box-shadow:
-                0 4px 20px rgba(0,0,0,0.4),
-                inset 0 2px 4px rgba(255,255,255,0.2),
-                inset 0 -2px 4px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
+                0 6px 25px rgba(0,0,0,0.35),
+                inset 0 3px 6px rgba(255,255,255,0.25),
+                inset 0 -3px 6px rgba(0,0,0,0.15);
         }
 
         .crypto-coin svg {
-            width: 55%;
-            height: 55%;
-            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+            width: 50%;
+            height: 50%;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
         }
 
-        /* Bitcoin - Premium Orange */
+        /* Bitcoin */
         .coin-btc {
-            background: linear-gradient(145deg, #FFB347 0%, #F7931A 40%, #E8850F 70%, #C77700 100%);
-            border: 2.5px solid rgba(255,255,255,0.2);
-            box-shadow:
-                0 4px 20px rgba(247, 147, 26, 0.4),
-                inset 0 2px 4px rgba(255,255,255,0.3),
-                inset 0 -2px 4px rgba(0,0,0,0.2);
+            background: linear-gradient(145deg, #FFB84D 0%, #F7931A 50%, #D47A10 100%);
+            border: 2px solid rgba(255,255,255,0.25);
         }
 
-        /* Ethereum - Premium Blue/Purple */
+        /* Ethereum */
         .coin-eth {
-            background: linear-gradient(145deg, #A8A8FF 0%, #627EEA 40%, #4A5FC1 70%, #3D4FA3 100%);
-            border: 2.5px solid rgba(255,255,255,0.2);
-            box-shadow:
-                0 4px 20px rgba(98, 126, 234, 0.4),
-                inset 0 2px 4px rgba(255,255,255,0.3),
-                inset 0 -2px 4px rgba(0,0,0,0.2);
+            background: linear-gradient(145deg, #9999FF 0%, #627EEA 50%, #4A5FC1 100%);
+            border: 2px solid rgba(255,255,255,0.25);
         }
 
-        /* USDT - Premium Teal */
+        /* USDT */
         .coin-usdt {
-            background: linear-gradient(145deg, #6BCAAE 0%, #26A17B 40%, #1E8E6B 70%, #1A7A5C 100%);
-            border: 2.5px solid rgba(255,255,255,0.2);
-            box-shadow:
-                0 4px 20px rgba(38, 161, 123, 0.4),
-                inset 0 2px 4px rgba(255,255,255,0.3),
-                inset 0 -2px 4px rgba(0,0,0,0.2);
+            background: linear-gradient(145deg, #5CC9A7 0%, #26A17B 50%, #1A8A68 100%);
+            border: 2px solid rgba(255,255,255,0.25);
         }
 
-        /* BNB - Premium Gold */
+        /* BNB */
         .coin-bnb {
-            background: linear-gradient(145deg, #FFE566 0%, #F3BA2F 40%, #D4A32A 70%, #B8922A 100%);
-            border: 2.5px solid rgba(255,255,255,0.2);
-            box-shadow:
-                0 4px 20px rgba(243, 186, 47, 0.4),
-                inset 0 2px 4px rgba(255,255,255,0.3),
-                inset 0 -2px 4px rgba(0,0,0,0.2);
+            background: linear-gradient(145deg, #FFE066 0%, #F3BA2F 50%, #D4A020 100%);
+            border: 2px solid rgba(255,255,255,0.25);
         }
 
-        /* Left side coins */
-        .coin-1 { width: 36px; height: 36px; left: 4%; animation: coinFall1 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 0s; }
-        .coin-2 { width: 28px; height: 28px; left: 14%; animation: coinFall2 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 1s; }
-        .coin-3 { width: 24px; height: 24px; left: 7%; animation: coinFall1 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 2s; }
-        .coin-4 { width: 30px; height: 30px; left: 20%; animation: coinFall2 4.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 2.8s; }
+        /* LEFT SIDE COINS - Far from center */
+        .coin-1 { width: 38px; height: 38px; left: 3%; animation: coinFallSmooth 6s linear infinite 0s; }
+        .coin-2 { width: 30px; height: 30px; left: 10%; animation: coinFallSmooth 7s linear infinite 1.5s; }
+        .coin-3 { width: 26px; height: 26px; left: 5%; animation: coinFallSmooth 5.5s linear infinite 3s; }
+        .coin-4 { width: 32px; height: 32px; left: 15%; animation: coinFallSmooth 6.5s linear infinite 4.5s; }
+        .coin-9 { width: 22px; height: 22px; left: 8%; animation: coinFallSmooth 7.5s linear infinite 2s; }
+        .coin-11 { width: 28px; height: 28px; left: 2%; animation: coinFallSmooth 5s linear infinite 5s; }
 
-        /* Right side coins */
-        .coin-5 { width: 34px; height: 34px; right: 5%; animation: coinFall1 4.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 0.5s; }
-        .coin-6 { width: 26px; height: 26px; right: 15%; animation: coinFall2 5.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 1.5s; }
-        .coin-7 { width: 22px; height: 22px; right: 8%; animation: coinFall1 3.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 2.5s; }
-        .coin-8 { width: 28px; height: 28px; right: 22%; animation: coinFall2 4.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 0.8s; }
+        /* RIGHT SIDE COINS - Far from center */
+        .coin-5 { width: 36px; height: 36px; right: 4%; animation: coinFallSmooth 6.2s linear infinite 0.8s; }
+        .coin-6 { width: 28px; height: 28px; right: 11%; animation: coinFallSmooth 7.2s linear infinite 2.5s; }
+        .coin-7 { width: 24px; height: 24px; right: 6%; animation: coinFallSmooth 5.8s linear infinite 4s; }
+        .coin-8 { width: 34px; height: 34px; right: 14%; animation: coinFallSmooth 6.8s linear infinite 1s; }
+        .coin-10 { width: 26px; height: 26px; right: 8%; animation: coinFallSmooth 7s linear infinite 3.5s; }
+        .coin-12 { width: 30px; height: 30px; right: 2%; animation: coinFallSmooth 5.2s linear infinite 5.5s; }
 
-        /* Extra coins for density */
-        .coin-9 { width: 20px; height: 20px; left: 24%; animation: coinFall1 5.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 2.2s; }
-        .coin-10 { width: 26px; height: 26px; right: 26%; animation: coinFall2 4.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 3.2s; }
-        .coin-11 { width: 24px; height: 24px; left: 2%; animation: coinFall2 5.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 3.8s; }
-        .coin-12 { width: 32px; height: 32px; right: 2%; animation: coinFall1 4.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 1.2s; }
-
-        @keyframes coinFall1 {
+        @keyframes coinFallSmooth {
             0% {
-                top: -12%;
+                top: -50px;
                 opacity: 0;
-                transform: rotate(0deg) scale(0.8);
+                transform: rotate(0deg);
             }
-            8% {
+            5% {
                 opacity: 1;
-                transform: rotate(30deg) scale(1);
             }
-            92% {
+            95% {
                 opacity: 1;
             }
             100% {
-                top: 108%;
+                top: calc(100% + 50px);
                 opacity: 0;
-                transform: rotate(380deg) scale(0.9);
+                transform: rotate(360deg);
             }
         }
 
-        @keyframes coinFall2 {
-            0% {
-                top: -12%;
-                opacity: 0;
-                transform: rotate(0deg) scale(0.8);
-            }
-            8% {
-                opacity: 1;
-                transform: rotate(-25deg) scale(1);
-            }
-            92% {
-                opacity: 1;
-            }
-            100% {
-                top: 108%;
-                opacity: 0;
-                transform: rotate(-370deg) scale(0.9);
-            }
-        }
-
-        /* Premium sparkles with glow */
+        /* Subtle sparkles */
         .sparkle {
             position: absolute;
-            z-index: 6;
-            filter: drop-shadow(0 0 3px currentColor);
-        }
-
-        .sparkle-1 { width: 14px; top: 12%; left: 30%; animation: sparkleGlow 2.5s ease-in-out infinite; color: #fff; }
-        .sparkle-2 { width: 10px; top: 8%; right: 35%; animation: sparkleGlow 3s ease-in-out infinite 0.5s; color: #0ecc68; }
-        .sparkle-3 { width: 8px; top: 22%; right: 12%; animation: sparkleGlow 2.2s ease-in-out infinite 1s; color: #fff; }
-        .sparkle-4 { width: 16px; top: 6%; left: 45%; animation: sparkleGlow 2.8s ease-in-out infinite 0.3s; color: #0ecc68; }
-        .sparkle-5 { width: 12px; top: 18%; left: 8%; animation: sparkleGlow 3.2s ease-in-out infinite 0.8s; color: #fff; }
-        .sparkle-6 { width: 10px; top: 4%; right: 22%; animation: sparkleGlow 2.6s ease-in-out infinite 1.5s; color: #0ecc68; }
-
-        @keyframes sparkleGlow {
-            0%, 100% {
-                opacity: 0.2;
-                transform: scale(0.7) rotate(0deg);
-                filter: drop-shadow(0 0 2px currentColor);
-            }
-            50% {
-                opacity: 0.9;
-                transform: scale(1.2) rotate(180deg);
-                filter: drop-shadow(0 0 8px currentColor);
-            }
-        }
-
-        /* Floating particles for extra depth */
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(14, 204, 104, 0.6);
-            border-radius: 50%;
             z-index: 4;
+            opacity: 0.5;
         }
 
-        .particle-1 { left: 15%; animation: particleFloat 8s ease-in-out infinite; }
-        .particle-2 { left: 35%; animation: particleFloat 10s ease-in-out infinite 2s; }
-        .particle-3 { right: 25%; animation: particleFloat 9s ease-in-out infinite 4s; }
-        .particle-4 { right: 10%; animation: particleFloat 7s ease-in-out infinite 1s; }
+        .sparkle-1 { width: 10px; top: 15%; left: 25%; animation: sparkle 3s ease-in-out infinite; color: #fff; }
+        .sparkle-2 { width: 8px; top: 10%; right: 28%; animation: sparkle 3.5s ease-in-out infinite 0.5s; color: #0ecc68; }
+        .sparkle-3 { width: 6px; top: 25%; right: 20%; animation: sparkle 2.8s ease-in-out infinite 1s; color: #fff; }
+        .sparkle-4 { width: 12px; top: 8%; left: 35%; animation: sparkle 3.2s ease-in-out infinite 0.3s; color: #0ecc68; }
+        .sparkle-5 { width: 8px; top: 20%; left: 18%; animation: sparkle 4s ease-in-out infinite 0.8s; color: #fff; }
+        .sparkle-6 { width: 6px; top: 5%; right: 35%; animation: sparkle 3s ease-in-out infinite 1.5s; color: #0ecc68; }
 
-        @keyframes particleFloat {
-            0%, 100% { bottom: -5%; opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { bottom: 110%; opacity: 0; }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.15; transform: scale(0.7); }
+            50% { opacity: 0.6; transform: scale(1); }
         }
 
         /* Hero Content */
@@ -414,52 +331,71 @@
             font-weight: 500;
         }
 
+        /* Hero Tiers Title */
+        .hero-tiers-title {
+            font-family: 'Gilroy', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-tiers-subtitle {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
         /* Hero Tiers */
         .hero-tiers {
             display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
+            gap: 10px;
+            margin-bottom: 20px;
             width: 100%;
         }
 
         .hero-tier {
             flex: 1;
-            padding: 12px 6px;
-            border-radius: 14px;
+            padding: 16px 8px;
+            border-radius: 16px;
             text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 4px;
             transition: transform 0.2s, box-shadow 0.2s;
             backdrop-filter: blur(10px);
         }
 
         .hero-tier:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
         .hero-tier.bronze {
-            background: linear-gradient(135deg, rgba(205, 127, 50, 0.3) 0%, rgba(139, 90, 43, 0.2) 100%);
-            border: 1.5px solid rgba(205, 127, 50, 0.6);
-            box-shadow: 0 4px 20px rgba(205, 127, 50, 0.2);
+            background: linear-gradient(135deg, rgba(205, 127, 50, 0.35) 0%, rgba(139, 90, 43, 0.25) 100%);
+            border: 2px solid rgba(205, 127, 50, 0.7);
+            box-shadow: 0 6px 25px rgba(205, 127, 50, 0.25);
         }
 
         .hero-tier.silver {
-            background: linear-gradient(135deg, rgba(192, 192, 192, 0.25) 0%, rgba(128, 128, 128, 0.15) 100%);
-            border: 1.5px solid rgba(192, 192, 192, 0.5);
-            box-shadow: 0 4px 20px rgba(192, 192, 192, 0.15);
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.3) 0%, rgba(128, 128, 128, 0.2) 100%);
+            border: 2px solid rgba(192, 192, 192, 0.6);
+            box-shadow: 0 6px 25px rgba(192, 192, 192, 0.2);
         }
 
         .hero-tier.gold {
-            background: linear-gradient(135deg, rgba(251, 206, 4, 0.3) 0%, rgba(180, 150, 0, 0.2) 100%);
-            border: 1.5px solid rgba(251, 206, 4, 0.6);
-            box-shadow: 0 4px 20px rgba(251, 206, 4, 0.25);
+            background: linear-gradient(135deg, rgba(251, 206, 4, 0.35) 0%, rgba(180, 150, 0, 0.25) 100%);
+            border: 2px solid rgba(251, 206, 4, 0.7);
+            box-shadow: 0 6px 25px rgba(251, 206, 4, 0.3);
         }
 
         .hero-tier-icon {
-            width: 22px;
-            height: 22px;
-            margin: 0 auto 2px;
+            width: 28px;
+            height: 28px;
+            margin: 0 auto 4px;
         }
 
         .hero-tier.bronze .hero-tier-icon { color: #e8a050; }
@@ -467,10 +403,10 @@
         .hero-tier.gold .hero-tier-icon { color: var(--primary); }
 
         .hero-tier-label {
-            font-size: 9px;
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .hero-tier.bronze .hero-tier-label { color: #e8a050; }
@@ -480,7 +416,7 @@
         .hero-tier-percent {
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 26px;
+            font-size: 32px;
             line-height: 1;
         }
 
@@ -960,18 +896,23 @@
 
         @media (min-width: 768px) {
             .hero { margin: 0 24px; min-height: 550px; }
-            .hero-title { font-size: 36px; }
-            .hero-percentage { font-size: 110px; }
+            .hero-tiers-title { font-size: 28px; }
+            .hero-tiers-subtitle { font-size: 15px; }
+            .hero-tier { padding: 20px 12px; border-radius: 18px; }
+            .hero-tier-icon { width: 32px; height: 32px; }
+            .hero-tier-label { font-size: 11px; }
+            .hero-tier-percent { font-size: 40px; }
+            .hero-tier-range { font-size: 10px; }
             .crypto-coin {
                 box-shadow:
                     0 8px 30px rgba(0,0,0,0.4),
                     inset 0 3px 6px rgba(255,255,255,0.25),
                     inset 0 -3px 6px rgba(0,0,0,0.25);
             }
-            .coin-1, .coin-5, .coin-12 { width: 44px; height: 44px; }
-            .coin-2, .coin-6, .coin-8, .coin-10 { width: 36px; height: 36px; }
-            .coin-3, .coin-7, .coin-11 { width: 30px; height: 30px; }
-            .coin-4, .coin-9 { width: 38px; height: 38px; }
+            .coin-1, .coin-5, .coin-12 { width: 50px; height: 50px; }
+            .coin-2, .coin-6, .coin-8, .coin-10 { width: 42px; height: 42px; }
+            .coin-3, .coin-7, .coin-11 { width: 36px; height: 36px; }
+            .coin-4, .coin-9 { width: 46px; height: 46px; }
         }
     </style>
 </head>
@@ -1050,12 +991,6 @@
             <div class="sparkle sparkle-5"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="currentColor"/></svg></div>
             <div class="sparkle sparkle-6"><svg viewBox="0 0 30 30"><path d="M15 0 L17 13 L30 15 L17 17 L15 30 L13 17 L0 15 L13 13 Z" fill="currentColor"/></svg></div>
 
-            <!-- Floating Particles -->
-            <div class="particle particle-1"></div>
-            <div class="particle particle-2"></div>
-            <div class="particle particle-3"></div>
-            <div class="particle particle-4"></div>
-
             <!-- Hero Content -->
             <div class="hero-content">
                 <div class="hero-badge">
@@ -1063,9 +998,8 @@
                     <span class="hero-badge-text">Slots Cashback</span>
                 </div>
 
-                <h1 class="hero-title">GET UP TO</h1>
-                <div class="hero-percentage">20%</div>
-                <h2 class="hero-subtitle">Cashback on all slot games, paid in USDT</h2>
+                <h1 class="hero-tiers-title">Cashback Tiers</h1>
+                <p class="hero-tiers-subtitle">Earn up to 20% back on all slot games, paid in USDT</p>
 
                 <div class="hero-tiers">
                     <div class="hero-tier bronze">
