@@ -374,39 +374,65 @@
             margin-bottom: 28px;
         }
 
-        /* Cashback Display */
-        .cashback-display {
-            position: relative;
-            margin-bottom: 32px;
-            padding: 28px 24px;
-            background: rgba(251, 206, 4, 0.08);
-            border-radius: 20px;
-            border: 1px solid rgba(251, 206, 4, 0.2);
+        /* Hero Tiers */
+        .hero-tiers {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            width: 100%;
         }
 
-        .cashback-label-top {
-            font-size: 13px;
+        .hero-tier {
+            flex: 1;
+            padding: 16px 12px;
+            border-radius: 14px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hero-tier.bronze {
+            background: rgba(205, 127, 50, 0.15);
+            border: 1px solid rgba(205, 127, 50, 0.4);
+        }
+
+        .hero-tier.silver {
+            background: rgba(192, 192, 192, 0.12);
+            border: 1px solid rgba(192, 192, 192, 0.35);
+        }
+
+        .hero-tier.gold {
+            background: rgba(251, 206, 4, 0.15);
+            border: 1px solid rgba(251, 206, 4, 0.45);
+        }
+
+        .hero-tier-label {
+            font-size: 11px;
             font-weight: 700;
-            color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
 
-        .cashback-percentage {
+        .hero-tier.bronze .hero-tier-label { color: #e8a050; }
+        .hero-tier.silver .hero-tier-label { color: #d8d8d8; }
+        .hero-tier.gold .hero-tier-label { color: var(--primary); }
+
+        .hero-tier-percent {
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 88px;
+            font-size: 32px;
             line-height: 1;
-            color: var(--primary);
-            margin-bottom: 8px;
         }
 
-        .cashback-label {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
+        .hero-tier.bronze .hero-tier-percent { color: #e8a050; }
+        .hero-tier.silver .hero-tier-percent { color: #d8d8d8; }
+        .hero-tier.gold .hero-tier-percent { color: var(--primary); }
+
+        .hero-tier-range {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-muted);
         }
 
         .usdt-badge {
@@ -417,6 +443,7 @@
             background: rgba(38, 161, 123, 0.15);
             border: 1px solid rgba(38, 161, 123, 0.4);
             border-radius: 100px;
+            margin-bottom: 24px;
         }
 
         .usdt-icon {
@@ -1308,14 +1335,27 @@
                     A special promotion for entertainment lovers. Receive up to 20% cashback as real cash (USDT) on your slot play.
                 </p>
 
-                <div class="cashback-display">
-                    <div class="cashback-label-top">Up To</div>
-                    <div class="cashback-percentage">20%</div>
-                    <div class="cashback-label">Maximum Cashback Rate</div>
-                    <div class="usdt-badge">
-                        <div class="usdt-icon">$</div>
-                        <span class="usdt-text">Paid in USDT</span>
+                <!-- Hero Tiers -->
+                <div class="hero-tiers">
+                    <div class="hero-tier bronze">
+                        <span class="hero-tier-label">Bronze</span>
+                        <span class="hero-tier-percent">10%</span>
+                        <span class="hero-tier-range">$100 – $20K</span>
                     </div>
+                    <div class="hero-tier silver">
+                        <span class="hero-tier-label">Silver</span>
+                        <span class="hero-tier-percent">15%</span>
+                        <span class="hero-tier-range">$20K – $50K</span>
+                    </div>
+                    <div class="hero-tier gold">
+                        <span class="hero-tier-label">Gold</span>
+                        <span class="hero-tier-percent">20%</span>
+                        <span class="hero-tier-range">$50K+</span>
+                    </div>
+                </div>
+                <div class="usdt-badge">
+                    <div class="usdt-icon">$</div>
+                    <span class="usdt-text">Paid in USDT</span>
                 </div>
 
                 <div class="hero-cta">
@@ -1365,56 +1405,6 @@
             </div>
         </section>
 
-        <!-- Cashback Tiers -->
-        <section class="tiers-section">
-            <div class="section-header">
-                <h2 class="section-title">Cashback Tiers</h2>
-            </div>
-            <div class="tiers-grid">
-                <div class="tier-card tier-1">
-                    <div class="tier-info">
-                        <div class="tier-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="8" r="6"/>
-                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-                            </svg>
-                        </div>
-                        <span class="tier-label">Bronze</span>
-                        <span class="tier-range">$100 – $20,000</span>
-                        <span class="tier-description">Difference amount</span>
-                    </div>
-                    <div class="tier-percentage">10%</div>
-                </div>
-                <div class="tier-card tier-2">
-                    <div class="tier-info">
-                        <div class="tier-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="8" r="6"/>
-                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-                            </svg>
-                        </div>
-                        <span class="tier-label">Silver</span>
-                        <span class="tier-range">$20,000 – $50,000</span>
-                        <span class="tier-description">Difference amount</span>
-                    </div>
-                    <div class="tier-percentage">15%</div>
-                </div>
-                <div class="tier-card tier-3">
-                    <div class="tier-info">
-                        <div class="tier-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="8" r="6"/>
-                                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-                            </svg>
-                        </div>
-                        <span class="tier-label">Gold</span>
-                        <span class="tier-range">$50,000+</span>
-                        <span class="tier-description">Difference amount</span>
-                    </div>
-                    <div class="tier-percentage">20%</div>
-                </div>
-            </div>
-        </section>
 
         <!-- How It Works -->
         <section class="how-section">
