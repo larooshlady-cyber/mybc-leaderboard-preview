@@ -118,19 +118,19 @@
 
         /* ============================================
            HERO SECTION - PREMIUM GREEN THEME
-           Clean design with smooth falling crypto coins
+           Fully responsive with fluid scaling
            ============================================ */
         .hero {
             position: relative;
-            margin: 0 16px;
-            border-radius: 24px;
+            margin: 0 clamp(12px, 3vw, 80px);
+            border-radius: clamp(16px, 2vw, 32px);
             overflow: hidden;
-            min-height: 480px;
+            min-height: clamp(420px, 50vh, 650px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 32px 20px 40px;
+            padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 40px);
         }
 
         /* Background - Beautiful green gradient */
@@ -161,7 +161,7 @@
             z-index: 1;
         }
 
-        /* Crypto Coins - Full coin visual (no shadows) */
+        /* Crypto Coins - Full coin visual */
         .crypto-coin {
             position: absolute;
             border-radius: 50%;
@@ -173,6 +173,9 @@
             border: none;
             top: -70px;
             opacity: 0;
+            /* Fluid size: min 28px, scales with vw, max 70px */
+            width: clamp(28px, 3.5vw, 70px);
+            height: clamp(28px, 3.5vw, 70px);
         }
 
         .crypto-coin svg {
@@ -180,35 +183,29 @@
             height: 100%;
         }
 
-        /* Coin sizes using clamp() for fluid scaling */
-        .coin-1 { width: clamp(36px, 4vw, 64px); height: clamp(36px, 4vw, 64px); }
-        .coin-2 { width: clamp(32px, 3.5vw, 58px); height: clamp(32px, 3.5vw, 58px); }
-        .coin-3 { width: clamp(30px, 3.2vw, 54px); height: clamp(30px, 3.2vw, 54px); }
-        .coin-4 { width: clamp(34px, 3.8vw, 60px); height: clamp(34px, 3.8vw, 60px); }
-        .coin-5 { width: clamp(38px, 4.2vw, 66px); height: clamp(38px, 4.2vw, 66px); }
-        .coin-6 { width: clamp(32px, 3.5vw, 58px); height: clamp(32px, 3.5vw, 58px); }
-        .coin-7 { width: clamp(28px, 3vw, 52px); height: clamp(28px, 3vw, 52px); }
-        .coin-8 { width: clamp(34px, 3.8vw, 60px); height: clamp(34px, 3.8vw, 60px); }
-        .coin-9 { width: clamp(28px, 3vw, 52px); height: clamp(28px, 3vw, 52px); }
-        .coin-10 { width: clamp(30px, 3.2vw, 56px); height: clamp(30px, 3.2vw, 56px); }
-        .coin-11 { width: clamp(32px, 3.5vw, 56px); height: clamp(32px, 3.5vw, 56px); }
-        .coin-12 { width: clamp(32px, 3.5vw, 58px); height: clamp(32px, 3.5vw, 58px); }
+        /* Individual coin size variations */
+        .coin-1, .coin-5 { width: clamp(32px, 4vw, 70px); height: clamp(32px, 4vw, 70px); }
+        .coin-2, .coin-6 { width: clamp(28px, 3.2vw, 60px); height: clamp(28px, 3.2vw, 60px); }
+        .coin-3, .coin-7 { width: clamp(26px, 2.8vw, 52px); height: clamp(26px, 2.8vw, 52px); }
+        .coin-4, .coin-8 { width: clamp(30px, 3.6vw, 65px); height: clamp(30px, 3.6vw, 65px); }
+        .coin-9, .coin-10 { width: clamp(24px, 2.5vw, 48px); height: clamp(24px, 2.5vw, 48px); }
+        .coin-11, .coin-12 { width: clamp(28px, 3vw, 55px); height: clamp(28px, 3vw, 55px); }
 
-        /* LEFT SIDE COINS - Percentage based positions */
-        .coin-1 { left: 2%; right: auto; animation: coinFall 9s linear infinite; animation-delay: 0s; }
-        .coin-2 { left: 8%; right: auto; animation: coinFall 10s linear infinite; animation-delay: -7s; }
-        .coin-3 { left: 4%; right: auto; animation: coinFall 8s linear infinite; animation-delay: -3s; }
-        .coin-4 { left: 12%; right: auto; animation: coinFall 9.5s linear infinite; animation-delay: -5s; }
-        .coin-9 { left: 6%; right: auto; animation: coinFall 11s linear infinite; animation-delay: -2s; }
-        .coin-11 { left: 3%; right: auto; animation: coinFall 8.5s linear infinite; animation-delay: -6s; }
+        /* LEFT SIDE COINS - calc() for responsive positioning */
+        .coin-1 { left: clamp(8px, 2%, 40px); right: auto; animation: coinFall 9s linear infinite; animation-delay: 0s; }
+        .coin-2 { left: clamp(40px, 8%, 200px); right: auto; animation: coinFall 10s linear infinite; animation-delay: -7s; }
+        .coin-3 { left: clamp(20px, 4%, 100px); right: auto; animation: coinFall 8s linear infinite; animation-delay: -3s; }
+        .coin-4 { left: clamp(60px, 12%, 280px); right: auto; animation: coinFall 9.5s linear infinite; animation-delay: -5s; }
+        .coin-9 { left: clamp(30px, 6%, 150px); right: auto; animation: coinFall 11s linear infinite; animation-delay: -2s; }
+        .coin-11 { left: clamp(12px, 3%, 70px); right: auto; animation: coinFall 8.5s linear infinite; animation-delay: -6s; }
 
-        /* RIGHT SIDE COINS - Percentage based positions */
-        .coin-5 { right: 2%; left: auto; animation: coinFall 9.2s linear infinite; animation-delay: -1s; }
-        .coin-6 { right: 9%; left: auto; animation: coinFall 10.2s linear infinite; animation-delay: -4s; }
-        .coin-7 { right: 5%; left: auto; animation: coinFall 8.3s linear infinite; animation-delay: -6.5s; }
-        .coin-8 { right: 13%; left: auto; animation: coinFall 9.8s linear infinite; animation-delay: -2.5s; }
-        .coin-10 { right: 7%; left: auto; animation: coinFall 10.5s linear infinite; animation-delay: -8s; }
-        .coin-12 { right: 3%; left: auto; animation: coinFall 8.8s linear infinite; animation-delay: -4.5s; }
+        /* RIGHT SIDE COINS - calc() for responsive positioning */
+        .coin-5 { right: clamp(8px, 2%, 40px); left: auto; animation: coinFall 9.2s linear infinite; animation-delay: -1s; }
+        .coin-6 { right: clamp(45px, 9%, 220px); left: auto; animation: coinFall 10.2s linear infinite; animation-delay: -4s; }
+        .coin-7 { right: clamp(25px, 5%, 120px); left: auto; animation: coinFall 8.3s linear infinite; animation-delay: -6.5s; }
+        .coin-8 { right: clamp(65px, 13%, 300px); left: auto; animation: coinFall 9.8s linear infinite; animation-delay: -2.5s; }
+        .coin-10 { right: clamp(35px, 7%, 170px); left: auto; animation: coinFall 10.5s linear infinite; animation-delay: -8s; }
+        .coin-12 { right: clamp(15px, 3%, 80px); left: auto; animation: coinFall 8.8s linear infinite; animation-delay: -4.5s; }
 
         @keyframes coinFall {
             0% { top: -70px; opacity: 0; transform: rotate(0deg); }
@@ -241,24 +238,26 @@
             position: relative;
             z-index: 20;
             text-align: center;
-            max-width: 340px;
+            width: 100%;
+            max-width: clamp(280px, 45vw, 550px);
+            padding: 0 clamp(8px, 2vw, 20px);
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
+            gap: clamp(6px, 0.8vw, 12px);
+            padding: clamp(8px, 1vw, 14px) clamp(14px, 2vw, 28px);
             background: rgba(0, 30, 40, 0.6);
             border: 1.5px solid rgba(14, 204, 104, 0.6);
             border-radius: 100px;
-            margin-bottom: 16px;
+            margin-bottom: clamp(12px, 2vw, 24px);
             backdrop-filter: blur(10px);
         }
 
         .hero-badge-dot {
-            width: 10px;
-            height: 10px;
+            width: clamp(8px, 1vw, 14px);
+            height: clamp(8px, 1vw, 14px);
             background: var(--green);
             border-radius: 50%;
             animation: pulse 1.5s ease-in-out infinite;
@@ -271,78 +270,49 @@
         }
 
         .hero-badge-text {
-            font-size: 11px;
+            font-size: clamp(10px, 1.2vw, 13px);
             font-weight: 800;
             color: var(--green);
             text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero-title {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 900;
-            font-size: 28px;
-            color: var(--white);
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
-        }
-
-        .hero-percentage {
-            font-family: 'Gilroy', sans-serif;
-            font-weight: 900;
-            font-size: 80px;
-            line-height: 1;
-            background: linear-gradient(180deg, #FFE55C 0%, #fbce04 40%, #D4A000 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
-            filter: drop-shadow(0 4px 20px rgba(251, 206, 4, 0.4));
-        }
-
-        .hero-subtitle {
-            font-size: 13px;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 20px;
-            font-weight: 500;
+            letter-spacing: clamp(1px, 0.2vw, 3px);
         }
 
         /* Hero Tiers Title */
         .hero-tiers-title {
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 22px;
+            font-size: clamp(20px, 3vw, 42px);
             color: var(--white);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
+            letter-spacing: clamp(1px, 0.3vw, 4px);
+            margin-bottom: clamp(6px, 1vw, 12px);
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero-tiers-subtitle {
-            font-size: 13px;
+            font-size: clamp(12px, 1.4vw, 18px);
             color: rgba(255,255,255,0.8);
-            margin-bottom: 20px;
+            margin-bottom: clamp(16px, 2.5vw, 32px);
             font-weight: 500;
         }
 
         /* Hero Tiers */
         .hero-tiers {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: clamp(8px, 1.2vw, 20px);
+            margin-bottom: clamp(16px, 2.5vw, 32px);
             width: 100%;
+            max-width: clamp(300px, 50vw, 600px);
         }
 
         .hero-tier {
             flex: 1;
-            padding: 16px 8px;
-            border-radius: 16px;
+            padding: clamp(12px, 2vw, 28px) clamp(6px, 1vw, 20px);
+            border-radius: clamp(12px, 1.5vw, 24px);
             text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: clamp(2px, 0.4vw, 8px);
             transition: transform 0.2s, box-shadow 0.2s;
             backdrop-filter: blur(10px);
         }
@@ -370,9 +340,9 @@
         }
 
         .hero-tier-icon {
-            width: 28px;
-            height: 28px;
-            margin: 0 auto 4px;
+            width: clamp(22px, 2.5vw, 38px);
+            height: clamp(22px, 2.5vw, 38px);
+            margin: 0 auto clamp(2px, 0.4vw, 6px);
         }
 
         .hero-tier.bronze .hero-tier-icon { color: #e8a050; }
@@ -380,10 +350,10 @@
         .hero-tier.gold .hero-tier-icon { color: var(--primary); }
 
         .hero-tier-label {
-            font-size: 10px;
+            font-size: clamp(8px, 1vw, 14px);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: clamp(0.5px, 0.15vw, 2px);
         }
 
         .hero-tier.bronze .hero-tier-label { color: #e8a050; }
@@ -393,7 +363,7 @@
         .hero-tier-percent {
             font-family: 'Gilroy', sans-serif;
             font-weight: 900;
-            font-size: 32px;
+            font-size: clamp(26px, 4vw, 60px);
             line-height: 1;
         }
 
@@ -402,7 +372,7 @@
         .hero-tier.gold .hero-tier-percent { color: var(--primary); }
 
         .hero-tier-range {
-            font-size: 8px;
+            font-size: clamp(7px, 0.9vw, 13px);
             color: rgba(255,255,255,0.5);
         }
 
@@ -410,28 +380,33 @@
         .hero-info-box {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 10px 16px;
+            gap: clamp(8px, 1.5vw, 20px);
+            padding: clamp(8px, 1.2vw, 16px) clamp(12px, 2vw, 24px);
             background: rgba(0,0,0,0.5);
-            border-radius: 12px;
+            border-radius: clamp(10px, 1.2vw, 16px);
             border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 20px;
+            margin-bottom: clamp(16px, 2.5vw, 28px);
             backdrop-filter: blur(10px);
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: clamp(4px, 0.6vw, 10px);
         }
 
         .info-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
+            width: clamp(24px, 2.5vw, 36px);
+            height: clamp(24px, 2.5vw, 36px);
+            border-radius: clamp(6px, 0.8vw, 12px);
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .info-icon svg {
+            width: clamp(12px, 1.2vw, 18px);
+            height: clamp(12px, 1.2vw, 18px);
         }
 
         .info-icon.green { background: rgba(14, 204, 104, 0.25); color: var(--green); }
@@ -440,36 +415,36 @@
         .info-text { text-align: left; }
 
         .info-label {
-            font-size: 8px;
+            font-size: clamp(7px, 0.8vw, 11px);
             color: rgba(255,255,255,0.5);
             text-transform: uppercase;
         }
 
         .info-value {
-            font-size: 13px;
+            font-size: clamp(12px, 1.4vw, 18px);
             font-weight: 800;
             color: var(--white);
         }
 
         .info-divider {
             width: 1px;
-            height: 28px;
+            height: clamp(24px, 2.5vw, 36px);
             background: rgba(255,255,255,0.15);
         }
 
         /* CTA Button */
         .btn-claim {
             display: inline-block;
-            padding: 14px 36px;
-            border-radius: 14px;
+            padding: clamp(12px, 1.5vw, 20px) clamp(28px, 4vw, 60px);
+            border-radius: clamp(12px, 1.2vw, 18px);
             background: linear-gradient(135deg, #FFE55C 0%, var(--primary) 50%, #D4A000 100%);
             font-family: 'Gilroy', sans-serif;
             font-weight: 800;
-            font-size: 14px;
+            font-size: clamp(12px, 1.3vw, 18px);
             color: #0a0a0f;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: clamp(0.5px, 0.1vw, 2px);
             box-shadow: 0 4px 25px rgba(251, 206, 4, 0.4);
             transition: all 0.3s;
             position: relative;
@@ -871,35 +846,17 @@
             color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Tablet */
+        /* All hero scaling is now fluid via clamp() - no breakpoints needed for hero */
+
+        /* Only keep media queries for non-hero sections if needed */
         @media (min-width: 768px) {
-            .hero { margin: 0 24px; min-height: 520px; }
-            .hero-tiers-title { font-size: 28px; }
-            .hero-tiers-subtitle { font-size: 15px; }
-            .hero-tier { padding: 20px 12px; border-radius: 18px; }
-            .hero-tier-icon { width: 32px; height: 32px; }
-            .hero-tier-label { font-size: 11px; }
-            .hero-tier-percent { font-size: 40px; }
-            .hero-tier-range { font-size: 10px; }
+            .steps-section { padding: 24px 32px; }
+            .section-title { font-size: 22px; }
         }
 
-        /* Desktop */
         @media (min-width: 1024px) {
-            .hero { margin: 0 40px; min-height: 550px; }
-            .hero-content { max-width: 420px; }
-            .hero-tiers-title { font-size: 32px; }
-            .hero-tiers-subtitle { font-size: 16px; }
-            .hero-tier { padding: 24px 16px; }
-            .hero-tier-percent { font-size: 46px; }
-            .hero-tier-range { font-size: 11px; }
-        }
-
-        /* Large Desktop */
-        @media (min-width: 1440px) {
-            .hero { margin: 0 80px; min-height: 600px; }
-            .hero-content { max-width: 480px; }
-            .hero-tiers-title { font-size: 36px; }
-            .hero-tier-percent { font-size: 52px; }
+            .steps-section { padding: 32px 48px; }
+            .section-title { font-size: 26px; }
         }
     </style>
 </head>
